@@ -1,12 +1,12 @@
 {
-  "updateTime": "2019-12-17T20:56:02.790472Z",
+  "updateTime": "2019-12-18T00:00:11.854883Z",
   "sources": [
     {
       "git": {
         "name": "googleapis",
         "remote": "git@github.com:googleapis/googleapis.git",
-        "sha": "6ad2bb13bc4b0f3f785517f0563118f6ca52ddfd",
-        "internalRef": "286008145"
+        "sha": "3352100a15ede383f5ab3c34599f7a10a3d066fe",
+        "internalRef": "286065440"
       }
     },
     {
@@ -37,9 +37,6 @@
     },
     {
       "path": "noxfile.py"
-    },
-    {
-      "path": "setup.py"
     },
     {
       "path": ".coveragerc"

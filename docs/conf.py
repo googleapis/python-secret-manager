@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# google-cloud-secrets documentation build configuration file
+# google-cloud-secret-manager documentation build configuration file
 #
 # This file is execfile()d with the current directory set to its
 # containing dir.
@@ -65,8 +65,8 @@ source_suffix = [".rst", ".md"]
 master_doc = "index"
 
 # General information about the project.
-project = u"google-cloud-secrets"
-copyright = u"2017, Google"
+project = u"google-cloud-secret-manager"
+copyright = u"2019, Google"
 author = u"Google APIs"
 
 # The version info for the project you're documenting, acts as replacement for
@@ -133,7 +133,7 @@ html_theme = "alabaster"
 # further.  For a list of options available for each theme, see the
 # documentation.
 html_theme_options = {
-    "description": "Google Cloud Client Libraries for Python",
+    "description": "Google Cloud Client Libraries for google-cloud-secret-manager",
     "github_user": "googleapis",
     "github_repo": "google-cloud-python",
     "github_banner": True,
@@ -164,7 +164,7 @@ html_theme_options = {
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ["_static"]
+# html_static_path = []
 
 # Add any extra paths that contain custom files (such as robots.txt or
 # .htaccess) here, relative to this directory. These files are copied
@@ -227,7 +227,7 @@ html_static_path = ["_static"]
 # html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = "google-cloud-secrets-doc"
+htmlhelp_basename = "google-cloud-secret-manager-doc"
 
 # -- Options for warnings ------------------------------------------------------
 
@@ -260,8 +260,8 @@ latex_elements = {
 latex_documents = [
     (
         master_doc,
-        "google-cloud-secrets.tex",
-        u"google-cloud-secrets Documentation",
+        "google-cloud-secret-manager.tex",
+        u"google-cloud-secret-manager Documentation",
         author,
         "manual",
     )
@@ -295,8 +295,8 @@ latex_documents = [
 man_pages = [
     (
         master_doc,
-        "google-cloud-secrets",
-        u"google-cloud-secrets Documentation",
+        "google-cloud-secret-manager",
+        u"google-cloud-secret-manager Documentation",
         [author],
         1,
     )
@@ -314,11 +314,11 @@ man_pages = [
 texinfo_documents = [
     (
         master_doc,
-        "google-cloud-secrets",
-        u"google-cloud-secrets Documentation",
+        "google-cloud-secret-manager",
+        u"google-cloud-secret-manager Documentation",
         author,
-        "google-cloud-secrets",
-        "GAPIC library for the {metadata.shortName} v1beta1 service",
+        "google-cloud-secret-manager",
+        "google-cloud-secret-manager Library",
         "APIs",
     )
 ]
@@ -339,14 +339,12 @@ texinfo_documents = [
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {
     "python": ("http://python.readthedocs.org/en/latest/", None),
-    "gax": ("https://gax-python.readthedocs.org/en/latest/", None),
     "google-auth": ("https://google-auth.readthedocs.io/en/stable", None),
-    "google-gax": ("https://gax-python.readthedocs.io/en/latest/", None),
-    "google.api_core": ("https://googleapis.dev/python/google-api-core/latest", None),
+    "google.api_core": (
+        "https://googleapis.github.io/google-cloud-python/latest",
+        None,
+    ),
     "grpc": ("https://grpc.io/grpc/python/", None),
-    "requests": ("https://requests.kennethreitz.org/en/master/", None),
-    "fastavro": ("https://fastavro.readthedocs.io/en/stable/", None),
-    "pandas": ("https://pandas.pydata.org/pandas-docs/stable/", None),
 }
 
 

@@ -29,8 +29,7 @@ library = gapic.py_library(
     "secretmanager", "v1beta1", proto_path="google/cloud/secrets/v1beta1"
 )
 
-excludes = ["README.rst", "nox.py", "setup.py", "docs/index.rst"]
-s.move(library, excludes=["google/cloud/secrets_v1beta1/proto"])
+s.move(library, excludes=["google/cloud/secrets_v1beta1/proto", "nox.py", "setup.py", "README.rst", "docs/index.rst"])
 
 # protos are copied to the wrong location by default, so move separately
 s.move(
@@ -48,6 +47,16 @@ s.replace(
 # correct license headers
 python.fix_pb2_headers()
 python.fix_pb2_grpc_headers()
+
+# Fix package name
+s.replace(
+    ["docs/conf.py", "README.rst", "setup.py"],
+    "google-cloud-secrets",
+    "google-cloud-secret-manager",
+)
+
+# fix links in README
+s.replace("README.rst", "https://cloud\.google\.com/secrets", "https://cloud.google.com/secret-manager")
 
 # ----------------------------------------------------------------------------
 # Add templated files

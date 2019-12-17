@@ -7,9 +7,9 @@ Python Client for Secret Manager API (`Beta`_)
 - `Product Documentation`_
 
 .. _Beta: https://github.com/googleapis/google-cloud-python/blob/master/README.rst
-.. _Secret Manager API: https://cloud.google.com/secrets
-.. _Client Library Documentation: https://googleapis.github.io/google-cloud-python/latest/secrets/usage.html
-.. _Product Documentation:  https://cloud.google.com/secrets
+.. _Secret Manager API: https://cloud.google.com/secret-manager
+.. _Client Library Documentation: https://googleapis.dev/python/secretmanager/latest
+.. _Product Documentation:  https://cloud.google.com/secret-manager
 
 Quick Start
 -----------
@@ -23,8 +23,8 @@ In order to use this library, you first need to go through the following steps:
 
 .. _Select or create a Cloud Platform project.: https://console.cloud.google.com/project
 .. _Enable billing for your project.: https://cloud.google.com/billing/docs/how-to/modify-project#enable_billing_for_a_project
-.. _Enable the Secret Manager API.:  https://cloud.google.com/secrets
-.. _Setup Authentication.: https://googleapis.github.io/google-cloud-python/latest/core/auth.html
+.. _Enable the Secret Manager API.:  https://cloud.google.com/secret-manager
+.. _Setup Authentication.: https://googleapis.dev/python/google-api-core/latest/auth.html
 
 Installation
 ~~~~~~~~~~~~
@@ -48,7 +48,7 @@ Mac/Linux
     pip install virtualenv
     virtualenv <your-env>
     source <your-env>/bin/activate
-    <your-env>/bin/pip install google-cloud-secrets
+    <your-env>/bin/pip install google-cloud-secret-manager
 
 
 Windows
@@ -59,7 +59,7 @@ Windows
     pip install virtualenv
     virtualenv <your-env>
     <your-env>\Scripts\activate
-    <your-env>\Scripts\pip.exe install google-cloud-secrets
+    <your-env>\Scripts\pip.exe install google-cloud-secret-manager
 
 Next Steps
 ~~~~~~~~~~
@@ -71,5 +71,5 @@ Next Steps
 -  View this `repository’s main README`_ to see the full list of Cloud
    APIs that we cover.
 
-.. _Secret Manager API Product documentation:  https://cloud.google.com/secrets
+.. _Secret Manager API Product documentation:  https://cloud.google.com/secret-manager
 .. _repository’s main README: https://github.com/googleapis/google-cloud-python/blob/master/README.rst
