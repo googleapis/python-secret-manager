@@ -23,6 +23,7 @@ import shutil
 import nox
 
 
+LOCAL_DEPS = []
 BLACK_VERSION = "black==19.3b0"
 BLACK_PATHS = ["docs", "google", "tests", "noxfile.py", "setup.py"]
 
@@ -37,7 +38,7 @@ def lint(session):
     Returns a failure if the linters find linting errors or sufficiently
     serious code quality issues.
     """
-    session.install("flake8", BLACK_VERSION)
+    session.install("flake8", BLACK_VERSION, *LOCAL_DEPS)
     session.run("black", "--check", *BLACK_PATHS)
     session.run("flake8", "google", "tests")
 
@@ -66,6 +67,8 @@ def lint_setup_py(session):
 def default(session):
     # Install all test dependencies, then install this package in-place.
     session.install("mock", "pytest", "pytest-cov")
+    for local_dep in LOCAL_DEPS:
+        session.install("-e", local_dep)
     session.install("-e", ".")
 
     # Run py.test against the unit tests.
@@ -110,6 +113,8 @@ def system(session):
     # Install all test dependencies, then install this package into the
     # virtualenv's dist-packages.
     session.install("mock", "pytest")
+    for local_dep in LOCAL_DEPS:
+        session.install("-e", local_dep)
     session.install("-e", "../test_utils/")
     session.install("-e", ".")
 

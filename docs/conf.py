@@ -66,7 +66,7 @@ master_doc = "index"
 
 # General information about the project.
 project = u"google-cloud-secret-manager"
-copyright = u"2019, Google"
+copyright = u"2017, Google"
 author = u"Google APIs"
 
 # The version info for the project you're documenting, acts as replacement for
@@ -133,9 +133,9 @@ html_theme = "alabaster"
 # further.  For a list of options available for each theme, see the
 # documentation.
 html_theme_options = {
-    "description": "Google Cloud Client Libraries for google-cloud-secret-manager",
+    "description": "Google Cloud Client Libraries for Python",
     "github_user": "googleapis",
-    "github_repo": "python-secret-manager",
+    "github_repo": "google-cloud-python",
     "github_banner": True,
     "font_family": "'Roboto', Georgia, sans",
     "head_font_family": "'Roboto', Georgia, serif",
@@ -318,7 +318,7 @@ texinfo_documents = [
         u"google-cloud-secret-manager Documentation",
         author,
         "google-cloud-secret-manager",
-        "google-cloud-secret-manager Library",
+        "GAPIC library for the {metadata.shortName} v1beta1 service",
         "APIs",
     )
 ]
@@ -339,9 +339,14 @@ texinfo_documents = [
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {
     "python": ("http://python.readthedocs.org/en/latest/", None),
+    "gax": ("https://gax-python.readthedocs.org/en/latest/", None),
     "google-auth": ("https://google-auth.readthedocs.io/en/stable", None),
-    "google.api_core": ("https://googleapis.dev/python/google-api-core/latest/", None),
+    "google-gax": ("https://gax-python.readthedocs.io/en/latest/", None),
+    "google.api_core": ("https://googleapis.dev/python/google-api-core/latest", None),
     "grpc": ("https://grpc.io/grpc/python/", None),
+    "requests": ("https://requests.kennethreitz.org/en/master/", None),
+    "fastavro": ("https://fastavro.readthedocs.io/en/stable/", None),
+    "pandas": ("https://pandas.pydata.org/pandas-docs/stable/", None),
 }
 
 
