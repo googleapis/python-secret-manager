@@ -1,7 +1,7 @@
 .. include:: README.rst
 
 v1 Api Reference
--------------
+----------------
 .. toctree::
     :maxdepth: 2
 
@@ -9,7 +9,7 @@ v1 Api Reference
     gapic/v1/types
 
 v1beta1 Api Reference
--------------
+---------------------
 .. toctree::
     :maxdepth: 2
 
