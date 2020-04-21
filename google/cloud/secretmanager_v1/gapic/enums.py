@@ -22,15 +22,24 @@ import enum
 class SecretVersion(object):
     class State(enum.IntEnum):
         """
-        The state of a ``SecretVersion``, indicating if it can be accessed.
+        The hostname for this service. This should be specified with no
+        prefix or protocol.
+
+        Example:
+
+        service Foo { option (google.api.default_host) = "foo.googleapi.com";
+        ... }
 
         Attributes:
           STATE_UNSPECIFIED (int): Not specified. This value is unused and invalid.
-          ENABLED (int): The ``SecretVersion`` may be accessed.
-          DISABLED (int): The ``SecretVersion`` may not be accessed, but the secret data is
-          still available and can be placed back into the ``ENABLED`` state.
-          DESTROYED (int): The ``SecretVersion`` is destroyed and the secret data is no longer
-          stored. A version may not leave this state once entered.
+          ENABLED (int): Request message for ``SecretManagerService.CreateSecret``.
+          DISABLED (int): A ``Secret`` is a logical secret whose value and versions can be
+          accessed.
+
+          A ``Secret`` is made up of zero or more ``SecretVersions`` that
+          represent the secret data.
+          DESTROYED (int): Required. The resource name of the ``Secret`` to delete in the
+          format ``projects/*/secrets/*``.
         """
 
         STATE_UNSPECIFIED = 0

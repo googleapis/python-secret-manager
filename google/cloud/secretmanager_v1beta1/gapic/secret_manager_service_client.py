@@ -55,13 +55,8 @@ _GAPIC_LIBRARY_VERSION = pkg_resources.get_distribution(
 
 class SecretManagerServiceClient(object):
     """
-    Secret Manager Service
-
-    Manages secrets and operations using those secrets. Implements a REST
-    model with the following objects:
-
-    -  ``Secret``
-    -  ``SecretVersion``
+    Required. The resource name of the project to associate with the
+    ``Secret``, in the format ``projects/*``.
     """
 
     SERVICE_ADDRESS = "secretmanager.googleapis.com:443"
@@ -237,7 +232,8 @@ class SecretManagerServiceClient(object):
         metadata=None,
     ):
         """
-        Lists ``Secrets``.
+        Output only. The resource name of the ``Secret`` in the format
+        ``projects/*/secrets/*``.
 
         Example:
             >>> from google.cloud import secretmanager_v1beta1
@@ -261,8 +257,34 @@ class SecretManagerServiceClient(object):
             ...         pass
 
         Args:
-            parent (str): Required. The resource name of the project associated with the
-                ``Secrets``, in the format ``projects/*``.
+            parent (str): Should this field be parsed lazily? Lazy applies only to
+                message-type fields. It means that when the outer message is initially
+                parsed, the inner message's contents will not be parsed but instead
+                stored in encoded form. The inner message will actually be parsed when
+                it is first accessed.
+
+                This is only a hint. Implementations are free to choose whether to use
+                eager or lazy parsing regardless of the value of this option. However,
+                setting this option true suggests that the protocol author believes that
+                using lazy parsing on this field is worth the additional bookkeeping
+                overhead typically needed to implement it.
+
+                This option does not affect the public interface of any generated code;
+                all method signatures remain the same. Furthermore, thread-safety of the
+                interface is not affected by this option; const methods remain safe to
+                call from multiple threads concurrently, while non-const methods
+                continue to require exclusive access.
+
+                Note that implementations may choose not to check required fields within
+                a lazy sub-message. That is, calling IsInitialized() on the outer
+                message may return true even if the inner message has missing required
+                fields. This is necessary because otherwise the inner message would have
+                to be parsed in order to perform the check, defeating the purpose of
+                lazy parsing. An implementation which chooses not to check required
+                fields must be consistent about it. That is, for any particular
+                sub-message, the implementation must either *always* check its required
+                fields, or *never* check its required fields, regardless of whether or
+                not the message has been parsed.
             page_size (int): The maximum number of resources contained in the
                 underlying API response. If page streaming is performed per-
                 resource, this parameter does not affect the return value. If page
@@ -340,7 +362,37 @@ class SecretManagerServiceClient(object):
         metadata=None,
     ):
         """
-        Creates a new ``Secret`` containing no ``SecretVersions``.
+        Protocol Buffers - Google's data interchange format Copyright 2008
+        Google Inc. All rights reserved.
+        https://developers.google.com/protocol-buffers/
+
+        Redistribution and use in source and binary forms, with or without
+        modification, are permitted provided that the following conditions are
+        met:
+
+        ::
+
+            * Redistributions of source code must retain the above copyright
+
+        notice, this list of conditions and the following disclaimer. \*
+        Redistributions in binary form must reproduce the above copyright
+        notice, this list of conditions and the following disclaimer in the
+        documentation and/or other materials provided with the distribution. \*
+        Neither the name of Google Inc. nor the names of its contributors may be
+        used to endorse or promote products derived from this software without
+        specific prior written permission.
+
+        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
+        IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
+        TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+        PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER
+        OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+        EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+        PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+        PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+        LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+        NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+        SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
         Example:
             >>> from google.cloud import secretmanager_v1beta1
@@ -355,10 +407,21 @@ class SecretManagerServiceClient(object):
             >>> response = client.create_secret(parent, secret_id)
 
         Args:
-            parent (str): Required. The resource name of the project to associate with the
-                ``Secret``, in the format ``projects/*``.
-            secret_id (str): Required. This must be unique within the project.
-            secret (Union[dict, ~google.cloud.secretmanager_v1beta1.types.Secret]): A ``Secret`` with initial field values.
+            parent (str): Enables a ``SecretVersion``.
+
+                Sets the ``state`` of the ``SecretVersion`` to ``ENABLED``.
+            secret_id (str): A generic empty message that you can re-use to avoid defining
+                duplicated empty messages in your APIs. A typical example is to use it
+                as the request or the response type of an API method. For instance:
+
+                ::
+
+                    service Foo {
+                      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
+                    }
+
+                The JSON representation for ``Empty`` is empty JSON object ``{}``.
+            secret (Union[dict, ~google.cloud.secretmanager_v1beta1.types.Secret]): Associates ``members`` with a ``role``.
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.secretmanager_v1beta1.types.Secret`
@@ -421,8 +484,13 @@ class SecretManagerServiceClient(object):
         metadata=None,
     ):
         """
-        Creates a new ``SecretVersion`` containing secret data and attaches
-        it to an existing ``Secret``.
+        Returns permissions that a caller has on the specified resource. If
+        the resource does not exist, this will return an empty set of
+        permissions, not a NOT_FOUND error.
+
+        Note: This operation is designed to be used for building
+        permission-aware UIs and command-line tools, not for authorization
+        checking. This operation may "fail open" without warning.
 
         Example:
             >>> from google.cloud import secretmanager_v1beta1
@@ -437,9 +505,228 @@ class SecretManagerServiceClient(object):
             >>> response = client.add_secret_version(parent, payload)
 
         Args:
-            parent (str): Required. The resource name of the ``Secret`` to associate with the
-                ``SecretVersion`` in the format ``projects/*/secrets/*``.
-            payload (Union[dict, ~google.cloud.secretmanager_v1beta1.types.SecretPayload]): Required. The secret payload of the ``SecretVersion``.
+            parent (str): Optional. Pagination token, returned earlier via
+                ListSecretVersionsResponse.next_page_token][].
+            payload (Union[dict, ~google.cloud.secretmanager_v1beta1.types.SecretPayload]): ``FieldMask`` represents a set of symbolic field paths, for example:
+
+                ::
+
+                    paths: "f.a"
+                    paths: "f.b.d"
+
+                Here ``f`` represents a field in some root message, ``a`` and ``b``
+                fields in the message found in ``f``, and ``d`` a field found in the
+                message in ``f.b``.
+
+                Field masks are used to specify a subset of fields that should be
+                returned by a get operation or modified by an update operation. Field
+                masks also have a custom JSON encoding (see below).
+
+                # Field Masks in Projections
+
+                When used in the context of a projection, a response message or
+                sub-message is filtered by the API to only contain those fields as
+                specified in the mask. For example, if the mask in the previous example
+                is applied to a response message as follows:
+
+                ::
+
+                    f {
+                      a : 22
+                      b {
+                        d : 1
+                        x : 2
+                      }
+                      y : 13
+                    }
+                    z: 8
+
+                The result will not contain specific values for fields x,y and z (their
+                value will be set to the default, and omitted in proto text output):
+
+                ::
+
+                    f {
+                      a : 22
+                      b {
+                        d : 1
+                      }
+                    }
+
+                A repeated field is not allowed except at the last position of a paths
+                string.
+
+                If a FieldMask object is not present in a get operation, the operation
+                applies to all fields (as if a FieldMask of all fields had been
+                specified).
+
+                Note that a field mask does not necessarily apply to the top-level
+                response message. In case of a REST get operation, the field mask
+                applies directly to the response, but in case of a REST list operation,
+                the mask instead applies to each individual message in the returned
+                resource list. In case of a REST custom method, other definitions may be
+                used. Where the mask applies will be clearly documented together with
+                its declaration in the API. In any case, the effect on the returned
+                resource/resources is required behavior for APIs.
+
+                # Field Masks in Update Operations
+
+                A field mask in update operations specifies which fields of the targeted
+                resource are going to be updated. The API is required to only change the
+                values of the fields as specified in the mask and leave the others
+                untouched. If a resource is passed in to describe the updated values,
+                the API ignores the values of all fields not covered by the mask.
+
+                If a repeated field is specified for an update operation, new values
+                will be appended to the existing repeated field in the target resource.
+                Note that a repeated field is only allowed in the last position of a
+                ``paths`` string.
+
+                If a sub-message is specified in the last position of the field mask for
+                an update operation, then new value will be merged into the existing
+                sub-message in the target resource.
+
+                For example, given the target message:
+
+                ::
+
+                    f {
+                      b {
+                        d: 1
+                        x: 2
+                      }
+                      c: [1]
+                    }
+
+                And an update message:
+
+                ::
+
+                    f {
+                      b {
+                        d: 10
+                      }
+                      c: [2]
+                    }
+
+                then if the field mask is:
+
+                paths: ["f.b", "f.c"]
+
+                then the result will be:
+
+                ::
+
+                    f {
+                      b {
+                        d: 10
+                        x: 2
+                      }
+                      c: [1, 2]
+                    }
+
+                An implementation may provide options to override this default behavior
+                for repeated and message fields.
+
+                In order to reset a field's value to the default, the field must be in
+                the mask and set to the default value in the provided resource. Hence,
+                in order to reset all fields of a resource, provide a default instance
+                of the resource and set all fields in the mask, or do not provide a mask
+                as described below.
+
+                If a field mask is not present on update, the operation applies to all
+                fields (as if a field mask of all fields has been specified). Note that
+                in the presence of schema evolution, this may mean that fields the
+                client does not know and has therefore not filled into the request will
+                be reset to their default. If this is unwanted behavior, a specific
+                service may require a client to always specify a field mask, producing
+                an error if not.
+
+                As with get operations, the location of the resource which describes the
+                updated values in the request message depends on the operation kind. In
+                any case, the effect of the field mask is required to be honored by the
+                API.
+
+                ## Considerations for HTTP REST
+
+                The HTTP kind of an update operation which uses a field mask must be set
+                to PATCH instead of PUT in order to satisfy HTTP semantics (PUT must
+                only be used for full updates).
+
+                # JSON Encoding of Field Masks
+
+                In JSON, a field mask is encoded as a single string where paths are
+                separated by a comma. Fields name in each path are converted to/from
+                lower-camel naming conventions.
+
+                As an example, consider the following message declarations:
+
+                ::
+
+                    message Profile {
+                      User user = 1;
+                      Photo photo = 2;
+                    }
+                    message User {
+                      string display_name = 1;
+                      string address = 2;
+                    }
+
+                In proto a field mask for ``Profile`` may look as such:
+
+                ::
+
+                    mask {
+                      paths: "user.display_name"
+                      paths: "photo"
+                    }
+
+                In JSON, the same mask is represented as below:
+
+                ::
+
+                    {
+                      mask: "user.displayName,photo"
+                    }
+
+                # Field Masks and Oneof Fields
+
+                Field masks treat fields in oneofs just as regular fields. Consider the
+                following message:
+
+                ::
+
+                    message SampleMessage {
+                      oneof test_oneof {
+                        string name = 4;
+                        SubMessage sub_message = 9;
+                      }
+                    }
+
+                The field mask can be:
+
+                ::
+
+                    mask {
+                      paths: "name"
+                    }
+
+                Or:
+
+                ::
+
+                    mask {
+                      paths: "sub_message"
+                    }
+
+                Note that oneof type names ("test_oneof" in this case) cannot be used in
+                paths.
+
+                ## Field Mask Verification
+
+                The implementation of any API method which has a FieldMask type field in
+                the request should verify the included field paths, and return an
+                ``INVALID_ARGUMENT`` error if any path is unmappable.
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.secretmanager_v1beta1.types.SecretPayload`
@@ -499,7 +786,10 @@ class SecretManagerServiceClient(object):
         metadata=None,
     ):
         """
-        Gets metadata for a given ``Secret``.
+        The set of permissions to check for the ``resource``. Permissions
+        with wildcards (such as '*' or 'storage.*') are not allowed. For more
+        information see `IAM
+        Overview <https://cloud.google.com/iam/docs/overview#permissions>`__.
 
         Example:
             >>> from google.cloud import secretmanager_v1beta1
@@ -511,8 +801,7 @@ class SecretManagerServiceClient(object):
             >>> response = client.get_secret(name)
 
         Args:
-            name (str): Required. The resource name of the ``Secret``, in the format
-                ``projects/*/secrets/*``.
+            name (str): The state of a ``SecretVersion``, indicating if it can be accessed.
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -570,7 +859,8 @@ class SecretManagerServiceClient(object):
         metadata=None,
     ):
         """
-        Updates metadata of an existing ``Secret``.
+        Required. The resource name of the ``Secret`` to delete in the
+        format ``projects/*/secrets/*``.
 
         Example:
             >>> from google.cloud import secretmanager_v1beta1
@@ -586,7 +876,7 @@ class SecretManagerServiceClient(object):
             >>> response = client.update_secret(secret, update_mask)
 
         Args:
-            secret (Union[dict, ~google.cloud.secretmanager_v1beta1.types.Secret]): Required. ``Secret`` with updated field values.
+            secret (Union[dict, ~google.cloud.secretmanager_v1beta1.types.Secret]): Request message for ``SecretManagerService.DeleteSecret``.
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.secretmanager_v1beta1.types.Secret`
@@ -652,7 +942,8 @@ class SecretManagerServiceClient(object):
         metadata=None,
     ):
         """
-        Deletes a ``Secret``.
+        Input and output type names. These are resolved in the same way as
+        FieldDescriptorProto.type_name, but must refer to a message type.
 
         Example:
             >>> from google.cloud import secretmanager_v1beta1
@@ -664,8 +955,9 @@ class SecretManagerServiceClient(object):
             >>> client.delete_secret(name)
 
         Args:
-            name (str): Required. The resource name of the ``Secret`` to delete in the
-                format ``projects/*/secrets/*``.
+            name (str): Disables a ``SecretVersion``.
+
+                Sets the ``state`` of the ``SecretVersion`` to ``DISABLED``.
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -720,7 +1012,8 @@ class SecretManagerServiceClient(object):
         metadata=None,
     ):
         """
-        Lists ``SecretVersions``. This call does not return secret data.
+        An annotation that describes a resource reference, see
+        ``ResourceReference``.
 
         Example:
             >>> from google.cloud import secretmanager_v1beta1
@@ -744,8 +1037,10 @@ class SecretManagerServiceClient(object):
             ...         pass
 
         Args:
-            parent (str): Required. The resource name of the ``Secret`` associated with the
-                ``SecretVersions`` to list, in the format ``projects/*/secrets/*``.
+            parent (str): Destroys a ``SecretVersion``.
+
+                Sets the ``state`` of the ``SecretVersion`` to ``DESTROYED`` and
+                irrevocably destroys the secret data.
             page_size (int): The maximum number of resources contained in the
                 underlying API response. If page streaming is performed per-
                 resource, this parameter does not affect the return value. If page
@@ -823,10 +1118,9 @@ class SecretManagerServiceClient(object):
         metadata=None,
     ):
         """
-        Gets metadata for a ``SecretVersion``.
-
-        ``projects/*/secrets/*/versions/latest`` is an alias to the ``latest``
-        ``SecretVersion``.
+        If type_name is set, this need not be set. If both this and
+        type_name are set, this must be one of TYPE_ENUM, TYPE_MESSAGE or
+        TYPE_GROUP.
 
         Example:
             >>> from google.cloud import secretmanager_v1beta1
@@ -838,10 +1132,8 @@ class SecretManagerServiceClient(object):
             >>> response = client.get_secret_version(name)
 
         Args:
-            name (str): Required. The resource name of the ``SecretVersion`` in the format
-                ``projects/*/secrets/*/versions/*``.
-                ``projects/*/secrets/*/versions/latest`` is an alias to the ``latest``
-                ``SecretVersion``.
+            name (str): Required. The resource name of the project associated with the
+                ``Secrets``, in the format ``projects/*``.
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -898,10 +1190,11 @@ class SecretManagerServiceClient(object):
         metadata=None,
     ):
         """
-        Accesses a ``SecretVersion``. This call returns the secret data.
+        Required. Immutable. The replication policy of the secret data
+        attached to the ``Secret``.
 
-        ``projects/*/secrets/*/versions/latest`` is an alias to the ``latest``
-        ``SecretVersion``.
+        The replication policy cannot be changed after the Secret has been
+        created.
 
         Example:
             >>> from google.cloud import secretmanager_v1beta1
@@ -913,8 +1206,7 @@ class SecretManagerServiceClient(object):
             >>> response = client.access_secret_version(name)
 
         Args:
-            name (str): Required. The resource name of the ``SecretVersion`` in the format
-                ``projects/*/secrets/*/versions/*``.
+            name (str): See ``HttpRule``.
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -971,9 +1263,10 @@ class SecretManagerServiceClient(object):
         metadata=None,
     ):
         """
-        Disables a ``SecretVersion``.
-
-        Sets the ``state`` of the ``SecretVersion`` to ``DISABLED``.
+        Denotes a field as output only. This indicates that the field is
+        provided in responses, but including the field in a request does nothing
+        (the server *must* ignore it and *must not* throw an error as a result
+        of the field's presence).
 
         Example:
             >>> from google.cloud import secretmanager_v1beta1
@@ -985,8 +1278,11 @@ class SecretManagerServiceClient(object):
             >>> response = client.disable_secret_version(name)
 
         Args:
-            name (str): Required. The resource name of the ``SecretVersion`` to disable in
-                the format ``projects/*/secrets/*/versions/*``.
+            name (str): Output only. The resource name of the ``SecretVersion`` in the
+                format ``projects/*/secrets/*/versions/*``.
+
+                ``SecretVersion`` IDs in a ``Secret`` start at 1 and are incremented for
+                each subsequent version of the secret.
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -1043,9 +1339,9 @@ class SecretManagerServiceClient(object):
         metadata=None,
     ):
         """
-        Enables a ``SecretVersion``.
-
-        Sets the ``state`` of the ``SecretVersion`` to ``ENABLED``.
+        Specifies a service that was configured for Cloud Audit Logging. For
+        example, ``storage.googleapis.com``, ``cloudsql.googleapis.com``.
+        ``allServices`` is a special value that covers all services. Required
 
         Example:
             >>> from google.cloud import secretmanager_v1beta1
@@ -1057,8 +1353,7 @@ class SecretManagerServiceClient(object):
             >>> response = client.enable_secret_version(name)
 
         Args:
-            name (str): Required. The resource name of the ``SecretVersion`` to enable in
-                the format ``projects/*/secrets/*/versions/*``.
+            name (str): Request message for ``SecretManagerService.GetSecretVersion``.
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -1115,10 +1410,8 @@ class SecretManagerServiceClient(object):
         metadata=None,
     ):
         """
-        Destroys a ``SecretVersion``.
-
-        Sets the ``state`` of the ``SecretVersion`` to ``DESTROYED`` and
-        irrevocably destroys the secret data.
+        Required. The resource name of the ``Secret`` associated with the
+        ``SecretVersions`` to list, in the format ``projects/*/secrets/*``.
 
         Example:
             >>> from google.cloud import secretmanager_v1beta1
@@ -1130,8 +1423,9 @@ class SecretManagerServiceClient(object):
             >>> response = client.destroy_secret_version(name)
 
         Args:
-            name (str): Required. The resource name of the ``SecretVersion`` to destroy in
-                the format ``projects/*/secrets/*/versions/*``.
+            name (str): Denotes a field as required. This indicates that the field **must**
+                be provided as part of the request, and failure to do so will cause an
+                error (usually ``INVALID_ARGUMENT``).
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -1189,11 +1483,37 @@ class SecretManagerServiceClient(object):
         metadata=None,
     ):
         """
-        Sets the access control policy on the specified secret. Replaces any
-        existing policy.
+        Protocol Buffers - Google's data interchange format Copyright 2008
+        Google Inc. All rights reserved.
+        https://developers.google.com/protocol-buffers/
 
-        Permissions on ``SecretVersions`` are enforced according to the policy
-        set on the associated ``Secret``.
+        Redistribution and use in source and binary forms, with or without
+        modification, are permitted provided that the following conditions are
+        met:
+
+        ::
+
+            * Redistributions of source code must retain the above copyright
+
+        notice, this list of conditions and the following disclaimer. \*
+        Redistributions in binary form must reproduce the above copyright
+        notice, this list of conditions and the following disclaimer in the
+        documentation and/or other materials provided with the distribution. \*
+        Neither the name of Google Inc. nor the names of its contributors may be
+        used to endorse or promote products derived from this software without
+        specific prior written permission.
+
+        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
+        IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
+        TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+        PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER
+        OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+        EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+        PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+        PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+        LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+        NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+        SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
         Example:
             >>> from google.cloud import secretmanager_v1beta1
@@ -1211,10 +1531,8 @@ class SecretManagerServiceClient(object):
         Args:
             resource (str): REQUIRED: The resource for which the policy is being specified.
                 See the operation documentation for the appropriate value for this field.
-            policy (Union[dict, ~google.cloud.secretmanager_v1beta1.types.Policy]): REQUIRED: The complete policy to be applied to the ``resource``. The
-                size of the policy is limited to a few 10s of KB. An empty policy is a
-                valid policy but certain Cloud Platform services (such as Projects)
-                might reject them.
+            policy (Union[dict, ~google.cloud.secretmanager_v1beta1.types.Policy]): The list of ``SecretVersions`` sorted in reverse by create_time
+                (newest first).
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.secretmanager_v1beta1.types.Policy`
@@ -1291,8 +1609,7 @@ class SecretManagerServiceClient(object):
         Args:
             resource (str): REQUIRED: The resource for which the policy is being requested.
                 See the operation documentation for the appropriate value for this field.
-            options_ (Union[dict, ~google.cloud.secretmanager_v1beta1.types.GetPolicyOptions]): OPTIONAL: A ``GetPolicyOptions`` object for specifying options to
-                ``GetIamPolicy``. This field is only used by Cloud IAM.
+            options_ (Union[dict, ~google.cloud.secretmanager_v1beta1.types.GetPolicyOptions]): Lists ``SecretVersions``. This call does not return secret data.
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.secretmanager_v1beta1.types.GetPolicyOptions`
@@ -1355,13 +1672,8 @@ class SecretManagerServiceClient(object):
         metadata=None,
     ):
         """
-        Returns permissions that a caller has for the specified secret. If
-        the secret does not exist, this call returns an empty set of
-        permissions, not a NOT_FOUND error.
-
-        Note: This operation is designed to be used for building
-        permission-aware UIs and command-line tools, not for authorization
-        checking. This operation may "fail open" without warning.
+        An annotation that describes a resource definition without a
+        corresponding message; see ``ResourceDescriptor``.
 
         Example:
             >>> from google.cloud import secretmanager_v1beta1
@@ -1379,10 +1691,37 @@ class SecretManagerServiceClient(object):
         Args:
             resource (str): REQUIRED: The resource for which the policy detail is being requested.
                 See the operation documentation for the appropriate value for this field.
-            permissions (list[str]): The set of permissions to check for the ``resource``. Permissions
-                with wildcards (such as '*' or 'storage.*') are not allowed. For more
-                information see `IAM
-                Overview <https://cloud.google.com/iam/docs/overview#permissions>`__.
+            permissions (list[str]): Protocol Buffers - Google's data interchange format Copyright 2008
+                Google Inc. All rights reserved.
+                https://developers.google.com/protocol-buffers/
+
+                Redistribution and use in source and binary forms, with or without
+                modification, are permitted provided that the following conditions are
+                met:
+
+                ::
+
+                    * Redistributions of source code must retain the above copyright
+
+                notice, this list of conditions and the following disclaimer. \*
+                Redistributions in binary form must reproduce the above copyright
+                notice, this list of conditions and the following disclaimer in the
+                documentation and/or other materials provided with the distribution. \*
+                Neither the name of Google Inc. nor the names of its contributors may be
+                used to endorse or promote products derived from this software without
+                specific prior written permission.
+
+                THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
+                IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
+                TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+                PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER
+                OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+                EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+                PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+                PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+                LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+                NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+                SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
