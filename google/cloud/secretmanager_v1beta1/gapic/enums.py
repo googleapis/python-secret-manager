@@ -22,22 +22,15 @@ import enum
 class SecretVersion(object):
     class State(enum.IntEnum):
         """
-        A designation of a specific field behavior (required, output only,
-        etc.) in protobuf messages.
-
-        Examples:
-
-        string name = 1 [(google.api.field_behavior) = REQUIRED]; State state =
-        1 [(google.api.field_behavior) = OUTPUT_ONLY]; google.protobuf.Duration
-        ttl = 1 [(google.api.field_behavior) = INPUT_ONLY];
-        google.protobuf.Timestamp expire_time = 1 [(google.api.field_behavior) =
-        OUTPUT_ONLY, (google.api.field_behavior) = IMMUTABLE];
+        The state of a ``SecretVersion``, indicating if it can be accessed.
 
         Attributes:
           STATE_UNSPECIFIED (int): Not specified. This value is unused and invalid.
-          ENABLED (int): The ``Secret`` will only be replicated into the locations specified.
-          DISABLED (int): Request message for ``SecretManagerService.CreateSecret``.
-          DESTROYED (int): Response message for ``SecretManagerService.AccessSecretVersion``.
+          ENABLED (int): The ``SecretVersion`` may be accessed.
+          DISABLED (int): The ``SecretVersion`` may not be accessed, but the secret data is
+          still available and can be placed back into the ``ENABLED`` state.
+          DESTROYED (int): The ``SecretVersion`` is destroyed and the secret data is no longer
+          stored. A version may not leave this state once entered.
         """
 
         STATE_UNSPECIFIED = 0

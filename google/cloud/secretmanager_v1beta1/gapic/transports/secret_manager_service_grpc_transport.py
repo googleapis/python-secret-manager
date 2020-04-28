@@ -113,8 +113,7 @@ class SecretManagerServiceGrpcTransport(object):
     def list_secrets(self):
         """Return the gRPC stub for :meth:`SecretManagerServiceClient.list_secrets`.
 
-        Output only. The resource name of the ``Secret`` in the format
-        ``projects/*/secrets/*``.
+        Lists ``Secrets``.
 
         Returns:
             Callable: A callable which accepts the appropriate
@@ -127,37 +126,7 @@ class SecretManagerServiceGrpcTransport(object):
     def create_secret(self):
         """Return the gRPC stub for :meth:`SecretManagerServiceClient.create_secret`.
 
-        Protocol Buffers - Google's data interchange format Copyright 2008
-        Google Inc. All rights reserved.
-        https://developers.google.com/protocol-buffers/
-
-        Redistribution and use in source and binary forms, with or without
-        modification, are permitted provided that the following conditions are
-        met:
-
-        ::
-
-            * Redistributions of source code must retain the above copyright
-
-        notice, this list of conditions and the following disclaimer. \*
-        Redistributions in binary form must reproduce the above copyright
-        notice, this list of conditions and the following disclaimer in the
-        documentation and/or other materials provided with the distribution. \*
-        Neither the name of Google Inc. nor the names of its contributors may be
-        used to endorse or promote products derived from this software without
-        specific prior written permission.
-
-        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
-        IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
-        TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
-        PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER
-        OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
-        EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
-        PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-        PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
-        LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
-        NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-        SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+        Creates a new ``Secret`` containing no ``SecretVersions``.
 
         Returns:
             Callable: A callable which accepts the appropriate
@@ -170,13 +139,8 @@ class SecretManagerServiceGrpcTransport(object):
     def add_secret_version(self):
         """Return the gRPC stub for :meth:`SecretManagerServiceClient.add_secret_version`.
 
-        Returns permissions that a caller has on the specified resource. If
-        the resource does not exist, this will return an empty set of
-        permissions, not a NOT_FOUND error.
-
-        Note: This operation is designed to be used for building
-        permission-aware UIs and command-line tools, not for authorization
-        checking. This operation may "fail open" without warning.
+        Creates a new ``SecretVersion`` containing secret data and attaches
+        it to an existing ``Secret``.
 
         Returns:
             Callable: A callable which accepts the appropriate
@@ -189,10 +153,7 @@ class SecretManagerServiceGrpcTransport(object):
     def get_secret(self):
         """Return the gRPC stub for :meth:`SecretManagerServiceClient.get_secret`.
 
-        The set of permissions to check for the ``resource``. Permissions
-        with wildcards (such as '*' or 'storage.*') are not allowed. For more
-        information see `IAM
-        Overview <https://cloud.google.com/iam/docs/overview#permissions>`__.
+        Gets metadata for a given ``Secret``.
 
         Returns:
             Callable: A callable which accepts the appropriate
@@ -205,8 +166,7 @@ class SecretManagerServiceGrpcTransport(object):
     def update_secret(self):
         """Return the gRPC stub for :meth:`SecretManagerServiceClient.update_secret`.
 
-        Required. The resource name of the ``Secret`` to delete in the
-        format ``projects/*/secrets/*``.
+        Updates metadata of an existing ``Secret``.
 
         Returns:
             Callable: A callable which accepts the appropriate
@@ -219,8 +179,7 @@ class SecretManagerServiceGrpcTransport(object):
     def delete_secret(self):
         """Return the gRPC stub for :meth:`SecretManagerServiceClient.delete_secret`.
 
-        Input and output type names. These are resolved in the same way as
-        FieldDescriptorProto.type_name, but must refer to a message type.
+        Deletes a ``Secret``.
 
         Returns:
             Callable: A callable which accepts the appropriate
@@ -233,8 +192,7 @@ class SecretManagerServiceGrpcTransport(object):
     def list_secret_versions(self):
         """Return the gRPC stub for :meth:`SecretManagerServiceClient.list_secret_versions`.
 
-        An annotation that describes a resource reference, see
-        ``ResourceReference``.
+        Lists ``SecretVersions``. This call does not return secret data.
 
         Returns:
             Callable: A callable which accepts the appropriate
@@ -247,9 +205,10 @@ class SecretManagerServiceGrpcTransport(object):
     def get_secret_version(self):
         """Return the gRPC stub for :meth:`SecretManagerServiceClient.get_secret_version`.
 
-        If type_name is set, this need not be set. If both this and
-        type_name are set, this must be one of TYPE_ENUM, TYPE_MESSAGE or
-        TYPE_GROUP.
+        Gets metadata for a ``SecretVersion``.
+
+        ``projects/*/secrets/*/versions/latest`` is an alias to the ``latest``
+        ``SecretVersion``.
 
         Returns:
             Callable: A callable which accepts the appropriate
@@ -262,11 +221,10 @@ class SecretManagerServiceGrpcTransport(object):
     def access_secret_version(self):
         """Return the gRPC stub for :meth:`SecretManagerServiceClient.access_secret_version`.
 
-        Required. Immutable. The replication policy of the secret data
-        attached to the ``Secret``.
+        Accesses a ``SecretVersion``. This call returns the secret data.
 
-        The replication policy cannot be changed after the Secret has been
-        created.
+        ``projects/*/secrets/*/versions/latest`` is an alias to the ``latest``
+        ``SecretVersion``.
 
         Returns:
             Callable: A callable which accepts the appropriate
@@ -279,10 +237,9 @@ class SecretManagerServiceGrpcTransport(object):
     def disable_secret_version(self):
         """Return the gRPC stub for :meth:`SecretManagerServiceClient.disable_secret_version`.
 
-        Denotes a field as output only. This indicates that the field is
-        provided in responses, but including the field in a request does nothing
-        (the server *must* ignore it and *must not* throw an error as a result
-        of the field's presence).
+        Disables a ``SecretVersion``.
+
+        Sets the ``state`` of the ``SecretVersion`` to ``DISABLED``.
 
         Returns:
             Callable: A callable which accepts the appropriate
@@ -295,9 +252,9 @@ class SecretManagerServiceGrpcTransport(object):
     def enable_secret_version(self):
         """Return the gRPC stub for :meth:`SecretManagerServiceClient.enable_secret_version`.
 
-        Specifies a service that was configured for Cloud Audit Logging. For
-        example, ``storage.googleapis.com``, ``cloudsql.googleapis.com``.
-        ``allServices`` is a special value that covers all services. Required
+        Enables a ``SecretVersion``.
+
+        Sets the ``state`` of the ``SecretVersion`` to ``ENABLED``.
 
         Returns:
             Callable: A callable which accepts the appropriate
@@ -310,8 +267,10 @@ class SecretManagerServiceGrpcTransport(object):
     def destroy_secret_version(self):
         """Return the gRPC stub for :meth:`SecretManagerServiceClient.destroy_secret_version`.
 
-        Required. The resource name of the ``Secret`` associated with the
-        ``SecretVersions`` to list, in the format ``projects/*/secrets/*``.
+        Destroys a ``SecretVersion``.
+
+        Sets the ``state`` of the ``SecretVersion`` to ``DESTROYED`` and
+        irrevocably destroys the secret data.
 
         Returns:
             Callable: A callable which accepts the appropriate
@@ -324,37 +283,11 @@ class SecretManagerServiceGrpcTransport(object):
     def set_iam_policy(self):
         """Return the gRPC stub for :meth:`SecretManagerServiceClient.set_iam_policy`.
 
-        Protocol Buffers - Google's data interchange format Copyright 2008
-        Google Inc. All rights reserved.
-        https://developers.google.com/protocol-buffers/
+        Sets the access control policy on the specified secret. Replaces any
+        existing policy.
 
-        Redistribution and use in source and binary forms, with or without
-        modification, are permitted provided that the following conditions are
-        met:
-
-        ::
-
-            * Redistributions of source code must retain the above copyright
-
-        notice, this list of conditions and the following disclaimer. \*
-        Redistributions in binary form must reproduce the above copyright
-        notice, this list of conditions and the following disclaimer in the
-        documentation and/or other materials provided with the distribution. \*
-        Neither the name of Google Inc. nor the names of its contributors may be
-        used to endorse or promote products derived from this software without
-        specific prior written permission.
-
-        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
-        IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
-        TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
-        PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER
-        OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
-        EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
-        PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-        PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
-        LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
-        NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-        SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+        Permissions on ``SecretVersions`` are enforced according to the policy
+        set on the associated ``Secret``.
 
         Returns:
             Callable: A callable which accepts the appropriate
@@ -381,8 +314,13 @@ class SecretManagerServiceGrpcTransport(object):
     def test_iam_permissions(self):
         """Return the gRPC stub for :meth:`SecretManagerServiceClient.test_iam_permissions`.
 
-        An annotation that describes a resource definition without a
-        corresponding message; see ``ResourceDescriptor``.
+        Returns permissions that a caller has for the specified secret. If
+        the secret does not exist, this call returns an empty set of
+        permissions, not a NOT_FOUND error.
+
+        Note: This operation is designed to be used for building
+        permission-aware UIs and command-line tools, not for authorization
+        checking. This operation may "fail open" without warning.
 
         Returns:
             Callable: A callable which accepts the appropriate
