@@ -53,13 +53,8 @@ _GAPIC_LIBRARY_VERSION = pkg_resources.get_distribution(
 
 class SecretManagerServiceClient(object):
     """
-    Secret Manager Service
-
-    Manages secrets and operations using those secrets. Implements a REST
-    model with the following objects:
-
-    -  ``Secret``
-    -  ``SecretVersion``
+    An annotation that describes a resource reference, see
+    ``ResourceReference``.
     """
 
     SERVICE_ADDRESS = "secretmanager.googleapis.com:443"
@@ -235,7 +230,7 @@ class SecretManagerServiceClient(object):
         metadata=None,
     ):
         """
-        Lists ``Secrets``.
+        javalite_serializable
 
         Example:
             >>> from google.cloud import secretmanager_v1
@@ -259,8 +254,7 @@ class SecretManagerServiceClient(object):
             ...         pass
 
         Args:
-            parent (str): Required. The resource name of the project associated with the
-                ``Secrets``, in the format ``projects/*``.
+            parent (str): Response message for ``SecretManagerService.AccessSecretVersion``.
             page_size (int): The maximum number of resources contained in the
                 underlying API response. If page streaming is performed per-
                 resource, this parameter does not affect the return value. If page
@@ -338,7 +332,8 @@ class SecretManagerServiceClient(object):
         metadata=None,
     ):
         """
-        Creates a new ``Secret`` containing no ``SecretVersions``.
+        Required. The resource name of the ``Secret``, in the format
+        ``projects/*/secrets/*``.
 
         Example:
             >>> from google.cloud import secretmanager_v1
@@ -356,14 +351,49 @@ class SecretManagerServiceClient(object):
             >>> response = client.create_secret(parent, secret_id, secret)
 
         Args:
-            parent (str): Required. The resource name of the project to associate with the
-                ``Secret``, in the format ``projects/*``.
-            secret_id (str): Required. This must be unique within the project.
+            parent (str): Request message for ``SecretManagerService.ListSecrets``.
+            secret_id (str): If this SourceCodeInfo represents a complete declaration, these are
+                any comments appearing before and after the declaration which appear to
+                be attached to the declaration.
 
-                A secret ID is a string with a maximum length of 255 characters and can
-                contain uppercase and lowercase letters, numerals, and the hyphen
-                (``-``) and underscore (``_``) characters.
-            secret (Union[dict, ~google.cloud.secretmanager_v1.types.Secret]): Required. A ``Secret`` with initial field values.
+                A series of line comments appearing on consecutive lines, with no other
+                tokens appearing on those lines, will be treated as a single comment.
+
+                leading_detached_comments will keep paragraphs of comments that appear
+                before (but not connected to) the current element. Each paragraph,
+                separated by empty lines, will be one comment element in the repeated
+                field.
+
+                Only the comment content is provided; comment markers (e.g. //) are
+                stripped out. For block comments, leading whitespace and an asterisk
+                will be stripped from the beginning of each line other than the first.
+                Newlines are included in the output.
+
+                Examples:
+
+                optional int32 foo = 1; // Comment attached to foo. // Comment attached
+                to bar. optional int32 bar = 2;
+
+                optional string baz = 3; // Comment attached to baz. // Another line
+                attached to baz.
+
+                // Comment attached to qux. // // Another line attached to qux. optional
+                double qux = 4;
+
+                // Detached comment for corge. This is not leading or trailing comments
+                // to qux or corge because there are blank lines separating it from //
+                both.
+
+                // Detached comment for corge paragraph 2.
+
+                optional string corge = 5; /\* Block comment attached \* to corge.
+                Leading asterisks \* will be removed. */ /* Block comment attached to \*
+                grault. \*/ optional int32 grault = 6;
+
+                // ignored detached comments.
+            secret (Union[dict, ~google.cloud.secretmanager_v1.types.Secret]): Enables a ``SecretVersion``.
+
+                Sets the ``state`` of the ``SecretVersion`` to ``ENABLED``.
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.secretmanager_v1.types.Secret`
@@ -426,8 +456,13 @@ class SecretManagerServiceClient(object):
         metadata=None,
     ):
         """
-        Creates a new ``SecretVersion`` containing secret data and attaches
-        it to an existing ``Secret``.
+        Returns permissions that a caller has on the specified resource. If
+        the resource does not exist, this will return an empty set of
+        permissions, not a NOT_FOUND error.
+
+        Note: This operation is designed to be used for building
+        permission-aware UIs and command-line tools, not for authorization
+        checking. This operation may "fail open" without warning.
 
         Example:
             >>> from google.cloud import secretmanager_v1
@@ -442,9 +477,15 @@ class SecretManagerServiceClient(object):
             >>> response = client.add_secret_version(parent, payload)
 
         Args:
-            parent (str): Required. The resource name of the ``Secret`` to associate with the
-                ``SecretVersion`` in the format ``projects/*/secrets/*``.
-            payload (Union[dict, ~google.cloud.secretmanager_v1.types.SecretPayload]): Required. The secret payload of the ``SecretVersion``.
+            parent (str): Secret Manager Service
+
+                Manages secrets and operations using those secrets. Implements a REST
+                model with the following objects:
+
+                -  ``Secret``
+                -  ``SecretVersion``
+            payload (Union[dict, ~google.cloud.secretmanager_v1.types.SecretPayload]): Optional. Pagination token, returned earlier via
+                ListSecretVersionsResponse.next_page_token][].
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.secretmanager_v1.types.SecretPayload`
@@ -504,7 +545,8 @@ class SecretManagerServiceClient(object):
         metadata=None,
     ):
         """
-        Gets metadata for a given ``Secret``.
+        The ``SecretVersion`` may not be accessed, but the secret data is
+        still available and can be placed back into the ``ENABLED`` state.
 
         Example:
             >>> from google.cloud import secretmanager_v1
@@ -516,8 +558,44 @@ class SecretManagerServiceClient(object):
             >>> response = client.get_secret(name)
 
         Args:
-            name (str): Required. The resource name of the ``Secret``, in the format
-                ``projects/*/secrets/*``.
+            name (str): A Location identifies a piece of source code in a .proto file which
+                corresponds to a particular definition. This information is intended to
+                be useful to IDEs, code indexers, documentation generators, and similar
+                tools.
+
+                For example, say we have a file like: message Foo { optional string foo
+                = 1; } Let's look at just the field definition: optional string foo = 1;
+                ^ ^^ ^^ ^ ^^^ a bc de f ghi We have the following locations: span path
+                represents [a,i) [ 4, 0, 2, 0 ] The whole field definition. [a,b) [ 4,
+                0, 2, 0, 4 ] The label (optional). [c,d) [ 4, 0, 2, 0, 5 ] The type
+                (string). [e,f) [ 4, 0, 2, 0, 1 ] The name (foo). [g,h) [ 4, 0, 2, 0, 3
+                ] The number (1).
+
+                Notes:
+
+                -  A location may refer to a repeated field itself (i.e. not to any
+                   particular index within it). This is used whenever a set of elements
+                   are logically enclosed in a single code segment. For example, an
+                   entire extend block (possibly containing multiple extension
+                   definitions) will have an outer location whose path refers to the
+                   "extensions" repeated field without an index.
+                -  Multiple locations may have the same path. This happens when a single
+                   logical declaration is spread out across multiple places. The most
+                   obvious example is the "extend" block again -- there may be multiple
+                   extend blocks in the same scope, each of which will have the same
+                   path.
+                -  A location's span is not always a subset of its parent's span. For
+                   example, the "extendee" of an extension declaration appears at the
+                   beginning of the "extend" block and is shared by all extensions
+                   within the block.
+                -  Just because a location's span is a subset of some other location's
+                   span does not mean that it is a descendant. For example, a "group"
+                   defines both a type and a field in a single declaration. Thus, the
+                   locations corresponding to the type and field and their components
+                   will overlap.
+                -  Code which tries to interpret locations should probably be designed
+                   to ignore those that it doesn't understand, as more types of
+                   locations could be recorded in the future.
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -575,7 +653,8 @@ class SecretManagerServiceClient(object):
         metadata=None,
     ):
         """
-        Updates metadata of an existing ``Secret``.
+        An annotation that describes a resource definition without a
+        corresponding message; see ``ResourceDescriptor``.
 
         Example:
             >>> from google.cloud import secretmanager_v1
@@ -591,7 +670,7 @@ class SecretManagerServiceClient(object):
             >>> response = client.update_secret(secret, update_mask)
 
         Args:
-            secret (Union[dict, ~google.cloud.secretmanager_v1.types.Secret]): Required. ``Secret`` with updated field values.
+            secret (Union[dict, ~google.cloud.secretmanager_v1.types.Secret]): Request message for ``SecretManagerService.DeleteSecret``.
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.secretmanager_v1.types.Secret`
@@ -657,7 +736,10 @@ class SecretManagerServiceClient(object):
         metadata=None,
     ):
         """
-        Deletes a ``Secret``.
+        Accesses a ``SecretVersion``. This call returns the secret data.
+
+        ``projects/*/secrets/*/versions/latest`` is an alias to the ``latest``
+        ``SecretVersion``.
 
         Example:
             >>> from google.cloud import secretmanager_v1
@@ -669,8 +751,7 @@ class SecretManagerServiceClient(object):
             >>> client.delete_secret(name)
 
         Args:
-            name (str): Required. The resource name of the ``Secret`` to delete in the
-                format ``projects/*/secrets/*``.
+            name (str): The total number of ``SecretVersions``.
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -725,7 +806,8 @@ class SecretManagerServiceClient(object):
         metadata=None,
     ):
         """
-        Lists ``SecretVersions``. This call does not return secret data.
+        The ``SecretVersion`` is destroyed and the secret data is no longer
+        stored. A version may not leave this state once entered.
 
         Example:
             >>> from google.cloud import secretmanager_v1
@@ -749,8 +831,9 @@ class SecretManagerServiceClient(object):
             ...         pass
 
         Args:
-            parent (str): Required. The resource name of the ``Secret`` associated with the
-                ``SecretVersions`` to list, in the format ``projects/*/secrets/*``.
+            parent (str): The resource has one pattern, but the API owner expects to add more
+                later. (This is the inverse of ORIGINALLY_SINGLE_PATTERN, and prevents
+                that from being necessary once there are multiple patterns.)
             page_size (int): The maximum number of resources contained in the
                 underlying API response. If page streaming is performed per-
                 resource, this parameter does not affect the return value. If page
@@ -828,10 +911,22 @@ class SecretManagerServiceClient(object):
         metadata=None,
     ):
         """
-        Gets metadata for a ``SecretVersion``.
+        Identifies which part of the FileDescriptorProto was defined at this
+        location.
 
-        ``projects/*/secrets/*/versions/latest`` is an alias to the ``latest``
-        ``SecretVersion``.
+        Each element is a field number or an index. They form a path from the
+        root FileDescriptorProto to the place where the definition. For example,
+        this path: [ 4, 3, 2, 7, 1 ] refers to: file.message_type(3) // 4, 3
+        .field(7) // 2, 7 .name() // 1 This is because
+        FileDescriptorProto.message_type has field number 4: repeated
+        DescriptorProto message_type = 4; and DescriptorProto.field has field
+        number 2: repeated FieldDescriptorProto field = 2; and
+        FieldDescriptorProto.name has field number 1: optional string name = 1;
+
+        Thus, the above path gives the location of a field name. If we removed
+        the last element: [ 4, 3, 2, 7 ] this path refers to the whole field
+        declaration (from the beginning of the label to the terminating
+        semicolon).
 
         Example:
             >>> from google.cloud import secretmanager_v1
@@ -843,10 +938,8 @@ class SecretManagerServiceClient(object):
             >>> response = client.get_secret_version(name)
 
         Args:
-            name (str): Required. The resource name of the ``SecretVersion`` in the format
-                ``projects/*/secrets/*/versions/*``.
-                ``projects/*/secrets/*/versions/latest`` is an alias to the ``latest``
-                ``SecretVersion``.
+            name (str): A token to retrieve the next page of results. Pass this value in
+                ``ListSecretsRequest.page_token`` to retrieve the next page.
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -903,10 +996,9 @@ class SecretManagerServiceClient(object):
         metadata=None,
     ):
         """
-        Accesses a ``SecretVersion``. This call returns the secret data.
-
-        ``projects/*/secrets/*/versions/latest`` is an alias to the ``latest``
-        ``SecretVersion``.
+        Specifies a service that was configured for Cloud Audit Logging. For
+        example, ``storage.googleapis.com``, ``cloudsql.googleapis.com``.
+        ``allServices`` is a special value that covers all services. Required
 
         Example:
             >>> from google.cloud import secretmanager_v1
@@ -918,8 +1010,8 @@ class SecretManagerServiceClient(object):
             >>> response = client.access_secret_version(name)
 
         Args:
-            name (str): Required. The resource name of the ``SecretVersion`` in the format
-                ``projects/*/secrets/*/versions/*``.
+            name (str): A token to retrieve the next page of results. Pass this value in
+                ``ListSecretVersionsRequest.page_token`` to retrieve the next page.
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -976,9 +1068,7 @@ class SecretManagerServiceClient(object):
         metadata=None,
     ):
         """
-        Disables a ``SecretVersion``.
-
-        Sets the ``state`` of the ``SecretVersion`` to ``DISABLED``.
+        Request message for ``SecretManagerService.ListSecretVersions``.
 
         Example:
             >>> from google.cloud import secretmanager_v1
@@ -990,8 +1080,17 @@ class SecretManagerServiceClient(object):
             >>> response = client.disable_secret_version(name)
 
         Args:
-            name (str): Required. The resource name of the ``SecretVersion`` to disable in
-                the format ``projects/*/secrets/*/versions/*``.
+            name (str): The jstype option determines the JavaScript type used for values of
+                the field. The option is permitted only for 64 bit integral and fixed
+                types (int64, uint64, sint64, fixed64, sfixed64). A field with jstype
+                JS_STRING is represented as JavaScript string, which avoids loss of
+                precision that can happen when a large value is converted to a floating
+                point JavaScript. Specifying JS_NUMBER for the jstype causes the
+                generated JavaScript code to use the JavaScript "number" type. The
+                behavior of the default option JS_NORMAL is implementation dependent.
+
+                This option is an enum to permit additional types to be added, e.g.
+                goog.math.Integer.
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -1048,9 +1147,11 @@ class SecretManagerServiceClient(object):
         metadata=None,
     ):
         """
-        Enables a ``SecretVersion``.
+        Output only. The resource name of the ``SecretVersion`` in the
+        format ``projects/*/secrets/*/versions/*``.
 
-        Sets the ``state`` of the ``SecretVersion`` to ``ENABLED``.
+        ``SecretVersion`` IDs in a ``Secret`` start at 1 and are incremented for
+        each subsequent version of the secret.
 
         Example:
             >>> from google.cloud import secretmanager_v1
@@ -1062,8 +1163,10 @@ class SecretManagerServiceClient(object):
             >>> response = client.enable_secret_version(name)
 
         Args:
-            name (str): Required. The resource name of the ``SecretVersion`` to enable in
-                the format ``projects/*/secrets/*/versions/*``.
+            name (str): A list of HTTP configuration rules that apply to individual API
+                methods.
+
+                **NOTE:** All service configuration rules follow "last one wins" order.
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -1120,10 +1223,37 @@ class SecretManagerServiceClient(object):
         metadata=None,
     ):
         """
-        Destroys a ``SecretVersion``.
+        Protocol Buffers - Google's data interchange format Copyright 2008
+        Google Inc. All rights reserved.
+        https://developers.google.com/protocol-buffers/
 
-        Sets the ``state`` of the ``SecretVersion`` to ``DESTROYED`` and
-        irrevocably destroys the secret data.
+        Redistribution and use in source and binary forms, with or without
+        modification, are permitted provided that the following conditions are
+        met:
+
+        ::
+
+            * Redistributions of source code must retain the above copyright
+
+        notice, this list of conditions and the following disclaimer. \*
+        Redistributions in binary form must reproduce the above copyright
+        notice, this list of conditions and the following disclaimer in the
+        documentation and/or other materials provided with the distribution. \*
+        Neither the name of Google Inc. nor the names of its contributors may be
+        used to endorse or promote products derived from this software without
+        specific prior written permission.
+
+        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
+        IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
+        TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+        PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER
+        OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+        EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+        PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+        PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+        LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+        NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+        SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
         Example:
             >>> from google.cloud import secretmanager_v1
@@ -1135,8 +1265,9 @@ class SecretManagerServiceClient(object):
             >>> response = client.destroy_secret_version(name)
 
         Args:
-            name (str): Required. The resource name of the ``SecretVersion`` to destroy in
-                the format ``projects/*/secrets/*/versions/*``.
+            name (str): Required. The list of Replicas for this ``Secret``.
+
+                Cannot be empty.
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -1194,11 +1325,8 @@ class SecretManagerServiceClient(object):
         metadata=None,
     ):
         """
-        Sets the access control policy on the specified secret. Replaces any
-        existing policy.
-
-        Permissions on ``SecretVersions`` are enforced according to the policy
-        set on the associated ``Secret``.
+        Required. The resource name of the ``Secret`` associated with the
+        ``SecretVersions`` to list, in the format ``projects/*/secrets/*``.
 
         Example:
             >>> from google.cloud import secretmanager_v1
@@ -1216,10 +1344,286 @@ class SecretManagerServiceClient(object):
         Args:
             resource (str): REQUIRED: The resource for which the policy is being specified.
                 See the operation documentation for the appropriate value for this field.
-            policy (Union[dict, ~google.cloud.secretmanager_v1.types.Policy]): REQUIRED: The complete policy to be applied to the ``resource``. The
-                size of the policy is limited to a few 10s of KB. An empty policy is a
-                valid policy but certain Cloud Platform services (such as Projects)
-                might reject them.
+            policy (Union[dict, ~google.cloud.secretmanager_v1.types.Policy]): # gRPC Transcoding
+
+                gRPC Transcoding is a feature for mapping between a gRPC method and one
+                or more HTTP REST endpoints. It allows developers to build a single API
+                service that supports both gRPC APIs and REST APIs. Many systems,
+                including `Google APIs <https://github.com/googleapis/googleapis>`__,
+                `Cloud Endpoints <https://cloud.google.com/endpoints>`__, `gRPC
+                Gateway <https://github.com/grpc-ecosystem/grpc-gateway>`__, and
+                `Envoy <https://github.com/envoyproxy/envoy>`__ proxy support this
+                feature and use it for large scale production services.
+
+                ``HttpRule`` defines the schema of the gRPC/REST mapping. The mapping
+                specifies how different portions of the gRPC request message are mapped
+                to the URL path, URL query parameters, and HTTP request body. It also
+                controls how the gRPC response message is mapped to the HTTP response
+                body. ``HttpRule`` is typically specified as an ``google.api.http``
+                annotation on the gRPC method.
+
+                Each mapping specifies a URL path template and an HTTP method. The path
+                template may refer to one or more fields in the gRPC request message, as
+                long as each field is a non-repeated field with a primitive
+                (non-message) type. The path template controls how fields of the request
+                message are mapped to the URL path.
+
+                Example:
+
+                ::
+
+                    service Messaging {
+                      rpc GetMessage(GetMessageRequest) returns (Message) {
+                        option (google.api.http) = {
+                            get: "/v1/{name=messages/*}"
+                        };
+                      }
+                    }
+                    message GetMessageRequest {
+                      string name = 1; // Mapped to URL path.
+                    }
+                    message Message {
+                      string text = 1; // The resource content.
+                    }
+
+                This enables an HTTP REST to gRPC mapping as below:
+
+                HTTP \| gRPC -----|----- ``GET /v1/messages/123456`` \|
+                ``GetMessage(name: "messages/123456")``
+
+                Any fields in the request message which are not bound by the path
+                template automatically become HTTP query parameters if there is no HTTP
+                request body. For example:
+
+                ::
+
+                    service Messaging {
+                      rpc GetMessage(GetMessageRequest) returns (Message) {
+                        option (google.api.http) = {
+                            get:"/v1/messages/{message_id}"
+                        };
+                      }
+                    }
+                    message GetMessageRequest {
+                      message SubMessage {
+                        string subfield = 1;
+                      }
+                      string message_id = 1; // Mapped to URL path.
+                      int64 revision = 2;    // Mapped to URL query parameter `revision`.
+                      SubMessage sub = 3;    // Mapped to URL query parameter `sub.subfield`.
+                    }
+
+                This enables a HTTP JSON to RPC mapping as below:
+
+                HTTP \| gRPC -----|-----
+                ``GET /v1/messages/123456?revision=2&sub.subfield=foo`` \|
+                ``GetMessage(message_id: "123456" revision: 2 sub: SubMessage(subfield: "foo"))``
+
+                Note that fields which are mapped to URL query parameters must have a
+                primitive type or a repeated primitive type or a non-repeated message
+                type. In the case of a repeated type, the parameter can be repeated in
+                the URL as ``...?param=A&param=B``. In the case of a message type, each
+                field of the message is mapped to a separate parameter, such as
+                ``...?foo.a=A&foo.b=B&foo.c=C``.
+
+                For HTTP methods that allow a request body, the ``body`` field specifies
+                the mapping. Consider a REST update method on the message resource
+                collection:
+
+                ::
+
+                    service Messaging {
+                      rpc UpdateMessage(UpdateMessageRequest) returns (Message) {
+                        option (google.api.http) = {
+                          patch: "/v1/messages/{message_id}"
+                          body: "message"
+                        };
+                      }
+                    }
+                    message UpdateMessageRequest {
+                      string message_id = 1; // mapped to the URL
+                      Message message = 2;   // mapped to the body
+                    }
+
+                The following HTTP JSON to RPC mapping is enabled, where the
+                representation of the JSON in the request body is determined by protos
+                JSON encoding:
+
+                HTTP \| gRPC -----|----- ``PATCH /v1/messages/123456 { "text": "Hi!" }``
+                \| ``UpdateMessage(message_id: "123456" message { text: "Hi!" })``
+
+                The special name ``*`` can be used in the body mapping to define that
+                every field not bound by the path template should be mapped to the
+                request body. This enables the following alternative definition of the
+                update method:
+
+                ::
+
+                    service Messaging {
+                      rpc UpdateMessage(Message) returns (Message) {
+                        option (google.api.http) = {
+                          patch: "/v1/messages/{message_id}"
+                          body: "*"
+                        };
+                      }
+                    }
+                    message Message {
+                      string message_id = 1;
+                      string text = 2;
+                    }
+
+                The following HTTP JSON to RPC mapping is enabled:
+
+                HTTP \| gRPC -----|----- ``PATCH /v1/messages/123456 { "text": "Hi!" }``
+                \| ``UpdateMessage(message_id: "123456" text: "Hi!")``
+
+                Note that when using ``*`` in the body mapping, it is not possible to
+                have HTTP parameters, as all fields not bound by the path end in the
+                body. This makes this option more rarely used in practice when defining
+                REST APIs. The common usage of ``*`` is in custom methods which don't
+                use the URL at all for transferring data.
+
+                It is possible to define multiple HTTP methods for one RPC by using the
+                ``additional_bindings`` option. Example:
+
+                ::
+
+                    service Messaging {
+                      rpc GetMessage(GetMessageRequest) returns (Message) {
+                        option (google.api.http) = {
+                          get: "/v1/messages/{message_id}"
+                          additional_bindings {
+                            get: "/v1/users/{user_id}/messages/{message_id}"
+                          }
+                        };
+                      }
+                    }
+                    message GetMessageRequest {
+                      string message_id = 1;
+                      string user_id = 2;
+                    }
+
+                This enables the following two alternative HTTP JSON to RPC mappings:
+
+                HTTP \| gRPC -----|----- ``GET /v1/messages/123456`` \|
+                ``GetMessage(message_id: "123456")``
+                ``GET /v1/users/me/messages/123456`` \|
+                ``GetMessage(user_id: "me" message_id: "123456")``
+
+                ## Rules for HTTP mapping
+
+                1. Leaf request fields (recursive expansion nested messages in the
+                   request message) are classified into three categories:
+
+                   -  Fields referred by the path template. They are passed via the URL
+                      path.
+                   -  Fields referred by the ``HttpRule.body``. They are passed via the
+                      HTTP request body.
+                   -  All other fields are passed via the URL query parameters, and the
+                      parameter name is the field path in the request message. A
+                      repeated field can be represented as multiple query parameters
+                      under the same name.
+
+                2. If ``HttpRule.body`` is "*", there is no URL query parameter, all
+                   fields are passed via URL path and HTTP request body.
+                3. If ``HttpRule.body`` is omitted, there is no HTTP request body, all
+                   fields are passed via URL path and URL query parameters.
+
+                Path template syntax
+                ~~~~~~~~~~~~~~~~~~~~
+
+                ::
+
+                    Template = "/" Segments [ Verb ] ;
+                    Segments = Segment { "/" Segment } ;
+                    Segment  = "*" | "**" | LITERAL | Variable ;
+                    Variable = "{" FieldPath [ "=" Segments ] "}" ;
+                    FieldPath = IDENT { "." IDENT } ;
+                    Verb     = ":" LITERAL ;
+
+                The syntax ``*`` matches a single URL path segment. The syntax ``**``
+                matches zero or more URL path segments, which must be the last part of
+                the URL path except the ``Verb``.
+
+                The syntax ``Variable`` matches part of the URL path as specified by its
+                template. A variable template must not contain other variables. If a
+                variable matches a single path segment, its template may be omitted,
+                e.g. ``{var}`` is equivalent to ``{var=*}``.
+
+                The syntax ``LITERAL`` matches literal text in the URL path. If the
+                ``LITERAL`` contains any reserved character, such characters should be
+                percent-encoded before the matching.
+
+                If a variable contains exactly one path segment, such as ``"{var}"`` or
+                ``"{var=*}"``, when such a variable is expanded into a URL path on the
+                client side, all characters except ``[-_.~0-9a-zA-Z]`` are
+                percent-encoded. The server side does the reverse decoding. Such
+                variables show up in the `Discovery
+                Document <https://developers.google.com/discovery/v1/reference/apis>`__
+                as ``{var}``.
+
+                If a variable contains multiple path segments, such as ``"{var=foo/*}"``
+                or ``"{var=**}"``, when such a variable is expanded into a URL path on
+                the client side, all characters except ``[-_.~/0-9a-zA-Z]`` are
+                percent-encoded. The server side does the reverse decoding, except "%2F"
+                and "%2f" are left unchanged. Such variables show up in the `Discovery
+                Document <https://developers.google.com/discovery/v1/reference/apis>`__
+                as ``{+var}``.
+
+                ## Using gRPC API Service Configuration
+
+                gRPC API Service Configuration (service config) is a configuration
+                language for configuring a gRPC service to become a user-facing product.
+                The service config is simply the YAML representation of the
+                ``google.api.Service`` proto message.
+
+                As an alternative to annotating your proto file, you can configure gRPC
+                transcoding in your service config YAML files. You do this by specifying
+                a ``HttpRule`` that maps the gRPC method to a REST endpoint, achieving
+                the same effect as the proto annotation. This can be particularly useful
+                if you have a proto that is reused in multiple services. Note that any
+                transcoding specified in the service config will override any matching
+                transcoding configuration in the proto.
+
+                Example:
+
+                ::
+
+                    http:
+                      rules:
+                        # Selects a gRPC method and applies HttpRule to it.
+                        - selector: example.v1.Messaging.GetMessage
+                          get: /v1/messages/{message_id}/{sub.subfield}
+
+                ## Special notes
+
+                When gRPC Transcoding is used to map a gRPC to JSON REST endpoints, the
+                proto to JSON conversion must follow the `proto3
+                specification <https://developers.google.com/protocol-buffers/docs/proto3#json>`__.
+
+                While the single segment variable follows the semantics of `RFC
+                6570 <https://tools.ietf.org/html/rfc6570>`__ Section 3.2.2 Simple
+                String Expansion, the multi segment variable **does not** follow RFC
+                6570 Section 3.2.3 Reserved Expansion. The reason is that the Reserved
+                Expansion does not expand special characters like ``?`` and ``#``, which
+                would lead to invalid URLs. As the result, gRPC Transcoding uses a
+                custom encoding for multi segment variables.
+
+                The path variables **must not** refer to any repeated or mapped field,
+                because client libraries are not capable of handling such variable
+                expansion.
+
+                The path variables **must not** capture the leading "/" character. The
+                reason is that the most common use case "{var}" does not capture the
+                leading "/" character. For consistency, all path variables must share
+                the same behavior.
+
+                Repeated message fields must not be mapped to URL query parameters,
+                because no client library can support such complicated mapping.
+
+                If an API needs to use a JSON array for request or response body, it can
+                map the request or response body to a repeated field. However, some gRPC
+                Transcoding implementations may not support this feature.
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.secretmanager_v1.types.Policy`
@@ -1296,8 +1700,7 @@ class SecretManagerServiceClient(object):
         Args:
             resource (str): REQUIRED: The resource for which the policy is being requested.
                 See the operation documentation for the appropriate value for this field.
-            options_ (Union[dict, ~google.cloud.secretmanager_v1.types.GetPolicyOptions]): OPTIONAL: A ``GetPolicyOptions`` object for specifying options to
-                ``GetIamPolicy``. This field is only used by Cloud IAM.
+            options_ (Union[dict, ~google.cloud.secretmanager_v1.types.GetPolicyOptions]): javanano_as_lite
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.secretmanager_v1.types.GetPolicyOptions`
@@ -1360,13 +1763,8 @@ class SecretManagerServiceClient(object):
         metadata=None,
     ):
         """
-        Returns permissions that a caller has for the specified secret. If
-        the secret does not exist, this call returns an empty set of
-        permissions, not a NOT_FOUND error.
-
-        Note: This operation is designed to be used for building
-        permission-aware UIs and command-line tools, not for authorization
-        checking. This operation may "fail open" without warning.
+        An annotation that describes a resource definition, see
+        ``ResourceDescriptor``.
 
         Example:
             >>> from google.cloud import secretmanager_v1
@@ -1384,10 +1782,9 @@ class SecretManagerServiceClient(object):
         Args:
             resource (str): REQUIRED: The resource for which the policy detail is being requested.
                 See the operation documentation for the appropriate value for this field.
-            permissions (list[str]): The set of permissions to check for the ``resource``. Permissions
-                with wildcards (such as '*' or 'storage.*') are not allowed. For more
-                information see `IAM
-                Overview <https://cloud.google.com/iam/docs/overview#permissions>`__.
+            permissions (list[str]): Selects a method to which this rule applies.
+
+                Refer to ``selector`` for syntax details.
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.

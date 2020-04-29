@@ -664,7 +664,6 @@ Replication = _reflection.GeneratedProtocolMessageType(
                 "__doc__": """A replication policy that replicates the
     [Secret][google.cloud.secrets.v1beta1.Secret] payload without any
     restrictions.
-    
     """,
                 # @@protoc_insertion_point(class_scope:google.cloud.secrets.v1beta1.Replication.Automatic)
             },

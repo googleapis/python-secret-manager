@@ -574,8 +574,8 @@ Secret = _reflection.GeneratedProtocolMessageType(
         ),
         "DESCRIPTOR": _SECRET,
         "__module__": "google.cloud.secretmanager_v1.proto.resources_pb2",
-        "__doc__": """A [Secret][google.cloud.secretmanager.v1.Secret] is a
-  logical secret whose value and versions can be accessed.
+        "__doc__": """A [Secret][google.cloud.secretmanager.v1.Secret] is a logical secret
+  whose value and versions can be accessed.
   
   A [Secret][google.cloud.secretmanager.v1.Secret] is made up of zero or
   more [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] that
@@ -710,7 +710,8 @@ Replication = _reflection.GeneratedProtocolMessageType(
         ),
         "DESCRIPTOR": _REPLICATION,
         "__module__": "google.cloud.secretmanager_v1.proto.resources_pb2",
-        "__doc__": """A policy that defines the replication configuration of data.
+        "__doc__": """A policy that defines the replication configuration of
+  data.
   
   
   Attributes:
