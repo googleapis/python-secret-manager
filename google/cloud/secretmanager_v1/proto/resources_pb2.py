@@ -710,7 +710,8 @@ Replication = _reflection.GeneratedProtocolMessageType(
         ),
         "DESCRIPTOR": _REPLICATION,
         "__module__": "google.cloud.secretmanager_v1.proto.resources_pb2",
-        "__doc__": """A policy that defines the replication configuration of data.
+        "__doc__": """A policy that defines the replication configuration of
+  data.
   
   
   Attributes:
@@ -738,7 +739,7 @@ SecretPayload = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _SECRETPAYLOAD,
         "__module__": "google.cloud.secretmanager_v1.proto.resources_pb2",
         "__doc__": """A secret payload resource in the Secret Manager API. This
-  contains the sensitive secret data that is associated with a
+  contains the sensitive secret payload that is associated with a
   [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
   
   
