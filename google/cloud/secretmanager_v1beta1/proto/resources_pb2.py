@@ -709,7 +709,8 @@ Replication = _reflection.GeneratedProtocolMessageType(
         ),
         "DESCRIPTOR": _REPLICATION,
         "__module__": "google.cloud.secrets_v1beta1.proto.resources_pb2",
-        "__doc__": """A policy that defines the replication configuration of data.
+        "__doc__": """A policy that defines the replication configuration of
+  data.
   
   
   Attributes:
