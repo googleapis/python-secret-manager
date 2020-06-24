@@ -384,7 +384,7 @@ _GETSECRETREQUEST = _descriptor.Descriptor(
             serialized_options=b"\340A\002\372A%\n#secretmanager.googleapis.com/Secret",
             file=DESCRIPTOR,
             create_key=_descriptor._internal_create_key,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -583,7 +583,7 @@ _GETSECRETVERSIONREQUEST = _descriptor.Descriptor(
             serialized_options=b"\340A\002\372A,\n*secretmanager.googleapis.com/SecretVersion",
             file=DESCRIPTOR,
             create_key=_descriptor._internal_create_key,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -684,7 +684,7 @@ _ACCESSSECRETVERSIONREQUEST = _descriptor.Descriptor(
             serialized_options=b"\340A\002\372A,\n*secretmanager.googleapis.com/SecretVersion",
             file=DESCRIPTOR,
             create_key=_descriptor._internal_create_key,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -785,7 +785,7 @@ _DELETESECRETREQUEST = _descriptor.Descriptor(
             serialized_options=b"\340A\002\372A%\n#secretmanager.googleapis.com/Secret",
             file=DESCRIPTOR,
             create_key=_descriptor._internal_create_key,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -826,7 +826,7 @@ _DISABLESECRETVERSIONREQUEST = _descriptor.Descriptor(
             serialized_options=b"\340A\002\372A,\n*secretmanager.googleapis.com/SecretVersion",
             file=DESCRIPTOR,
             create_key=_descriptor._internal_create_key,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -867,7 +867,7 @@ _ENABLESECRETVERSIONREQUEST = _descriptor.Descriptor(
             serialized_options=b"\340A\002\372A,\n*secretmanager.googleapis.com/SecretVersion",
             file=DESCRIPTOR,
             create_key=_descriptor._internal_create_key,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -908,7 +908,7 @@ _DESTROYSECRETVERSIONREQUEST = _descriptor.Descriptor(
             serialized_options=b"\340A\002\372A,\n*secretmanager.googleapis.com/SecretVersion",
             file=DESCRIPTOR,
             create_key=_descriptor._internal_create_key,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],

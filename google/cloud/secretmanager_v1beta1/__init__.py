@@ -40,4 +40,8 @@ class SecretManagerServiceClient(
     enums = enums
 
 
-__all__ = ("enums", "types", "SecretManagerServiceClient")
+__all__ = (
+    "enums",
+    "types",
+    "SecretManagerServiceClient",
+)
