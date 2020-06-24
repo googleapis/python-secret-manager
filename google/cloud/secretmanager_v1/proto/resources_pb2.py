@@ -738,8 +738,8 @@ SecretPayload = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _SECRETPAYLOAD,
         "__module__": "google.cloud.secretmanager_v1.proto.resources_pb2",
-        "__doc__": """A secret payload resource in the Secret Manager API. This contains the
-  sensitive secret payload that is associated with a
+        "__doc__": """A secret payload resource in the Secret Manager API. This
+  contains the sensitive secret payload that is associated with a
   [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
   
   
