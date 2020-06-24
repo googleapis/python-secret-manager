@@ -45,6 +45,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
     package="google.cloud.secretmanager.v1",
     syntax="proto3",
     serialized_options=b"\n!com.google.cloud.secretmanager.v1B\014ServiceProtoP\001ZJgoogle.golang.org/genproto/googleapis/cloud/secretmanager/v1;secretmanager\370\001\001\242\002\003GSM\252\002\035Google.Cloud.SecretManager.V1\312\002\035Google\\Cloud\\SecretManager\\V1\352\002 Google::Cloud::SecretManager::V1",
+    create_key=_descriptor._internal_create_key,
     serialized_pb=b'\n1google/cloud/secretmanager_v1/proto/service.proto\x12\x1dgoogle.cloud.secretmanager.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x33google/cloud/secretmanager_v1/proto/resources.proto\x1a\x1egoogle/iam/v1/iam_policy.proto\x1a\x1agoogle/iam/v1/policy.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto"\x8a\x01\n\x12ListSecretsRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+cloudresourcemanager.googleapis.com/Project\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01"z\n\x13ListSecretsResponse\x12\x36\n\x07secrets\x18\x01 \x03(\x0b\x32%.google.cloud.secretmanager.v1.Secret\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x12\n\ntotal_size\x18\x03 \x01(\x05"\xae\x01\n\x13\x43reateSecretRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+cloudresourcemanager.googleapis.com/Project\x12\x16\n\tsecret_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12:\n\x06secret\x18\x03 \x01(\x0b\x32%.google.cloud.secretmanager.v1.SecretB\x03\xe0\x41\x02"\x9a\x01\n\x17\x41\x64\x64SecretVersionRequest\x12;\n\x06parent\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#secretmanager.googleapis.com/Secret\x12\x42\n\x07payload\x18\x02 \x01(\x0b\x32,.google.cloud.secretmanager.v1.SecretPayloadB\x03\xe0\x41\x02"M\n\x10GetSecretRequest\x12\x39\n\x04name\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#secretmanager.googleapis.com/Secret"\x89\x01\n\x19ListSecretVersionsRequest\x12;\n\x06parent\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#secretmanager.googleapis.com/Secret\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01"\x89\x01\n\x1aListSecretVersionsResponse\x12>\n\x08versions\x18\x01 \x03(\x0b\x32,.google.cloud.secretmanager.v1.SecretVersion\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x12\n\ntotal_size\x18\x03 \x01(\x05"[\n\x17GetSecretVersionRequest\x12@\n\x04name\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*secretmanager.googleapis.com/SecretVersion"\x87\x01\n\x13UpdateSecretRequest\x12:\n\x06secret\x18\x01 \x01(\x0b\x32%.google.cloud.secretmanager.v1.SecretB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02"^\n\x1a\x41\x63\x63\x65ssSecretVersionRequest\x12@\n\x04name\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*secretmanager.googleapis.com/SecretVersion"\x9b\x01\n\x1b\x41\x63\x63\x65ssSecretVersionResponse\x12=\n\x04name\x18\x01 \x01(\tB/\xfa\x41,\n*secretmanager.googleapis.com/SecretVersion\x12=\n\x07payload\x18\x02 \x01(\x0b\x32,.google.cloud.secretmanager.v1.SecretPayload"P\n\x13\x44\x65leteSecretRequest\x12\x39\n\x04name\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#secretmanager.googleapis.com/Secret"_\n\x1b\x44isableSecretVersionRequest\x12@\n\x04name\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*secretmanager.googleapis.com/SecretVersion"^\n\x1a\x45nableSecretVersionRequest\x12@\n\x04name\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*secretmanager.googleapis.com/SecretVersion"_\n\x1b\x44\x65stroySecretVersionRequest\x12@\n\x04name\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*secretmanager.googleapis.com/SecretVersion2\xcf\x15\n\x14SecretManagerService\x12\xa6\x01\n\x0bListSecrets\x12\x31.google.cloud.secretmanager.v1.ListSecretsRequest\x1a\x32.google.cloud.secretmanager.v1.ListSecretsResponse"0\x82\xd3\xe4\x93\x02!\x12\x1f/v1/{parent=projects/*}/secrets\xda\x41\x06parent\x12\xb4\x01\n\x0c\x43reateSecret\x12\x32.google.cloud.secretmanager.v1.CreateSecretRequest\x1a%.google.cloud.secretmanager.v1.Secret"I\x82\xd3\xe4\x93\x02)"\x1f/v1/{parent=projects/*}/secrets:\x06secret\xda\x41\x17parent,secret_id,secret\x12\xc2\x01\n\x10\x41\x64\x64SecretVersion\x12\x36.google.cloud.secretmanager.v1.AddSecretVersionRequest\x1a,.google.cloud.secretmanager.v1.SecretVersion"H\x82\xd3\xe4\x93\x02\x31",/v1/{parent=projects/*/secrets/*}:addVersion:\x01*\xda\x41\x0eparent,payload\x12\x93\x01\n\tGetSecret\x12/.google.cloud.secretmanager.v1.GetSecretRequest\x1a%.google.cloud.secretmanager.v1.Secret".\x82\xd3\xe4\x93\x02!\x12\x1f/v1/{name=projects/*/secrets/*}\xda\x41\x04name\x12\xb6\x01\n\x0cUpdateSecret\x12\x32.google.cloud.secretmanager.v1.UpdateSecretRequest\x1a%.google.cloud.secretmanager.v1.Secret"K\x82\xd3\xe4\x93\x02\x30\x32&/v1/{secret.name=projects/*/secrets/*}:\x06secret\xda\x41\x12secret,update_mask\x12\x8a\x01\n\x0c\x44\x65leteSecret\x12\x32.google.cloud.secretmanager.v1.DeleteSecretRequest\x1a\x16.google.protobuf.Empty".\x82\xd3\xe4\x93\x02!*\x1f/v1/{name=projects/*/secrets/*}\xda\x41\x04name\x12\xc6\x01\n\x12ListSecretVersions\x12\x38.google.cloud.secretmanager.v1.ListSecretVersionsRequest\x1a\x39.google.cloud.secretmanager.v1.ListSecretVersionsResponse";\x82\xd3\xe4\x93\x02,\x12*/v1/{parent=projects/*/secrets/*}/versions\xda\x41\x06parent\x12\xb3\x01\n\x10GetSecretVersion\x12\x36.google.cloud.secretmanager.v1.GetSecretVersionRequest\x1a,.google.cloud.secretmanager.v1.SecretVersion"9\x82\xd3\xe4\x93\x02,\x12*/v1/{name=projects/*/secrets/*/versions/*}\xda\x41\x04name\x12\xce\x01\n\x13\x41\x63\x63\x65ssSecretVersion\x12\x39.google.cloud.secretmanager.v1.AccessSecretVersionRequest\x1a:.google.cloud.secretmanager.v1.AccessSecretVersionResponse"@\x82\xd3\xe4\x93\x02\x33\x12\x31/v1/{name=projects/*/secrets/*/versions/*}:access\xda\x41\x04name\x12\xc6\x01\n\x14\x44isableSecretVersion\x12:.google.cloud.secretmanager.v1.DisableSecretVersionRequest\x1a,.google.cloud.secretmanager.v1.SecretVersion"D\x82\xd3\xe4\x93\x02\x37"2/v1/{name=projects/*/secrets/*/versions/*}:disable:\x01*\xda\x41\x04name\x12\xc3\x01\n\x13\x45nableSecretVersion\x12\x39.google.cloud.secretmanager.v1.EnableSecretVersionRequest\x1a,.google.cloud.secretmanager.v1.SecretVersion"C\x82\xd3\xe4\x93\x02\x36"1/v1/{name=projects/*/secrets/*/versions/*}:enable:\x01*\xda\x41\x04name\x12\xc6\x01\n\x14\x44\x65stroySecretVersion\x12:.google.cloud.secretmanager.v1.DestroySecretVersionRequest\x1a,.google.cloud.secretmanager.v1.SecretVersion"D\x82\xd3\xe4\x93\x02\x37"2/v1/{name=projects/*/secrets/*/versions/*}:destroy:\x01*\xda\x41\x04name\x12\x86\x01\n\x0cSetIamPolicy\x12".google.iam.v1.SetIamPolicyRequest\x1a\x15.google.iam.v1.Policy";\x82\xd3\xe4\x93\x02\x35"0/v1/{resource=projects/*/secrets/*}:setIamPolicy:\x01*\x12\x83\x01\n\x0cGetIamPolicy\x12".google.iam.v1.GetIamPolicyRequest\x1a\x15.google.iam.v1.Policy"8\x82\xd3\xe4\x93\x02\x32\x12\x30/v1/{resource=projects/*/secrets/*}:getIamPolicy\x12\xac\x01\n\x12TestIamPermissions\x12(.google.iam.v1.TestIamPermissionsRequest\x1a).google.iam.v1.TestIamPermissionsResponse"A\x82\xd3\xe4\x93\x02;"6/v1/{resource=projects/*/secrets/*}:testIamPermissions:\x01*\x1aP\xca\x41\x1csecretmanager.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xeb\x01\n!com.google.cloud.secretmanager.v1B\x0cServiceProtoP\x01ZJgoogle.golang.org/genproto/googleapis/cloud/secretmanager/v1;secretmanager\xf8\x01\x01\xa2\x02\x03GSM\xaa\x02\x1dGoogle.Cloud.SecretManager.V1\xca\x02\x1dGoogle\\Cloud\\SecretManager\\V1\xea\x02 Google::Cloud::SecretManager::V1b\x06proto3',
     dependencies=[
         google_dot_api_dot_annotations__pb2.DESCRIPTOR,
@@ -66,6 +67,7 @@ _LISTSECRETSREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="parent",
@@ -84,6 +86,7 @@ _LISTSECRETSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A-\n+cloudresourcemanager.googleapis.com/Project",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_size",
@@ -102,6 +105,7 @@ _LISTSECRETSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\001",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_token",
@@ -120,6 +124,7 @@ _LISTSECRETSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\001",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -141,6 +146,7 @@ _LISTSECRETSRESPONSE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="secrets",
@@ -159,6 +165,7 @@ _LISTSECRETSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="next_page_token",
@@ -177,6 +184,7 @@ _LISTSECRETSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="total_size",
@@ -195,6 +203,7 @@ _LISTSECRETSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -216,6 +225,7 @@ _CREATESECRETREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="parent",
@@ -234,6 +244,7 @@ _CREATESECRETREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A-\n+cloudresourcemanager.googleapis.com/Project",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="secret_id",
@@ -252,6 +263,7 @@ _CREATESECRETREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="secret",
@@ -270,6 +282,7 @@ _CREATESECRETREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -291,6 +304,7 @@ _ADDSECRETVERSIONREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="parent",
@@ -309,6 +323,7 @@ _ADDSECRETVERSIONREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A%\n#secretmanager.googleapis.com/Secret",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="payload",
@@ -327,6 +342,7 @@ _ADDSECRETVERSIONREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -348,6 +364,7 @@ _GETSECRETREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -366,6 +383,7 @@ _GETSECRETREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A%\n#secretmanager.googleapis.com/Secret",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -387,6 +405,7 @@ _LISTSECRETVERSIONSREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="parent",
@@ -405,6 +424,7 @@ _LISTSECRETVERSIONSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A%\n#secretmanager.googleapis.com/Secret",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_size",
@@ -423,6 +443,7 @@ _LISTSECRETVERSIONSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\001",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_token",
@@ -441,6 +462,7 @@ _LISTSECRETVERSIONSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\001",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -462,6 +484,7 @@ _LISTSECRETVERSIONSRESPONSE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="versions",
@@ -480,6 +503,7 @@ _LISTSECRETVERSIONSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="next_page_token",
@@ -498,6 +522,7 @@ _LISTSECRETVERSIONSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="total_size",
@@ -516,6 +541,7 @@ _LISTSECRETVERSIONSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -537,6 +563,7 @@ _GETSECRETVERSIONREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -555,6 +582,7 @@ _GETSECRETVERSIONREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A,\n*secretmanager.googleapis.com/SecretVersion",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -576,6 +604,7 @@ _UPDATESECRETREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="secret",
@@ -594,6 +623,7 @@ _UPDATESECRETREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="update_mask",
@@ -612,6 +642,7 @@ _UPDATESECRETREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -633,6 +664,7 @@ _ACCESSSECRETVERSIONREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -651,6 +683,7 @@ _ACCESSSECRETVERSIONREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A,\n*secretmanager.googleapis.com/SecretVersion",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -672,6 +705,7 @@ _ACCESSSECRETVERSIONRESPONSE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -690,6 +724,7 @@ _ACCESSSECRETVERSIONRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\372A,\n*secretmanager.googleapis.com/SecretVersion",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="payload",
@@ -708,6 +743,7 @@ _ACCESSSECRETVERSIONRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -729,6 +765,7 @@ _DELETESECRETREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -747,6 +784,7 @@ _DELETESECRETREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A%\n#secretmanager.googleapis.com/Secret",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -768,6 +806,7 @@ _DISABLESECRETVERSIONREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -786,6 +825,7 @@ _DISABLESECRETVERSIONREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A,\n*secretmanager.googleapis.com/SecretVersion",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -807,6 +847,7 @@ _ENABLESECRETVERSIONREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -825,6 +866,7 @@ _ENABLESECRETVERSIONREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A,\n*secretmanager.googleapis.com/SecretVersion",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -846,6 +888,7 @@ _DESTROYSECRETVERSIONREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -864,6 +907,7 @@ _DESTROYSECRETVERSIONREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A,\n*secretmanager.googleapis.com/SecretVersion",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -1309,6 +1353,7 @@ _SECRETMANAGERSERVICE = _descriptor.ServiceDescriptor(
     file=DESCRIPTOR,
     index=0,
     serialized_options=b"\312A\034secretmanager.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform",
+    create_key=_descriptor._internal_create_key,
     serialized_start=2191,
     serialized_end=4958,
     methods=[
@@ -1320,6 +1365,7 @@ _SECRETMANAGERSERVICE = _descriptor.ServiceDescriptor(
             input_type=_LISTSECRETSREQUEST,
             output_type=_LISTSECRETSRESPONSE,
             serialized_options=b"\202\323\344\223\002!\022\037/v1/{parent=projects/*}/secrets\332A\006parent",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="CreateSecret",
@@ -1329,6 +1375,7 @@ _SECRETMANAGERSERVICE = _descriptor.ServiceDescriptor(
             input_type=_CREATESECRETREQUEST,
             output_type=google_dot_cloud_dot_secretmanager__v1_dot_proto_dot_resources__pb2._SECRET,
             serialized_options=b'\202\323\344\223\002)"\037/v1/{parent=projects/*}/secrets:\006secret\332A\027parent,secret_id,secret',
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="AddSecretVersion",
@@ -1338,6 +1385,7 @@ _SECRETMANAGERSERVICE = _descriptor.ServiceDescriptor(
             input_type=_ADDSECRETVERSIONREQUEST,
             output_type=google_dot_cloud_dot_secretmanager__v1_dot_proto_dot_resources__pb2._SECRETVERSION,
             serialized_options=b'\202\323\344\223\0021",/v1/{parent=projects/*/secrets/*}:addVersion:\001*\332A\016parent,payload',
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="GetSecret",
@@ -1347,6 +1395,7 @@ _SECRETMANAGERSERVICE = _descriptor.ServiceDescriptor(
             input_type=_GETSECRETREQUEST,
             output_type=google_dot_cloud_dot_secretmanager__v1_dot_proto_dot_resources__pb2._SECRET,
             serialized_options=b"\202\323\344\223\002!\022\037/v1/{name=projects/*/secrets/*}\332A\004name",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="UpdateSecret",
@@ -1356,6 +1405,7 @@ _SECRETMANAGERSERVICE = _descriptor.ServiceDescriptor(
             input_type=_UPDATESECRETREQUEST,
             output_type=google_dot_cloud_dot_secretmanager__v1_dot_proto_dot_resources__pb2._SECRET,
             serialized_options=b"\202\323\344\223\00202&/v1/{secret.name=projects/*/secrets/*}:\006secret\332A\022secret,update_mask",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="DeleteSecret",
@@ -1365,6 +1415,7 @@ _SECRETMANAGERSERVICE = _descriptor.ServiceDescriptor(
             input_type=_DELETESECRETREQUEST,
             output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
             serialized_options=b"\202\323\344\223\002!*\037/v1/{name=projects/*/secrets/*}\332A\004name",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="ListSecretVersions",
@@ -1374,6 +1425,7 @@ _SECRETMANAGERSERVICE = _descriptor.ServiceDescriptor(
             input_type=_LISTSECRETVERSIONSREQUEST,
             output_type=_LISTSECRETVERSIONSRESPONSE,
             serialized_options=b"\202\323\344\223\002,\022*/v1/{parent=projects/*/secrets/*}/versions\332A\006parent",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="GetSecretVersion",
@@ -1383,6 +1435,7 @@ _SECRETMANAGERSERVICE = _descriptor.ServiceDescriptor(
             input_type=_GETSECRETVERSIONREQUEST,
             output_type=google_dot_cloud_dot_secretmanager__v1_dot_proto_dot_resources__pb2._SECRETVERSION,
             serialized_options=b"\202\323\344\223\002,\022*/v1/{name=projects/*/secrets/*/versions/*}\332A\004name",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="AccessSecretVersion",
@@ -1392,6 +1445,7 @@ _SECRETMANAGERSERVICE = _descriptor.ServiceDescriptor(
             input_type=_ACCESSSECRETVERSIONREQUEST,
             output_type=_ACCESSSECRETVERSIONRESPONSE,
             serialized_options=b"\202\323\344\223\0023\0221/v1/{name=projects/*/secrets/*/versions/*}:access\332A\004name",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="DisableSecretVersion",
@@ -1401,6 +1455,7 @@ _SECRETMANAGERSERVICE = _descriptor.ServiceDescriptor(
             input_type=_DISABLESECRETVERSIONREQUEST,
             output_type=google_dot_cloud_dot_secretmanager__v1_dot_proto_dot_resources__pb2._SECRETVERSION,
             serialized_options=b'\202\323\344\223\0027"2/v1/{name=projects/*/secrets/*/versions/*}:disable:\001*\332A\004name',
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="EnableSecretVersion",
@@ -1410,6 +1465,7 @@ _SECRETMANAGERSERVICE = _descriptor.ServiceDescriptor(
             input_type=_ENABLESECRETVERSIONREQUEST,
             output_type=google_dot_cloud_dot_secretmanager__v1_dot_proto_dot_resources__pb2._SECRETVERSION,
             serialized_options=b'\202\323\344\223\0026"1/v1/{name=projects/*/secrets/*/versions/*}:enable:\001*\332A\004name',
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="DestroySecretVersion",
@@ -1419,6 +1475,7 @@ _SECRETMANAGERSERVICE = _descriptor.ServiceDescriptor(
             input_type=_DESTROYSECRETVERSIONREQUEST,
             output_type=google_dot_cloud_dot_secretmanager__v1_dot_proto_dot_resources__pb2._SECRETVERSION,
             serialized_options=b'\202\323\344\223\0027"2/v1/{name=projects/*/secrets/*/versions/*}:destroy:\001*\332A\004name',
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="SetIamPolicy",
@@ -1428,6 +1485,7 @@ _SECRETMANAGERSERVICE = _descriptor.ServiceDescriptor(
             input_type=google_dot_iam_dot_v1_dot_iam__policy__pb2._SETIAMPOLICYREQUEST,
             output_type=google_dot_iam_dot_v1_dot_policy__pb2._POLICY,
             serialized_options=b'\202\323\344\223\0025"0/v1/{resource=projects/*/secrets/*}:setIamPolicy:\001*',
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="GetIamPolicy",
@@ -1437,6 +1495,7 @@ _SECRETMANAGERSERVICE = _descriptor.ServiceDescriptor(
             input_type=google_dot_iam_dot_v1_dot_iam__policy__pb2._GETIAMPOLICYREQUEST,
             output_type=google_dot_iam_dot_v1_dot_policy__pb2._POLICY,
             serialized_options=b"\202\323\344\223\0022\0220/v1/{resource=projects/*/secrets/*}:getIamPolicy",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="TestIamPermissions",
@@ -1446,6 +1505,7 @@ _SECRETMANAGERSERVICE = _descriptor.ServiceDescriptor(
             input_type=google_dot_iam_dot_v1_dot_iam__policy__pb2._TESTIAMPERMISSIONSREQUEST,
             output_type=google_dot_iam_dot_v1_dot_iam__policy__pb2._TESTIAMPERMISSIONSRESPONSE,
             serialized_options=b'\202\323\344\223\002;"6/v1/{resource=projects/*/secrets/*}:testIamPermissions:\001*',
+            create_key=_descriptor._internal_create_key,
         ),
     ],
 )
