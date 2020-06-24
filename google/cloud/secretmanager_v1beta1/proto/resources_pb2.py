@@ -575,13 +575,10 @@ Secret = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _SECRET,
         "__module__": "google.cloud.secrets_v1beta1.proto.resources_pb2",
         "__doc__": """A [Secret][google.cloud.secrets.v1beta1.Secret] is a logical secret
-  whose value and versions can be accessed.
-  
-  A [Secret][google.cloud.secrets.v1beta1.Secret] is made up of zero or
+  whose value and versions can be accessed.  A
+  [Secret][google.cloud.secrets.v1beta1.Secret] is made up of zero or
   more [SecretVersions][google.cloud.secrets.v1beta1.SecretVersion] that
   represent the secret data.
-  
-  
   Attributes:
       name:
           Output only. The resource name of the
@@ -620,8 +617,6 @@ SecretVersion = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _SECRETVERSION,
         "__module__": "google.cloud.secrets_v1beta1.proto.resources_pb2",
         "__doc__": """A secret version resource in the Secret Manager API.
-  
-  
   Attributes:
       name:
           Output only. The resource name of the
@@ -663,9 +658,7 @@ Replication = _reflection.GeneratedProtocolMessageType(
                 "__module__": "google.cloud.secrets_v1beta1.proto.resources_pb2",
                 "__doc__": """A replication policy that replicates the
     [Secret][google.cloud.secrets.v1beta1.Secret] payload without any
-    restrictions.
-    
-    """,
+    restrictions.""",
                 # @@protoc_insertion_point(class_scope:google.cloud.secrets.v1beta1.Replication.Automatic)
             },
         ),
@@ -681,8 +674,6 @@ Replication = _reflection.GeneratedProtocolMessageType(
                         "__module__": "google.cloud.secrets_v1beta1.proto.resources_pb2",
                         "__doc__": """Represents a Replica for this
       [Secret][google.cloud.secrets.v1beta1.Secret].
-      
-      
       Attributes:
           location:
               The canonical IDs of the location to replicate data. For
@@ -694,10 +685,8 @@ Replication = _reflection.GeneratedProtocolMessageType(
                 "DESCRIPTOR": _REPLICATION_USERMANAGED,
                 "__module__": "google.cloud.secrets_v1beta1.proto.resources_pb2",
                 "__doc__": """A replication policy that replicates the
-    [Secret][google.cloud.secrets.v1beta1.Secret] payload into the locations
-    specified in [Secret.replication.user_managed.replicas][]
-    
-    
+    [Secret][google.cloud.secrets.v1beta1.Secret] payload into the
+    locations specified in [Secret.replication.user_managed.replicas][]
     Attributes:
         replicas:
             Required. The list of Replicas for this
@@ -709,10 +698,7 @@ Replication = _reflection.GeneratedProtocolMessageType(
         ),
         "DESCRIPTOR": _REPLICATION,
         "__module__": "google.cloud.secrets_v1beta1.proto.resources_pb2",
-        "__doc__": """A policy that defines the replication configuration of
-  data.
-  
-  
+        "__doc__": """A policy that defines the replication configuration of data.
   Attributes:
       replication:
           The replication policy for this secret.
@@ -737,11 +723,9 @@ SecretPayload = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _SECRETPAYLOAD,
         "__module__": "google.cloud.secrets_v1beta1.proto.resources_pb2",
-        "__doc__": """A secret payload resource in the Secret Manager API. This
-  contains the sensitive secret data that is associated with a
+        "__doc__": """A secret payload resource in the Secret Manager API. This contains the
+  sensitive secret data that is associated with a
   [SecretVersion][google.cloud.secrets.v1beta1.SecretVersion].
-  
-  
   Attributes:
       data:
           The secret data. Must be no larger than 64KiB.

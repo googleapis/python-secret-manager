@@ -948,10 +948,8 @@ ListSecretsRequest = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _LISTSECRETSREQUEST,
         "__module__": "google.cloud.secretmanager_v1.proto.service_pb2",
-        "__doc__": """Request message for
-  [SecretManagerService.ListSecrets][google.cloud.secretmanager.v1.SecretManagerService.ListSecrets].
-  
-  
+        "__doc__": """Request message for [SecretManagerService.ListSecrets][google.cloud.se
+  cretmanager.v1.SecretManagerService.ListSecrets].
   Attributes:
       parent:
           Required. The resource name of the project associated with the
@@ -978,10 +976,8 @@ ListSecretsResponse = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _LISTSECRETSRESPONSE,
         "__module__": "google.cloud.secretmanager_v1.proto.service_pb2",
-        "__doc__": """Response message for
-  [SecretManagerService.ListSecrets][google.cloud.secretmanager.v1.SecretManagerService.ListSecrets].
-  
-  
+        "__doc__": """Response message for [SecretManagerService.ListSecrets][google.cloud.s
+  ecretmanager.v1.SecretManagerService.ListSecrets].
   Attributes:
       secrets:
           The list of [Secrets][google.cloud.secretmanager.v1.Secret]
@@ -1005,10 +1001,8 @@ CreateSecretRequest = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _CREATESECRETREQUEST,
         "__module__": "google.cloud.secretmanager_v1.proto.service_pb2",
-        "__doc__": """Request message for
-  [SecretManagerService.CreateSecret][google.cloud.secretmanager.v1.SecretManagerService.CreateSecret].
-  
-  
+        "__doc__": """Request message for [SecretManagerService.CreateSecret][google.cloud.s
+  ecretmanager.v1.SecretManagerService.CreateSecret].
   Attributes:
       parent:
           Required. The resource name of the project to associate with
@@ -1034,10 +1028,8 @@ AddSecretVersionRequest = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _ADDSECRETVERSIONREQUEST,
         "__module__": "google.cloud.secretmanager_v1.proto.service_pb2",
-        "__doc__": """Request message for
-  [SecretManagerService.AddSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AddSecretVersion].
-  
-  
+        "__doc__": """Request message for [SecretManagerService.AddSecretVersion][google.clo
+  ud.secretmanager.v1.SecretManagerService.AddSecretVersion].
   Attributes:
       parent:
           Required. The resource name of the
@@ -1060,10 +1052,8 @@ GetSecretRequest = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _GETSECRETREQUEST,
         "__module__": "google.cloud.secretmanager_v1.proto.service_pb2",
-        "__doc__": """Request message for
-  [SecretManagerService.GetSecret][google.cloud.secretmanager.v1.SecretManagerService.GetSecret].
-  
-  
+        "__doc__": """Request message for [SecretManagerService.GetSecret][google.cloud.secr
+  etmanager.v1.SecretManagerService.GetSecret].
   Attributes:
       name:
           Required. The resource name of the
@@ -1081,10 +1071,8 @@ ListSecretVersionsRequest = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _LISTSECRETVERSIONSREQUEST,
         "__module__": "google.cloud.secretmanager_v1.proto.service_pb2",
-        "__doc__": """Request message for
-  [SecretManagerService.ListSecretVersions][google.cloud.secretmanager.v1.SecretManagerService.ListSecretVersions].
-  
-  
+        "__doc__": """Request message for [SecretManagerService.ListSecretVersions][google.c
+  loud.secretmanager.v1.SecretManagerService.ListSecretVersions].
   Attributes:
       parent:
           Required. The resource name of the
@@ -1112,10 +1100,8 @@ ListSecretVersionsResponse = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _LISTSECRETVERSIONSRESPONSE,
         "__module__": "google.cloud.secretmanager_v1.proto.service_pb2",
-        "__doc__": """Response message for
-  [SecretManagerService.ListSecretVersions][google.cloud.secretmanager.v1.SecretManagerService.ListSecretVersions].
-  
-  
+        "__doc__": """Response message for [SecretManagerService.ListSecretVersions][google.
+  cloud.secretmanager.v1.SecretManagerService.ListSecretVersions].
   Attributes:
       versions:
           The list of
@@ -1141,10 +1127,8 @@ GetSecretVersionRequest = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _GETSECRETVERSIONREQUEST,
         "__module__": "google.cloud.secretmanager_v1.proto.service_pb2",
-        "__doc__": """Request message for
-  [SecretManagerService.GetSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.GetSecretVersion].
-  
-  
+        "__doc__": """Request message for [SecretManagerService.GetSecretVersion][google.clo
+  ud.secretmanager.v1.SecretManagerService.GetSecretVersion].
   Attributes:
       name:
           Required. The resource name of the
@@ -1165,10 +1149,8 @@ UpdateSecretRequest = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _UPDATESECRETREQUEST,
         "__module__": "google.cloud.secretmanager_v1.proto.service_pb2",
-        "__doc__": """Request message for
-  [SecretManagerService.UpdateSecret][google.cloud.secretmanager.v1.SecretManagerService.UpdateSecret].
-  
-  
+        "__doc__": """Request message for [SecretManagerService.UpdateSecret][google.cloud.s
+  ecretmanager.v1.SecretManagerService.UpdateSecret].
   Attributes:
       secret:
           Required. [Secret][google.cloud.secretmanager.v1.Secret] with
@@ -1187,10 +1169,8 @@ AccessSecretVersionRequest = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _ACCESSSECRETVERSIONREQUEST,
         "__module__": "google.cloud.secretmanager_v1.proto.service_pb2",
-        "__doc__": """Request message for
-  [SecretManagerService.AccessSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AccessSecretVersion].
-  
-  
+        "__doc__": """Request message for [SecretManagerService.AccessSecretVersion][google.
+  cloud.secretmanager.v1.SecretManagerService.AccessSecretVersion].
   Attributes:
       name:
           Required. The resource name of the
@@ -1208,10 +1188,8 @@ AccessSecretVersionResponse = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _ACCESSSECRETVERSIONRESPONSE,
         "__module__": "google.cloud.secretmanager_v1.proto.service_pb2",
-        "__doc__": """Response message for
-  [SecretManagerService.AccessSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AccessSecretVersion].
-  
-  
+        "__doc__": """Response message for [SecretManagerService.AccessSecretVersion][google
+  .cloud.secretmanager.v1.SecretManagerService.AccessSecretVersion].
   Attributes:
       name:
           The resource name of the
@@ -1231,10 +1209,8 @@ DeleteSecretRequest = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _DELETESECRETREQUEST,
         "__module__": "google.cloud.secretmanager_v1.proto.service_pb2",
-        "__doc__": """Request message for
-  [SecretManagerService.DeleteSecret][google.cloud.secretmanager.v1.SecretManagerService.DeleteSecret].
-  
-  
+        "__doc__": """Request message for [SecretManagerService.DeleteSecret][google.cloud.s
+  ecretmanager.v1.SecretManagerService.DeleteSecret].
   Attributes:
       name:
           Required. The resource name of the
@@ -1252,10 +1228,8 @@ DisableSecretVersionRequest = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _DISABLESECRETVERSIONREQUEST,
         "__module__": "google.cloud.secretmanager_v1.proto.service_pb2",
-        "__doc__": """Request message for
-  [SecretManagerService.DisableSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.DisableSecretVersion].
-  
-  
+        "__doc__": """Request message for [SecretManagerService.DisableSecretVersion][google
+  .cloud.secretmanager.v1.SecretManagerService.DisableSecretVersion].
   Attributes:
       name:
           Required. The resource name of the
@@ -1273,10 +1247,8 @@ EnableSecretVersionRequest = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _ENABLESECRETVERSIONREQUEST,
         "__module__": "google.cloud.secretmanager_v1.proto.service_pb2",
-        "__doc__": """Request message for
-  [SecretManagerService.EnableSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.EnableSecretVersion].
-  
-  
+        "__doc__": """Request message for [SecretManagerService.EnableSecretVersion][google.
+  cloud.secretmanager.v1.SecretManagerService.EnableSecretVersion].
   Attributes:
       name:
           Required. The resource name of the
@@ -1294,10 +1266,8 @@ DestroySecretVersionRequest = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _DESTROYSECRETVERSIONREQUEST,
         "__module__": "google.cloud.secretmanager_v1.proto.service_pb2",
-        "__doc__": """Request message for
-  [SecretManagerService.DestroySecretVersion][google.cloud.secretmanager.v1.SecretManagerService.DestroySecretVersion].
-  
-  
+        "__doc__": """Request message for [SecretManagerService.DestroySecretVersion][google
+  .cloud.secretmanager.v1.SecretManagerService.DestroySecretVersion].
   Attributes:
       name:
           Required. The resource name of the
