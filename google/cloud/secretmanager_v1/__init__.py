@@ -26,22 +26,19 @@ from google.cloud.secretmanager_v1.gapic import secret_manager_service_client
 
 if sys.version_info[:2] == (2, 7):
     message = (
-        "A future version of this library will drop support for Python 2.7. "
-        "More details about Python 2 support for Google Cloud Client Libraries "
-        "can be found at https://cloud.google.com/python/docs/python2-sunset/"
+        'A future version of this library will drop support for Python 2.7. '
+        'More details about Python 2 support for Google Cloud Client Libraries '
+        'can be found at https://cloud.google.com/python/docs/python2-sunset/'
     )
     warnings.warn(message, DeprecationWarning)
 
-
-class SecretManagerServiceClient(
-    secret_manager_service_client.SecretManagerServiceClient
-):
+class SecretManagerServiceClient(secret_manager_service_client.SecretManagerServiceClient):
     __doc__ = secret_manager_service_client.SecretManagerServiceClient.__doc__
     enums = enums
 
 
 __all__ = (
-    "enums",
-    "types",
-    "SecretManagerServiceClient",
+    'enums',
+    'types',
+    'SecretManagerServiceClient',
 )

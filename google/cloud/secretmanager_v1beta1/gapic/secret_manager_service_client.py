@@ -32,12 +32,8 @@ import google.api_core.path_template
 import grpc
 
 from google.cloud.secretmanager_v1beta1.gapic import enums
-from google.cloud.secretmanager_v1beta1.gapic import (
-    secret_manager_service_client_config,
-)
-from google.cloud.secretmanager_v1beta1.gapic.transports import (
-    secret_manager_service_grpc_transport,
-)
+from google.cloud.secretmanager_v1beta1.gapic import secret_manager_service_client_config
+from google.cloud.secretmanager_v1beta1.gapic.transports import secret_manager_service_grpc_transport
 from google.cloud.secretmanager_v1beta1.proto import resources_pb2
 from google.cloud.secretmanager_v1beta1.proto import service_pb2
 from google.cloud.secretmanager_v1beta1.proto import service_pb2_grpc
@@ -48,8 +44,9 @@ from google.protobuf import empty_pb2
 from google.protobuf import field_mask_pb2
 
 
+
 _GAPIC_LIBRARY_VERSION = pkg_resources.get_distribution(
-    "google-cloud-secret-manager",
+    'google-cloud-secret-manager',
 ).version
 
 
@@ -64,12 +61,13 @@ class SecretManagerServiceClient(object):
     -  ``SecretVersion``
     """
 
-    SERVICE_ADDRESS = "secretmanager.googleapis.com:443"
+    SERVICE_ADDRESS = 'secretmanager.googleapis.com:443'
     """The default address of the service."""
 
     # The name of the interface for this client. This is the key used to
     # find the method configuration in the client_config dictionary.
-    _INTERFACE_NAME = "google.cloud.secrets.v1beta1.SecretManagerService"
+    _INTERFACE_NAME = 'google.cloud.secrets.v1beta1.SecretManagerService'
+
 
     @classmethod
     def from_service_account_file(cls, filename, *args, **kwargs):
@@ -85,45 +83,43 @@ class SecretManagerServiceClient(object):
         Returns:
             SecretManagerServiceClient: The constructed client.
         """
-        credentials = service_account.Credentials.from_service_account_file(filename)
-        kwargs["credentials"] = credentials
+        credentials = service_account.Credentials.from_service_account_file(
+            filename)
+        kwargs['credentials'] = credentials
         return cls(*args, **kwargs)
 
     from_service_account_json = from_service_account_file
+
 
     @classmethod
     def project_path(cls, project):
         """Return a fully-qualified project string."""
         return google.api_core.path_template.expand(
-            "projects/{project}", project=project,
+            'projects/{project}',
+            project=project,
         )
 
     @classmethod
     def secret_path(cls, project, secret):
         """Return a fully-qualified secret string."""
         return google.api_core.path_template.expand(
-            "projects/{project}/secrets/{secret}", project=project, secret=secret,
+            'projects/{project}/secrets/{secret}',
+            project=project,
+            secret=secret,
         )
 
     @classmethod
     def secret_version_path(cls, project, secret, secret_version):
         """Return a fully-qualified secret_version string."""
         return google.api_core.path_template.expand(
-            "projects/{project}/secrets/{secret}/versions/{secret_version}",
+            'projects/{project}/secrets/{secret}/versions/{secret_version}',
             project=project,
             secret=secret,
             secret_version=secret_version,
         )
 
-    def __init__(
-        self,
-        transport=None,
-        channel=None,
-        credentials=None,
-        client_config=None,
-        client_info=None,
-        client_options=None,
-    ):
+    def __init__(self, transport=None, channel=None, credentials=None,
+            client_config=None, client_info=None, client_options=None):
         """Constructor.
 
         Args:
@@ -159,27 +155,20 @@ class SecretManagerServiceClient(object):
         """
         # Raise deprecation warnings for things we want to go away.
         if client_config is not None:
-            warnings.warn(
-                "The `client_config` argument is deprecated.",
-                PendingDeprecationWarning,
-                stacklevel=2,
-            )
+            warnings.warn('The `client_config` argument is deprecated.',
+                          PendingDeprecationWarning, stacklevel=2)
         else:
             client_config = secret_manager_service_client_config.config
 
         if channel:
-            warnings.warn(
-                "The `channel` argument is deprecated; use " "`transport` instead.",
-                PendingDeprecationWarning,
-                stacklevel=2,
-            )
+            warnings.warn('The `channel` argument is deprecated; use '
+                          '`transport` instead.',
+                          PendingDeprecationWarning, stacklevel=2)
 
         api_endpoint = self.SERVICE_ADDRESS
         if client_options:
             if type(client_options) == dict:
-                client_options = google.api_core.client_options.from_dict(
-                    client_options
-                )
+                client_options = google.api_core.client_options.from_dict(client_options)
             if client_options.api_endpoint:
                 api_endpoint = client_options.api_endpoint
 
@@ -196,13 +185,15 @@ class SecretManagerServiceClient(object):
             else:
                 if credentials:
                     raise ValueError(
-                        "Received both a transport instance and "
-                        "credentials; these are mutually exclusive."
+                        'Received both a transport instance and '
+                        'credentials; these are mutually exclusive.'
                     )
                 self.transport = transport
         else:
             self.transport = secret_manager_service_grpc_transport.SecretManagerServiceGrpcTransport(
-                address=api_endpoint, channel=channel, credentials=credentials,
+                address=api_endpoint,
+                channel=channel,
+                credentials=credentials,
             )
 
         if client_info is None:
@@ -218,7 +209,7 @@ class SecretManagerServiceClient(object):
         # (Ordinarily, these are the defaults specified in the `*_config.py`
         # file next to this one.)
         self._method_configs = google.api_core.gapic_v1.config.parse_method_configs(
-            client_config["interfaces"][self._INTERFACE_NAME],
+            client_config['interfaces'][self._INTERFACE_NAME],
         )
 
         # Save a dictionary of cached API call functions.
@@ -229,13 +220,12 @@ class SecretManagerServiceClient(object):
 
     # Service calls
     def list_secrets(
-        self,
-        parent,
-        page_size=None,
-        retry=google.api_core.gapic_v1.method.DEFAULT,
-        timeout=google.api_core.gapic_v1.method.DEFAULT,
-        metadata=None,
-    ):
+            self,
+            parent,
+            page_size=None,
+            retry=google.api_core.gapic_v1.method.DEFAULT,
+            timeout=google.api_core.gapic_v1.method.DEFAULT,
+            metadata=None):
         """
         Lists ``Secrets``.
 
@@ -291,54 +281,47 @@ class SecretManagerServiceClient(object):
             ValueError: If the parameters are invalid.
         """
         # Wrap the transport method to add retry and timeout logic.
-        if "list_secrets" not in self._inner_api_calls:
-            self._inner_api_calls[
-                "list_secrets"
-            ] = google.api_core.gapic_v1.method.wrap_method(
+        if 'list_secrets' not in self._inner_api_calls:
+            self._inner_api_calls['list_secrets'] = google.api_core.gapic_v1.method.wrap_method(
                 self.transport.list_secrets,
-                default_retry=self._method_configs["ListSecrets"].retry,
-                default_timeout=self._method_configs["ListSecrets"].timeout,
+                default_retry=self._method_configs['ListSecrets'].retry,
+                default_timeout=self._method_configs['ListSecrets'].timeout,
                 client_info=self._client_info,
             )
 
-        request = service_pb2.ListSecretsRequest(parent=parent, page_size=page_size,)
+        request = service_pb2.ListSecretsRequest(
+            parent=parent,
+            page_size=page_size,
+        )
         if metadata is None:
             metadata = []
         metadata = list(metadata)
         try:
-            routing_header = [("parent", parent)]
+            routing_header = [('parent', parent)]
         except AttributeError:
             pass
         else:
-            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
-                routing_header
-            )
+            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(routing_header)
             metadata.append(routing_metadata)
 
         iterator = google.api_core.page_iterator.GRPCIterator(
             client=None,
-            method=functools.partial(
-                self._inner_api_calls["list_secrets"],
-                retry=retry,
-                timeout=timeout,
-                metadata=metadata,
-            ),
+            method=functools.partial(self._inner_api_calls['list_secrets'], retry=retry, timeout=timeout, metadata=metadata),
             request=request,
-            items_field="secrets",
-            request_token_field="page_token",
-            response_token_field="next_page_token",
+            items_field='secrets',
+            request_token_field='page_token',
+            response_token_field='next_page_token',
         )
         return iterator
 
     def create_secret(
-        self,
-        parent,
-        secret_id,
-        secret,
-        retry=google.api_core.gapic_v1.method.DEFAULT,
-        timeout=google.api_core.gapic_v1.method.DEFAULT,
-        metadata=None,
-    ):
+            self,
+            parent,
+            secret_id,
+            secret,
+            retry=google.api_core.gapic_v1.method.DEFAULT,
+            timeout=google.api_core.gapic_v1.method.DEFAULT,
+            metadata=None):
         """
         Creates a new ``Secret`` containing no ``SecretVersions``.
 
@@ -389,44 +372,39 @@ class SecretManagerServiceClient(object):
             ValueError: If the parameters are invalid.
         """
         # Wrap the transport method to add retry and timeout logic.
-        if "create_secret" not in self._inner_api_calls:
-            self._inner_api_calls[
-                "create_secret"
-            ] = google.api_core.gapic_v1.method.wrap_method(
+        if 'create_secret' not in self._inner_api_calls:
+            self._inner_api_calls['create_secret'] = google.api_core.gapic_v1.method.wrap_method(
                 self.transport.create_secret,
-                default_retry=self._method_configs["CreateSecret"].retry,
-                default_timeout=self._method_configs["CreateSecret"].timeout,
+                default_retry=self._method_configs['CreateSecret'].retry,
+                default_timeout=self._method_configs['CreateSecret'].timeout,
                 client_info=self._client_info,
             )
 
         request = service_pb2.CreateSecretRequest(
-            parent=parent, secret_id=secret_id, secret=secret,
+            parent=parent,
+            secret_id=secret_id,
+            secret=secret,
         )
         if metadata is None:
             metadata = []
         metadata = list(metadata)
         try:
-            routing_header = [("parent", parent)]
+            routing_header = [('parent', parent)]
         except AttributeError:
             pass
         else:
-            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
-                routing_header
-            )
+            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(routing_header)
             metadata.append(routing_metadata)
 
-        return self._inner_api_calls["create_secret"](
-            request, retry=retry, timeout=timeout, metadata=metadata
-        )
+        return self._inner_api_calls['create_secret'](request, retry=retry, timeout=timeout, metadata=metadata)
 
     def add_secret_version(
-        self,
-        parent,
-        payload,
-        retry=google.api_core.gapic_v1.method.DEFAULT,
-        timeout=google.api_core.gapic_v1.method.DEFAULT,
-        metadata=None,
-    ):
+            self,
+            parent,
+            payload,
+            retry=google.api_core.gapic_v1.method.DEFAULT,
+            timeout=google.api_core.gapic_v1.method.DEFAULT,
+            metadata=None):
         """
         Creates a new ``SecretVersion`` containing secret data and attaches
         it to an existing ``Secret``.
@@ -470,41 +448,37 @@ class SecretManagerServiceClient(object):
             ValueError: If the parameters are invalid.
         """
         # Wrap the transport method to add retry and timeout logic.
-        if "add_secret_version" not in self._inner_api_calls:
-            self._inner_api_calls[
-                "add_secret_version"
-            ] = google.api_core.gapic_v1.method.wrap_method(
+        if 'add_secret_version' not in self._inner_api_calls:
+            self._inner_api_calls['add_secret_version'] = google.api_core.gapic_v1.method.wrap_method(
                 self.transport.add_secret_version,
-                default_retry=self._method_configs["AddSecretVersion"].retry,
-                default_timeout=self._method_configs["AddSecretVersion"].timeout,
+                default_retry=self._method_configs['AddSecretVersion'].retry,
+                default_timeout=self._method_configs['AddSecretVersion'].timeout,
                 client_info=self._client_info,
             )
 
-        request = service_pb2.AddSecretVersionRequest(parent=parent, payload=payload,)
+        request = service_pb2.AddSecretVersionRequest(
+            parent=parent,
+            payload=payload,
+        )
         if metadata is None:
             metadata = []
         metadata = list(metadata)
         try:
-            routing_header = [("parent", parent)]
+            routing_header = [('parent', parent)]
         except AttributeError:
             pass
         else:
-            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
-                routing_header
-            )
+            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(routing_header)
             metadata.append(routing_metadata)
 
-        return self._inner_api_calls["add_secret_version"](
-            request, retry=retry, timeout=timeout, metadata=metadata
-        )
+        return self._inner_api_calls['add_secret_version'](request, retry=retry, timeout=timeout, metadata=metadata)
 
     def get_secret(
-        self,
-        name,
-        retry=google.api_core.gapic_v1.method.DEFAULT,
-        timeout=google.api_core.gapic_v1.method.DEFAULT,
-        metadata=None,
-    ):
+            self,
+            name,
+            retry=google.api_core.gapic_v1.method.DEFAULT,
+            timeout=google.api_core.gapic_v1.method.DEFAULT,
+            metadata=None):
         """
         Gets metadata for a given ``Secret``.
 
@@ -540,42 +514,37 @@ class SecretManagerServiceClient(object):
             ValueError: If the parameters are invalid.
         """
         # Wrap the transport method to add retry and timeout logic.
-        if "get_secret" not in self._inner_api_calls:
-            self._inner_api_calls[
-                "get_secret"
-            ] = google.api_core.gapic_v1.method.wrap_method(
+        if 'get_secret' not in self._inner_api_calls:
+            self._inner_api_calls['get_secret'] = google.api_core.gapic_v1.method.wrap_method(
                 self.transport.get_secret,
-                default_retry=self._method_configs["GetSecret"].retry,
-                default_timeout=self._method_configs["GetSecret"].timeout,
+                default_retry=self._method_configs['GetSecret'].retry,
+                default_timeout=self._method_configs['GetSecret'].timeout,
                 client_info=self._client_info,
             )
 
-        request = service_pb2.GetSecretRequest(name=name,)
+        request = service_pb2.GetSecretRequest(
+            name=name,
+        )
         if metadata is None:
             metadata = []
         metadata = list(metadata)
         try:
-            routing_header = [("name", name)]
+            routing_header = [('name', name)]
         except AttributeError:
             pass
         else:
-            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
-                routing_header
-            )
+            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(routing_header)
             metadata.append(routing_metadata)
 
-        return self._inner_api_calls["get_secret"](
-            request, retry=retry, timeout=timeout, metadata=metadata
-        )
+        return self._inner_api_calls['get_secret'](request, retry=retry, timeout=timeout, metadata=metadata)
 
     def update_secret(
-        self,
-        secret,
-        update_mask,
-        retry=google.api_core.gapic_v1.method.DEFAULT,
-        timeout=google.api_core.gapic_v1.method.DEFAULT,
-        metadata=None,
-    ):
+            self,
+            secret,
+            update_mask,
+            retry=google.api_core.gapic_v1.method.DEFAULT,
+            timeout=google.api_core.gapic_v1.method.DEFAULT,
+            metadata=None):
         """
         Updates metadata of an existing ``Secret``.
 
@@ -621,43 +590,37 @@ class SecretManagerServiceClient(object):
             ValueError: If the parameters are invalid.
         """
         # Wrap the transport method to add retry and timeout logic.
-        if "update_secret" not in self._inner_api_calls:
-            self._inner_api_calls[
-                "update_secret"
-            ] = google.api_core.gapic_v1.method.wrap_method(
+        if 'update_secret' not in self._inner_api_calls:
+            self._inner_api_calls['update_secret'] = google.api_core.gapic_v1.method.wrap_method(
                 self.transport.update_secret,
-                default_retry=self._method_configs["UpdateSecret"].retry,
-                default_timeout=self._method_configs["UpdateSecret"].timeout,
+                default_retry=self._method_configs['UpdateSecret'].retry,
+                default_timeout=self._method_configs['UpdateSecret'].timeout,
                 client_info=self._client_info,
             )
 
         request = service_pb2.UpdateSecretRequest(
-            secret=secret, update_mask=update_mask,
+            secret=secret,
+            update_mask=update_mask,
         )
         if metadata is None:
             metadata = []
         metadata = list(metadata)
         try:
-            routing_header = [("secret.name", secret.name)]
+            routing_header = [('secret.name', secret.name)]
         except AttributeError:
             pass
         else:
-            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
-                routing_header
-            )
+            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(routing_header)
             metadata.append(routing_metadata)
 
-        return self._inner_api_calls["update_secret"](
-            request, retry=retry, timeout=timeout, metadata=metadata
-        )
+        return self._inner_api_calls['update_secret'](request, retry=retry, timeout=timeout, metadata=metadata)
 
     def delete_secret(
-        self,
-        name,
-        retry=google.api_core.gapic_v1.method.DEFAULT,
-        timeout=google.api_core.gapic_v1.method.DEFAULT,
-        metadata=None,
-    ):
+            self,
+            name,
+            retry=google.api_core.gapic_v1.method.DEFAULT,
+            timeout=google.api_core.gapic_v1.method.DEFAULT,
+            metadata=None):
         """
         Deletes a ``Secret``.
 
@@ -690,42 +653,37 @@ class SecretManagerServiceClient(object):
             ValueError: If the parameters are invalid.
         """
         # Wrap the transport method to add retry and timeout logic.
-        if "delete_secret" not in self._inner_api_calls:
-            self._inner_api_calls[
-                "delete_secret"
-            ] = google.api_core.gapic_v1.method.wrap_method(
+        if 'delete_secret' not in self._inner_api_calls:
+            self._inner_api_calls['delete_secret'] = google.api_core.gapic_v1.method.wrap_method(
                 self.transport.delete_secret,
-                default_retry=self._method_configs["DeleteSecret"].retry,
-                default_timeout=self._method_configs["DeleteSecret"].timeout,
+                default_retry=self._method_configs['DeleteSecret'].retry,
+                default_timeout=self._method_configs['DeleteSecret'].timeout,
                 client_info=self._client_info,
             )
 
-        request = service_pb2.DeleteSecretRequest(name=name,)
+        request = service_pb2.DeleteSecretRequest(
+            name=name,
+        )
         if metadata is None:
             metadata = []
         metadata = list(metadata)
         try:
-            routing_header = [("name", name)]
+            routing_header = [('name', name)]
         except AttributeError:
             pass
         else:
-            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
-                routing_header
-            )
+            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(routing_header)
             metadata.append(routing_metadata)
 
-        self._inner_api_calls["delete_secret"](
-            request, retry=retry, timeout=timeout, metadata=metadata
-        )
+        self._inner_api_calls['delete_secret'](request, retry=retry, timeout=timeout, metadata=metadata)
 
     def list_secret_versions(
-        self,
-        parent,
-        page_size=None,
-        retry=google.api_core.gapic_v1.method.DEFAULT,
-        timeout=google.api_core.gapic_v1.method.DEFAULT,
-        metadata=None,
-    ):
+            self,
+            parent,
+            page_size=None,
+            retry=google.api_core.gapic_v1.method.DEFAULT,
+            timeout=google.api_core.gapic_v1.method.DEFAULT,
+            metadata=None):
         """
         Lists ``SecretVersions``. This call does not return secret data.
 
@@ -781,54 +739,45 @@ class SecretManagerServiceClient(object):
             ValueError: If the parameters are invalid.
         """
         # Wrap the transport method to add retry and timeout logic.
-        if "list_secret_versions" not in self._inner_api_calls:
-            self._inner_api_calls[
-                "list_secret_versions"
-            ] = google.api_core.gapic_v1.method.wrap_method(
+        if 'list_secret_versions' not in self._inner_api_calls:
+            self._inner_api_calls['list_secret_versions'] = google.api_core.gapic_v1.method.wrap_method(
                 self.transport.list_secret_versions,
-                default_retry=self._method_configs["ListSecretVersions"].retry,
-                default_timeout=self._method_configs["ListSecretVersions"].timeout,
+                default_retry=self._method_configs['ListSecretVersions'].retry,
+                default_timeout=self._method_configs['ListSecretVersions'].timeout,
                 client_info=self._client_info,
             )
 
         request = service_pb2.ListSecretVersionsRequest(
-            parent=parent, page_size=page_size,
+            parent=parent,
+            page_size=page_size,
         )
         if metadata is None:
             metadata = []
         metadata = list(metadata)
         try:
-            routing_header = [("parent", parent)]
+            routing_header = [('parent', parent)]
         except AttributeError:
             pass
         else:
-            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
-                routing_header
-            )
+            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(routing_header)
             metadata.append(routing_metadata)
 
         iterator = google.api_core.page_iterator.GRPCIterator(
             client=None,
-            method=functools.partial(
-                self._inner_api_calls["list_secret_versions"],
-                retry=retry,
-                timeout=timeout,
-                metadata=metadata,
-            ),
+            method=functools.partial(self._inner_api_calls['list_secret_versions'], retry=retry, timeout=timeout, metadata=metadata),
             request=request,
-            items_field="versions",
-            request_token_field="page_token",
-            response_token_field="next_page_token",
+            items_field='versions',
+            request_token_field='page_token',
+            response_token_field='next_page_token',
         )
         return iterator
 
     def get_secret_version(
-        self,
-        name,
-        retry=google.api_core.gapic_v1.method.DEFAULT,
-        timeout=google.api_core.gapic_v1.method.DEFAULT,
-        metadata=None,
-    ):
+            self,
+            name,
+            retry=google.api_core.gapic_v1.method.DEFAULT,
+            timeout=google.api_core.gapic_v1.method.DEFAULT,
+            metadata=None):
         """
         Gets metadata for a ``SecretVersion``.
 
@@ -869,41 +818,36 @@ class SecretManagerServiceClient(object):
             ValueError: If the parameters are invalid.
         """
         # Wrap the transport method to add retry and timeout logic.
-        if "get_secret_version" not in self._inner_api_calls:
-            self._inner_api_calls[
-                "get_secret_version"
-            ] = google.api_core.gapic_v1.method.wrap_method(
+        if 'get_secret_version' not in self._inner_api_calls:
+            self._inner_api_calls['get_secret_version'] = google.api_core.gapic_v1.method.wrap_method(
                 self.transport.get_secret_version,
-                default_retry=self._method_configs["GetSecretVersion"].retry,
-                default_timeout=self._method_configs["GetSecretVersion"].timeout,
+                default_retry=self._method_configs['GetSecretVersion'].retry,
+                default_timeout=self._method_configs['GetSecretVersion'].timeout,
                 client_info=self._client_info,
             )
 
-        request = service_pb2.GetSecretVersionRequest(name=name,)
+        request = service_pb2.GetSecretVersionRequest(
+            name=name,
+        )
         if metadata is None:
             metadata = []
         metadata = list(metadata)
         try:
-            routing_header = [("name", name)]
+            routing_header = [('name', name)]
         except AttributeError:
             pass
         else:
-            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
-                routing_header
-            )
+            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(routing_header)
             metadata.append(routing_metadata)
 
-        return self._inner_api_calls["get_secret_version"](
-            request, retry=retry, timeout=timeout, metadata=metadata
-        )
+        return self._inner_api_calls['get_secret_version'](request, retry=retry, timeout=timeout, metadata=metadata)
 
     def access_secret_version(
-        self,
-        name,
-        retry=google.api_core.gapic_v1.method.DEFAULT,
-        timeout=google.api_core.gapic_v1.method.DEFAULT,
-        metadata=None,
-    ):
+            self,
+            name,
+            retry=google.api_core.gapic_v1.method.DEFAULT,
+            timeout=google.api_core.gapic_v1.method.DEFAULT,
+            metadata=None):
         """
         Accesses a ``SecretVersion``. This call returns the secret data.
 
@@ -942,41 +886,36 @@ class SecretManagerServiceClient(object):
             ValueError: If the parameters are invalid.
         """
         # Wrap the transport method to add retry and timeout logic.
-        if "access_secret_version" not in self._inner_api_calls:
-            self._inner_api_calls[
-                "access_secret_version"
-            ] = google.api_core.gapic_v1.method.wrap_method(
+        if 'access_secret_version' not in self._inner_api_calls:
+            self._inner_api_calls['access_secret_version'] = google.api_core.gapic_v1.method.wrap_method(
                 self.transport.access_secret_version,
-                default_retry=self._method_configs["AccessSecretVersion"].retry,
-                default_timeout=self._method_configs["AccessSecretVersion"].timeout,
+                default_retry=self._method_configs['AccessSecretVersion'].retry,
+                default_timeout=self._method_configs['AccessSecretVersion'].timeout,
                 client_info=self._client_info,
             )
 
-        request = service_pb2.AccessSecretVersionRequest(name=name,)
+        request = service_pb2.AccessSecretVersionRequest(
+            name=name,
+        )
         if metadata is None:
             metadata = []
         metadata = list(metadata)
         try:
-            routing_header = [("name", name)]
+            routing_header = [('name', name)]
         except AttributeError:
             pass
         else:
-            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
-                routing_header
-            )
+            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(routing_header)
             metadata.append(routing_metadata)
 
-        return self._inner_api_calls["access_secret_version"](
-            request, retry=retry, timeout=timeout, metadata=metadata
-        )
+        return self._inner_api_calls['access_secret_version'](request, retry=retry, timeout=timeout, metadata=metadata)
 
     def disable_secret_version(
-        self,
-        name,
-        retry=google.api_core.gapic_v1.method.DEFAULT,
-        timeout=google.api_core.gapic_v1.method.DEFAULT,
-        metadata=None,
-    ):
+            self,
+            name,
+            retry=google.api_core.gapic_v1.method.DEFAULT,
+            timeout=google.api_core.gapic_v1.method.DEFAULT,
+            metadata=None):
         """
         Disables a ``SecretVersion``.
 
@@ -1014,41 +953,36 @@ class SecretManagerServiceClient(object):
             ValueError: If the parameters are invalid.
         """
         # Wrap the transport method to add retry and timeout logic.
-        if "disable_secret_version" not in self._inner_api_calls:
-            self._inner_api_calls[
-                "disable_secret_version"
-            ] = google.api_core.gapic_v1.method.wrap_method(
+        if 'disable_secret_version' not in self._inner_api_calls:
+            self._inner_api_calls['disable_secret_version'] = google.api_core.gapic_v1.method.wrap_method(
                 self.transport.disable_secret_version,
-                default_retry=self._method_configs["DisableSecretVersion"].retry,
-                default_timeout=self._method_configs["DisableSecretVersion"].timeout,
+                default_retry=self._method_configs['DisableSecretVersion'].retry,
+                default_timeout=self._method_configs['DisableSecretVersion'].timeout,
                 client_info=self._client_info,
             )
 
-        request = service_pb2.DisableSecretVersionRequest(name=name,)
+        request = service_pb2.DisableSecretVersionRequest(
+            name=name,
+        )
         if metadata is None:
             metadata = []
         metadata = list(metadata)
         try:
-            routing_header = [("name", name)]
+            routing_header = [('name', name)]
         except AttributeError:
             pass
         else:
-            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
-                routing_header
-            )
+            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(routing_header)
             metadata.append(routing_metadata)
 
-        return self._inner_api_calls["disable_secret_version"](
-            request, retry=retry, timeout=timeout, metadata=metadata
-        )
+        return self._inner_api_calls['disable_secret_version'](request, retry=retry, timeout=timeout, metadata=metadata)
 
     def enable_secret_version(
-        self,
-        name,
-        retry=google.api_core.gapic_v1.method.DEFAULT,
-        timeout=google.api_core.gapic_v1.method.DEFAULT,
-        metadata=None,
-    ):
+            self,
+            name,
+            retry=google.api_core.gapic_v1.method.DEFAULT,
+            timeout=google.api_core.gapic_v1.method.DEFAULT,
+            metadata=None):
         """
         Enables a ``SecretVersion``.
 
@@ -1086,41 +1020,36 @@ class SecretManagerServiceClient(object):
             ValueError: If the parameters are invalid.
         """
         # Wrap the transport method to add retry and timeout logic.
-        if "enable_secret_version" not in self._inner_api_calls:
-            self._inner_api_calls[
-                "enable_secret_version"
-            ] = google.api_core.gapic_v1.method.wrap_method(
+        if 'enable_secret_version' not in self._inner_api_calls:
+            self._inner_api_calls['enable_secret_version'] = google.api_core.gapic_v1.method.wrap_method(
                 self.transport.enable_secret_version,
-                default_retry=self._method_configs["EnableSecretVersion"].retry,
-                default_timeout=self._method_configs["EnableSecretVersion"].timeout,
+                default_retry=self._method_configs['EnableSecretVersion'].retry,
+                default_timeout=self._method_configs['EnableSecretVersion'].timeout,
                 client_info=self._client_info,
             )
 
-        request = service_pb2.EnableSecretVersionRequest(name=name,)
+        request = service_pb2.EnableSecretVersionRequest(
+            name=name,
+        )
         if metadata is None:
             metadata = []
         metadata = list(metadata)
         try:
-            routing_header = [("name", name)]
+            routing_header = [('name', name)]
         except AttributeError:
             pass
         else:
-            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
-                routing_header
-            )
+            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(routing_header)
             metadata.append(routing_metadata)
 
-        return self._inner_api_calls["enable_secret_version"](
-            request, retry=retry, timeout=timeout, metadata=metadata
-        )
+        return self._inner_api_calls['enable_secret_version'](request, retry=retry, timeout=timeout, metadata=metadata)
 
     def destroy_secret_version(
-        self,
-        name,
-        retry=google.api_core.gapic_v1.method.DEFAULT,
-        timeout=google.api_core.gapic_v1.method.DEFAULT,
-        metadata=None,
-    ):
+            self,
+            name,
+            retry=google.api_core.gapic_v1.method.DEFAULT,
+            timeout=google.api_core.gapic_v1.method.DEFAULT,
+            metadata=None):
         """
         Destroys a ``SecretVersion``.
 
@@ -1159,42 +1088,37 @@ class SecretManagerServiceClient(object):
             ValueError: If the parameters are invalid.
         """
         # Wrap the transport method to add retry and timeout logic.
-        if "destroy_secret_version" not in self._inner_api_calls:
-            self._inner_api_calls[
-                "destroy_secret_version"
-            ] = google.api_core.gapic_v1.method.wrap_method(
+        if 'destroy_secret_version' not in self._inner_api_calls:
+            self._inner_api_calls['destroy_secret_version'] = google.api_core.gapic_v1.method.wrap_method(
                 self.transport.destroy_secret_version,
-                default_retry=self._method_configs["DestroySecretVersion"].retry,
-                default_timeout=self._method_configs["DestroySecretVersion"].timeout,
+                default_retry=self._method_configs['DestroySecretVersion'].retry,
+                default_timeout=self._method_configs['DestroySecretVersion'].timeout,
                 client_info=self._client_info,
             )
 
-        request = service_pb2.DestroySecretVersionRequest(name=name,)
+        request = service_pb2.DestroySecretVersionRequest(
+            name=name,
+        )
         if metadata is None:
             metadata = []
         metadata = list(metadata)
         try:
-            routing_header = [("name", name)]
+            routing_header = [('name', name)]
         except AttributeError:
             pass
         else:
-            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
-                routing_header
-            )
+            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(routing_header)
             metadata.append(routing_metadata)
 
-        return self._inner_api_calls["destroy_secret_version"](
-            request, retry=retry, timeout=timeout, metadata=metadata
-        )
+        return self._inner_api_calls['destroy_secret_version'](request, retry=retry, timeout=timeout, metadata=metadata)
 
     def set_iam_policy(
-        self,
-        resource,
-        policy,
-        retry=google.api_core.gapic_v1.method.DEFAULT,
-        timeout=google.api_core.gapic_v1.method.DEFAULT,
-        metadata=None,
-    ):
+            self,
+            resource,
+            policy,
+            retry=google.api_core.gapic_v1.method.DEFAULT,
+            timeout=google.api_core.gapic_v1.method.DEFAULT,
+            metadata=None):
         """
         Sets the access control policy on the specified secret. Replaces any
         existing policy.
@@ -1245,42 +1169,38 @@ class SecretManagerServiceClient(object):
             ValueError: If the parameters are invalid.
         """
         # Wrap the transport method to add retry and timeout logic.
-        if "set_iam_policy" not in self._inner_api_calls:
-            self._inner_api_calls[
-                "set_iam_policy"
-            ] = google.api_core.gapic_v1.method.wrap_method(
+        if 'set_iam_policy' not in self._inner_api_calls:
+            self._inner_api_calls['set_iam_policy'] = google.api_core.gapic_v1.method.wrap_method(
                 self.transport.set_iam_policy,
-                default_retry=self._method_configs["SetIamPolicy"].retry,
-                default_timeout=self._method_configs["SetIamPolicy"].timeout,
+                default_retry=self._method_configs['SetIamPolicy'].retry,
+                default_timeout=self._method_configs['SetIamPolicy'].timeout,
                 client_info=self._client_info,
             )
 
-        request = iam_policy_pb2.SetIamPolicyRequest(resource=resource, policy=policy,)
+        request = iam_policy_pb2.SetIamPolicyRequest(
+            resource=resource,
+            policy=policy,
+        )
         if metadata is None:
             metadata = []
         metadata = list(metadata)
         try:
-            routing_header = [("resource", resource)]
+            routing_header = [('resource', resource)]
         except AttributeError:
             pass
         else:
-            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
-                routing_header
-            )
+            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(routing_header)
             metadata.append(routing_metadata)
 
-        return self._inner_api_calls["set_iam_policy"](
-            request, retry=retry, timeout=timeout, metadata=metadata
-        )
+        return self._inner_api_calls['set_iam_policy'](request, retry=retry, timeout=timeout, metadata=metadata)
 
     def get_iam_policy(
-        self,
-        resource,
-        options_=None,
-        retry=google.api_core.gapic_v1.method.DEFAULT,
-        timeout=google.api_core.gapic_v1.method.DEFAULT,
-        metadata=None,
-    ):
+            self,
+            resource,
+            options_=None,
+            retry=google.api_core.gapic_v1.method.DEFAULT,
+            timeout=google.api_core.gapic_v1.method.DEFAULT,
+            metadata=None):
         """
         Gets the access control policy for a secret.
         Returns empty policy if the secret exists and does not have a policy set.
@@ -1323,44 +1243,38 @@ class SecretManagerServiceClient(object):
             ValueError: If the parameters are invalid.
         """
         # Wrap the transport method to add retry and timeout logic.
-        if "get_iam_policy" not in self._inner_api_calls:
-            self._inner_api_calls[
-                "get_iam_policy"
-            ] = google.api_core.gapic_v1.method.wrap_method(
+        if 'get_iam_policy' not in self._inner_api_calls:
+            self._inner_api_calls['get_iam_policy'] = google.api_core.gapic_v1.method.wrap_method(
                 self.transport.get_iam_policy,
-                default_retry=self._method_configs["GetIamPolicy"].retry,
-                default_timeout=self._method_configs["GetIamPolicy"].timeout,
+                default_retry=self._method_configs['GetIamPolicy'].retry,
+                default_timeout=self._method_configs['GetIamPolicy'].timeout,
                 client_info=self._client_info,
             )
 
         request = iam_policy_pb2.GetIamPolicyRequest(
-            resource=resource, options=options_,
+            resource=resource,
+            options=options_,
         )
         if metadata is None:
             metadata = []
         metadata = list(metadata)
         try:
-            routing_header = [("resource", resource)]
+            routing_header = [('resource', resource)]
         except AttributeError:
             pass
         else:
-            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
-                routing_header
-            )
+            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(routing_header)
             metadata.append(routing_metadata)
 
-        return self._inner_api_calls["get_iam_policy"](
-            request, retry=retry, timeout=timeout, metadata=metadata
-        )
+        return self._inner_api_calls['get_iam_policy'](request, retry=retry, timeout=timeout, metadata=metadata)
 
     def test_iam_permissions(
-        self,
-        resource,
-        permissions,
-        retry=google.api_core.gapic_v1.method.DEFAULT,
-        timeout=google.api_core.gapic_v1.method.DEFAULT,
-        metadata=None,
-    ):
+            self,
+            resource,
+            permissions,
+            retry=google.api_core.gapic_v1.method.DEFAULT,
+            timeout=google.api_core.gapic_v1.method.DEFAULT,
+            metadata=None):
         """
         Returns permissions that a caller has for the specified secret. If
         the secret does not exist, this call returns an empty set of
@@ -1410,32 +1324,27 @@ class SecretManagerServiceClient(object):
             ValueError: If the parameters are invalid.
         """
         # Wrap the transport method to add retry and timeout logic.
-        if "test_iam_permissions" not in self._inner_api_calls:
-            self._inner_api_calls[
-                "test_iam_permissions"
-            ] = google.api_core.gapic_v1.method.wrap_method(
+        if 'test_iam_permissions' not in self._inner_api_calls:
+            self._inner_api_calls['test_iam_permissions'] = google.api_core.gapic_v1.method.wrap_method(
                 self.transport.test_iam_permissions,
-                default_retry=self._method_configs["TestIamPermissions"].retry,
-                default_timeout=self._method_configs["TestIamPermissions"].timeout,
+                default_retry=self._method_configs['TestIamPermissions'].retry,
+                default_timeout=self._method_configs['TestIamPermissions'].timeout,
                 client_info=self._client_info,
             )
 
         request = iam_policy_pb2.TestIamPermissionsRequest(
-            resource=resource, permissions=permissions,
+            resource=resource,
+            permissions=permissions,
         )
         if metadata is None:
             metadata = []
         metadata = list(metadata)
         try:
-            routing_header = [("resource", resource)]
+            routing_header = [('resource', resource)]
         except AttributeError:
             pass
         else:
-            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
-                routing_header
-            )
+            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(routing_header)
             metadata.append(routing_metadata)
 
-        return self._inner_api_calls["test_iam_permissions"](
-            request, retry=retry, timeout=timeout, metadata=metadata
-        )
+        return self._inner_api_calls['test_iam_permissions'](request, retry=retry, timeout=timeout, metadata=metadata)
