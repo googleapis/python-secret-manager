@@ -28,14 +28,14 @@ class SecretManagerServiceGrpcTransport(object):
     which can be used to take advantage of advanced
     features of gRPC.
     """
+
     # The scopes needed to make gRPC calls to all of the methods defined
     # in this service.
-    _OAUTH_SCOPES = (
-        'https://www.googleapis.com/auth/cloud-platform',
-    )
+    _OAUTH_SCOPES = ("https://www.googleapis.com/auth/cloud-platform",)
 
-    def __init__(self, channel=None, credentials=None,
-                 address='secretmanager.googleapis.com:443'):
+    def __init__(
+        self, channel=None, credentials=None, address="secretmanager.googleapis.com:443"
+    ):
         """Instantiate the transport class.
 
         Args:
@@ -53,8 +53,7 @@ class SecretManagerServiceGrpcTransport(object):
         # exception (channels come with credentials baked in already).
         if channel is not None and credentials is not None:
             raise ValueError(
-                'The `channel` and `credentials` arguments are mutually '
-                'exclusive.',
+                "The `channel` and `credentials` arguments are mutually " "exclusive.",
             )
 
         # Create the channel.
@@ -63,8 +62,8 @@ class SecretManagerServiceGrpcTransport(object):
                 address=address,
                 credentials=credentials,
                 options={
-                    'grpc.max_send_message_length': -1,
-                    'grpc.max_receive_message_length': -1,
+                    "grpc.max_send_message_length": -1,
+                    "grpc.max_receive_message_length": -1,
                 }.items(),
             )
 
@@ -73,16 +72,15 @@ class SecretManagerServiceGrpcTransport(object):
         # gRPC uses objects called "stubs" that are bound to the
         # channel and provide a basic method for each RPC.
         self._stubs = {
-            'secret_manager_service_stub': service_pb2_grpc.SecretManagerServiceStub(channel),
+            "secret_manager_service_stub": service_pb2_grpc.SecretManagerServiceStub(
+                channel
+            ),
         }
-
 
     @classmethod
     def create_channel(
-                cls,
-                address='secretmanager.googleapis.com:443',
-                credentials=None,
-                **kwargs):
+        cls, address="secretmanager.googleapis.com:443", credentials=None, **kwargs
+    ):
         """Create and return a gRPC channel object.
 
         Args:
@@ -99,10 +97,7 @@ class SecretManagerServiceGrpcTransport(object):
             grpc.Channel: A gRPC channel object.
         """
         return google.api_core.grpc_helpers.create_channel(
-            address,
-            credentials=credentials,
-            scopes=cls._OAUTH_SCOPES,
-            **kwargs
+            address, credentials=credentials, scopes=cls._OAUTH_SCOPES, **kwargs
         )
 
     @property
@@ -125,7 +120,7 @@ class SecretManagerServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['secret_manager_service_stub'].ListSecrets
+        return self._stubs["secret_manager_service_stub"].ListSecrets
 
     @property
     def create_secret(self):
@@ -138,7 +133,7 @@ class SecretManagerServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['secret_manager_service_stub'].CreateSecret
+        return self._stubs["secret_manager_service_stub"].CreateSecret
 
     @property
     def add_secret_version(self):
@@ -152,7 +147,7 @@ class SecretManagerServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['secret_manager_service_stub'].AddSecretVersion
+        return self._stubs["secret_manager_service_stub"].AddSecretVersion
 
     @property
     def get_secret(self):
@@ -165,7 +160,7 @@ class SecretManagerServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['secret_manager_service_stub'].GetSecret
+        return self._stubs["secret_manager_service_stub"].GetSecret
 
     @property
     def update_secret(self):
@@ -178,7 +173,7 @@ class SecretManagerServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['secret_manager_service_stub'].UpdateSecret
+        return self._stubs["secret_manager_service_stub"].UpdateSecret
 
     @property
     def delete_secret(self):
@@ -191,7 +186,7 @@ class SecretManagerServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['secret_manager_service_stub'].DeleteSecret
+        return self._stubs["secret_manager_service_stub"].DeleteSecret
 
     @property
     def list_secret_versions(self):
@@ -204,7 +199,7 @@ class SecretManagerServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['secret_manager_service_stub'].ListSecretVersions
+        return self._stubs["secret_manager_service_stub"].ListSecretVersions
 
     @property
     def get_secret_version(self):
@@ -220,7 +215,7 @@ class SecretManagerServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['secret_manager_service_stub'].GetSecretVersion
+        return self._stubs["secret_manager_service_stub"].GetSecretVersion
 
     @property
     def access_secret_version(self):
@@ -236,7 +231,7 @@ class SecretManagerServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['secret_manager_service_stub'].AccessSecretVersion
+        return self._stubs["secret_manager_service_stub"].AccessSecretVersion
 
     @property
     def disable_secret_version(self):
@@ -251,7 +246,7 @@ class SecretManagerServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['secret_manager_service_stub'].DisableSecretVersion
+        return self._stubs["secret_manager_service_stub"].DisableSecretVersion
 
     @property
     def enable_secret_version(self):
@@ -266,7 +261,7 @@ class SecretManagerServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['secret_manager_service_stub'].EnableSecretVersion
+        return self._stubs["secret_manager_service_stub"].EnableSecretVersion
 
     @property
     def destroy_secret_version(self):
@@ -282,7 +277,7 @@ class SecretManagerServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['secret_manager_service_stub'].DestroySecretVersion
+        return self._stubs["secret_manager_service_stub"].DestroySecretVersion
 
     @property
     def set_iam_policy(self):
@@ -299,7 +294,7 @@ class SecretManagerServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['secret_manager_service_stub'].SetIamPolicy
+        return self._stubs["secret_manager_service_stub"].SetIamPolicy
 
     @property
     def get_iam_policy(self):
@@ -313,7 +308,7 @@ class SecretManagerServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['secret_manager_service_stub'].GetIamPolicy
+        return self._stubs["secret_manager_service_stub"].GetIamPolicy
 
     @property
     def test_iam_permissions(self):
@@ -332,4 +327,4 @@ class SecretManagerServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['secret_manager_service_stub'].TestIamPermissions
+        return self._stubs["secret_manager_service_stub"].TestIamPermissions

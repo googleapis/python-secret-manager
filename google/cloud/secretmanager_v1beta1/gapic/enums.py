@@ -32,8 +32,8 @@ class SecretVersion(object):
           DESTROYED (int): The ``SecretVersion`` is destroyed and the secret data is no longer
           stored. A version may not leave this state once entered.
         """
+
         STATE_UNSPECIFIED = 0
         ENABLED = 1
         DISABLED = 2
         DESTROYED = 3
-    
