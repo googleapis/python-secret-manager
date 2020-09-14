@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.1](https://www.github.com/googleapis/python-secret-manager/compare/v1.0.0...v1.0.1) (2020-09-14)
+
+
+### Bug Fixes
+
+* update default retry configs ([#31](https://www.github.com/googleapis/python-secret-manager/issues/31)) ([5f8689c](https://www.github.com/googleapis/python-secret-manager/commit/5f8689c9a1d6001d2873158c13cbb9a95b33fb97))
+
 ## [1.0.0](https://www.github.com/googleapis/python-secret-manager/compare/v0.2.0...v1.0.0) (2020-05-20)
 
 
