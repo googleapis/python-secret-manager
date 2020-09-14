@@ -40,7 +40,7 @@ def add_secret_version(project_id, secret_id, payload):
     payload = payload.encode('UTF-8')
 
     # Add the secret version.
-    response = client.add_secret_version(parent, {'data': payload})
+    response = client.add_secret_version(request={'parent': parent, 'payload': {'data': payload}})
 
     # Print the new secret version name.
     print('Added secret version: {}'.format(response.name))

@@ -34,7 +34,7 @@ def update_secret(project_id, secret_id):
     # Update the secret.
     secret = {'name': name, 'labels': {'secretmanager': 'rocks'}}
     update_mask = {'paths': ['labels']}
-    response = client.update_secret(secret, update_mask)
+    response = client.update_secret(request={'secret': secret, 'update_mask': update_mask})
 
     # Print the new secret name.
     print('Updated secret: {}'.format(response.name))

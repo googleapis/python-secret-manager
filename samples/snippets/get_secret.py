@@ -36,12 +36,12 @@ def get_secret(project_id, secret_id):
     name = client.secret_path(project_id, secret_id)
 
     # Get the secret.
-    response = client.get_secret(name)
+    response = client.get_secret(request={'name': name})
 
     # Get the replication policy.
-    if response.replication.automatic:
+    if 'automatic' in response.replication:
         replication = 'AUTOMATIC'
-    elif response.replication.user_managed:
+    elif 'user_managed' in response.replication:
         replication = 'MANAGED'
     else:
         raise 'Unknown replication {}'.format(response.replication)

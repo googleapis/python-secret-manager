@@ -35,7 +35,7 @@ def iam_grant_access(project_id, secret_id, member):
     name = client.secret_path(project_id, secret_id)
 
     # Get the current IAM policy.
-    policy = client.get_iam_policy(name)
+    policy = client.get_iam_policy(request={'resource': name})
 
     # Add the given member with access permissions.
     policy.bindings.add(
@@ -43,7 +43,7 @@ def iam_grant_access(project_id, secret_id, member):
         members=[member])
 
     # Update the IAM Policy.
-    new_policy = client.set_iam_policy(name, policy)
+    new_policy = client.set_iam_policy(request={'resource': name, 'policy': policy})
 
     # Print data about the secret.
     print('Updated IAM policy on {}'.format(secret_id))

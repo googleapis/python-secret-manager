@@ -34,13 +34,13 @@ def get_secret_version(project_id, secret_id, version_id):
     client = secretmanager.SecretManagerServiceClient()
 
     # Build the resource name of the secret version.
-    name = client.secret_version_path(project_id, secret_id, version_id)
+    name = f'projects/{project_id}/secrets/{secret_id}/versions/{version_id}'
 
     # Get the secret version.
-    response = client.get_secret_version(name)
+    response = client.get_secret_version(request={'name': name})
 
     # Print information about the secret version.
-    state = response.State.Name(response.state)
+    state = response.state.name
     print('Got secret version {} with state {}'.format(response.name, state))
 # [END secretmanager_get_secret_version]
 

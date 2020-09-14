@@ -35,7 +35,7 @@ def delete_secret(project_id, secret_id):
     name = client.secret_path(project_id, secret_id)
 
     # Delete the secret.
-    client.delete_secret(name)
+    client.delete_secret(request={'name': name})
 # [END secretmanager_delete_secret]
 
 

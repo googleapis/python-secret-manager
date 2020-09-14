@@ -36,20 +36,20 @@ def quickstart(_project_id=None, _secret_id=None):
     client = secretmanager.SecretManagerServiceClient()
 
     # Build the parent name from the project.
-    parent = client.project_path(project_id)
+    parent = f"projects/{project_id}"
 
     # Create the parent secret.
-    secret = client.create_secret(parent, secret_id, {
+    secret = client.create_secret(request={'parent': parent, 'secret_id': secret_id, 'secret': {
         'replication': {
             'automatic': {},
         },
-    })
+    }})
 
     # Add the secret version.
-    version = client.add_secret_version(secret.name, {'data': b'hello world!'})
+    version = client.add_secret_version(request={'parent': secret.name, 'payload': {'data': b'hello world!'}})
 
     # Access the secret version.
-    response = client.access_secret_version(version.name)
+    response = client.access_secret_version(request={'name': version.name})
 
     # Print the secret payload.
     #
