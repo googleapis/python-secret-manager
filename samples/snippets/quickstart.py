@@ -43,7 +43,7 @@ def quickstart(_project_id=None, _secret_id=None):
         request={
             "parent": parent,
             "secret_id": secret_id,
-            "secret": {"replication": {"automatic": {},},},
+            "secret": {"replication": {"automatic": {}}},
         }
     )
 

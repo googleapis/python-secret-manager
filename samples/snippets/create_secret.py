@@ -41,7 +41,7 @@ def create_secret(project_id, secret_id):
         request={
             "parent": parent,
             "secret_id": secret_id,
-            "secret": {"replication": {"automatic": {},},},
+            "secret": {"replication": {"automatic": {}}},
         }
     )
 

@@ -60,7 +60,7 @@ def secret(client, project_id):
         request={
             "parent": parent,
             "secret_id": secret_id,
-            "secret": {"replication": {"automatic": {},},},
+            "secret": {"replication": {"automatic": {}}},
         }
     )
 
