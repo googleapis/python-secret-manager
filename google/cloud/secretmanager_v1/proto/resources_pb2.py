@@ -39,7 +39,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
     syntax="proto3",
     serialized_options=b"\n!com.google.cloud.secretmanager.v1B\016ResourcesProtoP\001ZJgoogle.golang.org/genproto/googleapis/cloud/secretmanager/v1;secretmanager\370\001\001\242\002\003GSM\252\002\035Google.Cloud.SecretManager.V1\312\002\035Google\\Cloud\\SecretManager\\V1\352\002 Google::Cloud::SecretManager::V1",
     create_key=_descriptor._internal_create_key,
-    serialized_pb=b'\n3google/cloud/secretmanager_v1/proto/resources.proto\x12\x1dgoogle.cloud.secretmanager.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/api/annotations.proto"\xdb\x02\n\x06Secret\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12G\n\x0breplication\x18\x02 \x01(\x0b\x32*.google.cloud.secretmanager.v1.ReplicationB\x06\xe0\x41\x05\xe0\x41\x02\x12\x34\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x41\n\x06labels\x18\x04 \x03(\x0b\x32\x31.google.cloud.secretmanager.v1.Secret.LabelsEntry\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:M\xea\x41J\n#secretmanager.googleapis.com/Secret\x12#projects/{project}/secrets/{secret}"\x91\x03\n\rSecretVersion\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x35\n\x0c\x64\x65stroy_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x46\n\x05state\x18\x04 \x01(\x0e\x32\x32.google.cloud.secretmanager.v1.SecretVersion.StateB\x03\xe0\x41\x03"H\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07\x45NABLED\x10\x01\x12\x0c\n\x08\x44ISABLED\x10\x02\x12\r\n\tDESTROYED\x10\x03:n\xea\x41k\n*secretmanager.googleapis.com/SecretVersion\x12=projects/{project}/secrets/{secret}/versions/{secret_version}"\xc8\x02\n\x0bReplication\x12I\n\tautomatic\x18\x01 \x01(\x0b\x32\x34.google.cloud.secretmanager.v1.Replication.AutomaticH\x00\x12N\n\x0cuser_managed\x18\x02 \x01(\x0b\x32\x36.google.cloud.secretmanager.v1.Replication.UserManagedH\x00\x1a\x0b\n\tAutomatic\x1a\x81\x01\n\x0bUserManaged\x12U\n\x08replicas\x18\x01 \x03(\x0b\x32>.google.cloud.secretmanager.v1.Replication.UserManaged.ReplicaB\x03\xe0\x41\x02\x1a\x1b\n\x07Replica\x12\x10\n\x08location\x18\x01 \x01(\tB\r\n\x0breplication"\x1d\n\rSecretPayload\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\x0c\x42\xed\x01\n!com.google.cloud.secretmanager.v1B\x0eResourcesProtoP\x01ZJgoogle.golang.org/genproto/googleapis/cloud/secretmanager/v1;secretmanager\xf8\x01\x01\xa2\x02\x03GSM\xaa\x02\x1dGoogle.Cloud.SecretManager.V1\xca\x02\x1dGoogle\\Cloud\\SecretManager\\V1\xea\x02 Google::Cloud::SecretManager::V1b\x06proto3',
+    serialized_pb=b'\n3google/cloud/secretmanager_v1/proto/resources.proto\x12\x1dgoogle.cloud.secretmanager.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/api/annotations.proto"\xdb\x02\n\x06Secret\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12G\n\x0breplication\x18\x02 \x01(\x0b\x32*.google.cloud.secretmanager.v1.ReplicationB\x06\xe0\x41\x05\xe0\x41\x02\x12\x34\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x41\n\x06labels\x18\x04 \x03(\x0b\x32\x31.google.cloud.secretmanager.v1.Secret.LabelsEntry\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:M\xea\x41J\n#secretmanager.googleapis.com/Secret\x12#projects/{project}/secrets/{secret}"\xdf\x03\n\rSecretVersion\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x35\n\x0c\x64\x65stroy_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x46\n\x05state\x18\x04 \x01(\x0e\x32\x32.google.cloud.secretmanager.v1.SecretVersion.StateB\x03\xe0\x41\x03\x12L\n\x12replication_status\x18\x05 \x01(\x0b\x32\x30.google.cloud.secretmanager.v1.ReplicationStatus"H\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07\x45NABLED\x10\x01\x12\x0c\n\x08\x44ISABLED\x10\x02\x12\r\n\tDESTROYED\x10\x03:n\xea\x41k\n*secretmanager.googleapis.com/SecretVersion\x12=projects/{project}/secrets/{secret}/versions/{secret_version}"\x90\x04\n\x0bReplication\x12I\n\tautomatic\x18\x01 \x01(\x0b\x32\x34.google.cloud.secretmanager.v1.Replication.AutomaticH\x00\x12N\n\x0cuser_managed\x18\x02 \x01(\x0b\x32\x36.google.cloud.secretmanager.v1.Replication.UserManagedH\x00\x1ao\n\tAutomatic\x12\x62\n\x1b\x63ustomer_managed_encryption\x18\x01 \x01(\x0b\x32\x38.google.cloud.secretmanager.v1.CustomerManagedEncryptionB\x03\xe0\x41\x01\x1a\xe5\x01\n\x0bUserManaged\x12U\n\x08replicas\x18\x01 \x03(\x0b\x32>.google.cloud.secretmanager.v1.Replication.UserManaged.ReplicaB\x03\xe0\x41\x02\x1a\x7f\n\x07Replica\x12\x10\n\x08location\x18\x01 \x01(\t\x12\x62\n\x1b\x63ustomer_managed_encryption\x18\x02 \x01(\x0b\x32\x38.google.cloud.secretmanager.v1.CustomerManagedEncryptionB\x03\xe0\x41\x01\x42\r\n\x0breplication"6\n\x19\x43ustomerManagedEncryption\x12\x19\n\x0ckms_key_name\x18\x01 \x01(\tB\x03\xe0\x41\x02"\xeb\x04\n\x11ReplicationStatus\x12U\n\tautomatic\x18\x01 \x01(\x0b\x32@.google.cloud.secretmanager.v1.ReplicationStatus.AutomaticStatusH\x00\x12Z\n\x0cuser_managed\x18\x02 \x01(\x0b\x32\x42.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatusH\x00\x1a{\n\x0f\x41utomaticStatus\x12h\n\x1b\x63ustomer_managed_encryption\x18\x01 \x01(\x0b\x32>.google.cloud.secretmanager.v1.CustomerManagedEncryptionStatusB\x03\xe0\x41\x03\x1a\x8f\x02\n\x11UserManagedStatus\x12g\n\x08replicas\x18\x01 \x03(\x0b\x32P.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatusB\x03\xe0\x41\x03\x1a\x90\x01\n\rReplicaStatus\x12\x15\n\x08location\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12h\n\x1b\x63ustomer_managed_encryption\x18\x02 \x01(\x0b\x32>.google.cloud.secretmanager.v1.CustomerManagedEncryptionStatusB\x03\xe0\x41\x03\x42\x14\n\x12replication_status"D\n\x1f\x43ustomerManagedEncryptionStatus\x12!\n\x14kms_key_version_name\x18\x01 \x01(\tB\x03\xe0\x41\x02"\x1d\n\rSecretPayload\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\x0c\x42\xed\x01\n!com.google.cloud.secretmanager.v1B\x0eResourcesProtoP\x01ZJgoogle.golang.org/genproto/googleapis/cloud/secretmanager/v1;secretmanager\xf8\x01\x01\xa2\x02\x03GSM\xaa\x02\x1dGoogle.Cloud.SecretManager.V1\xca\x02\x1dGoogle\\Cloud\\SecretManager\\V1\xea\x02 Google::Cloud::SecretManager::V1b\x06proto3',
     dependencies=[
         google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,
         google_dot_api_dot_resource__pb2.DESCRIPTOR,
@@ -91,8 +91,8 @@ _SECRETVERSION_STATE = _descriptor.EnumDescriptor(
     ],
     containing_type=None,
     serialized_options=None,
-    serialized_start=777,
-    serialized_end=849,
+    serialized_start=855,
+    serialized_end=927,
 )
 _sym_db.RegisterEnumDescriptor(_SECRETVERSION_STATE)
 
@@ -338,6 +338,25 @@ _SECRETVERSION = _descriptor.Descriptor(
             file=DESCRIPTOR,
             create_key=_descriptor._internal_create_key,
         ),
+        _descriptor.FieldDescriptor(
+            name="replication_status",
+            full_name="google.cloud.secretmanager.v1.SecretVersion.replication_status",
+            index=4,
+            number=5,
+            type=11,
+            cpp_type=10,
+            label=1,
+            has_default_value=False,
+            default_value=None,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -348,7 +367,7 @@ _SECRETVERSION = _descriptor.Descriptor(
     extension_ranges=[],
     oneofs=[],
     serialized_start=560,
-    serialized_end=961,
+    serialized_end=1039,
 )
 
 
@@ -359,7 +378,27 @@ _REPLICATION_AUTOMATIC = _descriptor.Descriptor(
     file=DESCRIPTOR,
     containing_type=None,
     create_key=_descriptor._internal_create_key,
-    fields=[],
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="customer_managed_encryption",
+            full_name="google.cloud.secretmanager.v1.Replication.Automatic.customer_managed_encryption",
+            index=0,
+            number=1,
+            type=11,
+            cpp_type=10,
+            label=1,
+            has_default_value=False,
+            default_value=None,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=b"\340A\001",
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
     extensions=[],
     nested_types=[],
     enum_types=[],
@@ -368,8 +407,8 @@ _REPLICATION_AUTOMATIC = _descriptor.Descriptor(
     syntax="proto3",
     extension_ranges=[],
     oneofs=[],
-    serialized_start=1134,
-    serialized_end=1145,
+    serialized_start=1212,
+    serialized_end=1323,
 )
 
 _REPLICATION_USERMANAGED_REPLICA = _descriptor.Descriptor(
@@ -399,6 +438,25 @@ _REPLICATION_USERMANAGED_REPLICA = _descriptor.Descriptor(
             file=DESCRIPTOR,
             create_key=_descriptor._internal_create_key,
         ),
+        _descriptor.FieldDescriptor(
+            name="customer_managed_encryption",
+            full_name="google.cloud.secretmanager.v1.Replication.UserManaged.Replica.customer_managed_encryption",
+            index=1,
+            number=2,
+            type=11,
+            cpp_type=10,
+            label=1,
+            has_default_value=False,
+            default_value=None,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=b"\340A\001",
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -408,8 +466,8 @@ _REPLICATION_USERMANAGED_REPLICA = _descriptor.Descriptor(
     syntax="proto3",
     extension_ranges=[],
     oneofs=[],
-    serialized_start=1250,
-    serialized_end=1277,
+    serialized_start=1428,
+    serialized_end=1555,
 )
 
 _REPLICATION_USERMANAGED = _descriptor.Descriptor(
@@ -448,8 +506,8 @@ _REPLICATION_USERMANAGED = _descriptor.Descriptor(
     syntax="proto3",
     extension_ranges=[],
     oneofs=[],
-    serialized_start=1148,
-    serialized_end=1277,
+    serialized_start=1326,
+    serialized_end=1555,
 )
 
 _REPLICATION = _descriptor.Descriptor(
@@ -516,8 +574,301 @@ _REPLICATION = _descriptor.Descriptor(
             fields=[],
         ),
     ],
-    serialized_start=964,
-    serialized_end=1292,
+    serialized_start=1042,
+    serialized_end=1570,
+)
+
+
+_CUSTOMERMANAGEDENCRYPTION = _descriptor.Descriptor(
+    name="CustomerManagedEncryption",
+    full_name="google.cloud.secretmanager.v1.CustomerManagedEncryption",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="kms_key_name",
+            full_name="google.cloud.secretmanager.v1.CustomerManagedEncryption.kms_key_name",
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=b"\340A\002",
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=1572,
+    serialized_end=1626,
+)
+
+
+_REPLICATIONSTATUS_AUTOMATICSTATUS = _descriptor.Descriptor(
+    name="AutomaticStatus",
+    full_name="google.cloud.secretmanager.v1.ReplicationStatus.AutomaticStatus",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="customer_managed_encryption",
+            full_name="google.cloud.secretmanager.v1.ReplicationStatus.AutomaticStatus.customer_managed_encryption",
+            index=0,
+            number=1,
+            type=11,
+            cpp_type=10,
+            label=1,
+            has_default_value=False,
+            default_value=None,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=b"\340A\003",
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=1829,
+    serialized_end=1952,
+)
+
+_REPLICATIONSTATUS_USERMANAGEDSTATUS_REPLICASTATUS = _descriptor.Descriptor(
+    name="ReplicaStatus",
+    full_name="google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="location",
+            full_name="google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus.location",
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=b"\340A\003",
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="customer_managed_encryption",
+            full_name="google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus.customer_managed_encryption",
+            index=1,
+            number=2,
+            type=11,
+            cpp_type=10,
+            label=1,
+            has_default_value=False,
+            default_value=None,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=b"\340A\003",
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=2082,
+    serialized_end=2226,
+)
+
+_REPLICATIONSTATUS_USERMANAGEDSTATUS = _descriptor.Descriptor(
+    name="UserManagedStatus",
+    full_name="google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="replicas",
+            full_name="google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.replicas",
+            index=0,
+            number=1,
+            type=11,
+            cpp_type=10,
+            label=3,
+            has_default_value=False,
+            default_value=[],
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=b"\340A\003",
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[_REPLICATIONSTATUS_USERMANAGEDSTATUS_REPLICASTATUS,],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=1955,
+    serialized_end=2226,
+)
+
+_REPLICATIONSTATUS = _descriptor.Descriptor(
+    name="ReplicationStatus",
+    full_name="google.cloud.secretmanager.v1.ReplicationStatus",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="automatic",
+            full_name="google.cloud.secretmanager.v1.ReplicationStatus.automatic",
+            index=0,
+            number=1,
+            type=11,
+            cpp_type=10,
+            label=1,
+            has_default_value=False,
+            default_value=None,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="user_managed",
+            full_name="google.cloud.secretmanager.v1.ReplicationStatus.user_managed",
+            index=1,
+            number=2,
+            type=11,
+            cpp_type=10,
+            label=1,
+            has_default_value=False,
+            default_value=None,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[
+        _REPLICATIONSTATUS_AUTOMATICSTATUS,
+        _REPLICATIONSTATUS_USERMANAGEDSTATUS,
+    ],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[
+        _descriptor.OneofDescriptor(
+            name="replication_status",
+            full_name="google.cloud.secretmanager.v1.ReplicationStatus.replication_status",
+            index=0,
+            containing_type=None,
+            create_key=_descriptor._internal_create_key,
+            fields=[],
+        ),
+    ],
+    serialized_start=1629,
+    serialized_end=2248,
+)
+
+
+_CUSTOMERMANAGEDENCRYPTIONSTATUS = _descriptor.Descriptor(
+    name="CustomerManagedEncryptionStatus",
+    full_name="google.cloud.secretmanager.v1.CustomerManagedEncryptionStatus",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="kms_key_version_name",
+            full_name="google.cloud.secretmanager.v1.CustomerManagedEncryptionStatus.kms_key_version_name",
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=b"\340A\002",
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=2250,
+    serialized_end=2318,
 )
 
 
@@ -557,8 +908,8 @@ _SECRETPAYLOAD = _descriptor.Descriptor(
     syntax="proto3",
     extension_ranges=[],
     oneofs=[],
-    serialized_start=1294,
-    serialized_end=1323,
+    serialized_start=2320,
+    serialized_end=2349,
 )
 
 _SECRET_LABELSENTRY.containing_type = _SECRET
@@ -574,8 +925,15 @@ _SECRETVERSION.fields_by_name[
     "destroy_time"
 ].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _SECRETVERSION.fields_by_name["state"].enum_type = _SECRETVERSION_STATE
+_SECRETVERSION.fields_by_name["replication_status"].message_type = _REPLICATIONSTATUS
 _SECRETVERSION_STATE.containing_type = _SECRETVERSION
+_REPLICATION_AUTOMATIC.fields_by_name[
+    "customer_managed_encryption"
+].message_type = _CUSTOMERMANAGEDENCRYPTION
 _REPLICATION_AUTOMATIC.containing_type = _REPLICATION
+_REPLICATION_USERMANAGED_REPLICA.fields_by_name[
+    "customer_managed_encryption"
+].message_type = _CUSTOMERMANAGEDENCRYPTION
 _REPLICATION_USERMANAGED_REPLICA.containing_type = _REPLICATION_USERMANAGED
 _REPLICATION_USERMANAGED.fields_by_name[
     "replicas"
@@ -595,9 +953,48 @@ _REPLICATION.oneofs_by_name["replication"].fields.append(
 _REPLICATION.fields_by_name[
     "user_managed"
 ].containing_oneof = _REPLICATION.oneofs_by_name["replication"]
+_REPLICATIONSTATUS_AUTOMATICSTATUS.fields_by_name[
+    "customer_managed_encryption"
+].message_type = _CUSTOMERMANAGEDENCRYPTIONSTATUS
+_REPLICATIONSTATUS_AUTOMATICSTATUS.containing_type = _REPLICATIONSTATUS
+_REPLICATIONSTATUS_USERMANAGEDSTATUS_REPLICASTATUS.fields_by_name[
+    "customer_managed_encryption"
+].message_type = _CUSTOMERMANAGEDENCRYPTIONSTATUS
+_REPLICATIONSTATUS_USERMANAGEDSTATUS_REPLICASTATUS.containing_type = (
+    _REPLICATIONSTATUS_USERMANAGEDSTATUS
+)
+_REPLICATIONSTATUS_USERMANAGEDSTATUS.fields_by_name[
+    "replicas"
+].message_type = _REPLICATIONSTATUS_USERMANAGEDSTATUS_REPLICASTATUS
+_REPLICATIONSTATUS_USERMANAGEDSTATUS.containing_type = _REPLICATIONSTATUS
+_REPLICATIONSTATUS.fields_by_name[
+    "automatic"
+].message_type = _REPLICATIONSTATUS_AUTOMATICSTATUS
+_REPLICATIONSTATUS.fields_by_name[
+    "user_managed"
+].message_type = _REPLICATIONSTATUS_USERMANAGEDSTATUS
+_REPLICATIONSTATUS.oneofs_by_name["replication_status"].fields.append(
+    _REPLICATIONSTATUS.fields_by_name["automatic"]
+)
+_REPLICATIONSTATUS.fields_by_name[
+    "automatic"
+].containing_oneof = _REPLICATIONSTATUS.oneofs_by_name["replication_status"]
+_REPLICATIONSTATUS.oneofs_by_name["replication_status"].fields.append(
+    _REPLICATIONSTATUS.fields_by_name["user_managed"]
+)
+_REPLICATIONSTATUS.fields_by_name[
+    "user_managed"
+].containing_oneof = _REPLICATIONSTATUS.oneofs_by_name["replication_status"]
 DESCRIPTOR.message_types_by_name["Secret"] = _SECRET
 DESCRIPTOR.message_types_by_name["SecretVersion"] = _SECRETVERSION
 DESCRIPTOR.message_types_by_name["Replication"] = _REPLICATION
+DESCRIPTOR.message_types_by_name[
+    "CustomerManagedEncryption"
+] = _CUSTOMERMANAGEDENCRYPTION
+DESCRIPTOR.message_types_by_name["ReplicationStatus"] = _REPLICATIONSTATUS
+DESCRIPTOR.message_types_by_name[
+    "CustomerManagedEncryptionStatus"
+] = _CUSTOMERMANAGEDENCRYPTIONSTATUS
 DESCRIPTOR.message_types_by_name["SecretPayload"] = _SECRETPAYLOAD
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -685,6 +1082,9 @@ SecretVersion = _reflection.GeneratedProtocolMessageType(
       state:
           Output only. The current state of the
           [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+      replication_status:
+          The replication status of the
+          [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
   """,
         # @@protoc_insertion_point(class_scope:google.cloud.secretmanager.v1.SecretVersion)
     },
@@ -703,7 +1103,20 @@ Replication = _reflection.GeneratedProtocolMessageType(
                 "__module__": "google.cloud.secretmanager_v1.proto.resources_pb2",
                 "__doc__": """A replication policy that replicates the
     [Secret][google.cloud.secretmanager.v1.Secret] payload without any
-    restrictions.""",
+    restrictions.
+    
+    Attributes:
+        customer_managed_encryption:
+            Optional. The customer-managed encryption configuration of the
+            [Secret][google.cloud.secretmanager.v1.Secret]. If no
+            configuration is provided, Google-managed default encryption
+            is used.  Updates to the
+            [Secret][google.cloud.secretmanager.v1.Secret] encryption
+            configuration only apply to
+            [SecretVersions][google.cloud.secretmanager.v1.SecretVersion]
+            added afterwards. They do not apply retroactively to existing
+            [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
+    """,
                 # @@protoc_insertion_point(class_scope:google.cloud.secretmanager.v1.Replication.Automatic)
             },
         ),
@@ -724,6 +1137,16 @@ Replication = _reflection.GeneratedProtocolMessageType(
           location:
               The canonical IDs of the location to replicate data. For
               example: ``"us-east1"``.
+          customer_managed_encryption:
+              Optional. The customer-managed encryption configuration of the
+              [User-Managed Replica][Replication.UserManaged.Replica]. If no
+              configuration is provided, Google-managed default encryption
+              is used.  Updates to the
+              [Secret][google.cloud.secretmanager.v1.Secret] encryption
+              configuration only apply to
+              [SecretVersions][google.cloud.secretmanager.v1.SecretVersion]
+              added afterwards. They do not apply retroactively to existing
+              [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
       """,
                         # @@protoc_insertion_point(class_scope:google.cloud.secretmanager.v1.Replication.UserManaged.Replica)
                     },
@@ -745,7 +1168,8 @@ Replication = _reflection.GeneratedProtocolMessageType(
         ),
         "DESCRIPTOR": _REPLICATION,
         "__module__": "google.cloud.secretmanager_v1.proto.resources_pb2",
-        "__doc__": """A policy that defines the replication configuration of data.
+        "__doc__": """A policy that defines the replication and encryption configuration of
+  data.
   
   Attributes:
       replication:
@@ -764,6 +1188,148 @@ _sym_db.RegisterMessage(Replication)
 _sym_db.RegisterMessage(Replication.Automatic)
 _sym_db.RegisterMessage(Replication.UserManaged)
 _sym_db.RegisterMessage(Replication.UserManaged.Replica)
+
+CustomerManagedEncryption = _reflection.GeneratedProtocolMessageType(
+    "CustomerManagedEncryption",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _CUSTOMERMANAGEDENCRYPTION,
+        "__module__": "google.cloud.secretmanager_v1.proto.resources_pb2",
+        "__doc__": """Configuration for encrypting secret payloads using customer-managed
+  encryption keys (CMEK).
+  
+  Attributes:
+      kms_key_name:
+          Required. The resource name of the Cloud KMS CryptoKey used to
+          encrypt secret payloads.  For secrets using the [UserManaged][
+          google.cloud.secretmanager.v1.Replication.UserManaged]
+          replication policy type, Cloud KMS CryptoKeys must reside in
+          the same location as the [replica
+          location][Secret.UserManaged.Replica.location].  For secrets
+          using the [Automatic][google.cloud.secretmanager.v1.Replicatio
+          n.Automatic] replication policy type, Cloud KMS CryptoKeys
+          must reside in ``global``.  The expected format is
+          ``projects/*/locations/*/keyRings/*/cryptoKeys/*``.
+  """,
+        # @@protoc_insertion_point(class_scope:google.cloud.secretmanager.v1.CustomerManagedEncryption)
+    },
+)
+_sym_db.RegisterMessage(CustomerManagedEncryption)
+
+ReplicationStatus = _reflection.GeneratedProtocolMessageType(
+    "ReplicationStatus",
+    (_message.Message,),
+    {
+        "AutomaticStatus": _reflection.GeneratedProtocolMessageType(
+            "AutomaticStatus",
+            (_message.Message,),
+            {
+                "DESCRIPTOR": _REPLICATIONSTATUS_AUTOMATICSTATUS,
+                "__module__": "google.cloud.secretmanager_v1.proto.resources_pb2",
+                "__doc__": """The replication status of a
+    [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] using
+    automatic replication.  Only populated if the parent
+    [Secret][google.cloud.secretmanager.v1.Secret] has an automatic
+    replication policy.
+    
+    Attributes:
+        customer_managed_encryption:
+            Output only. The customer-managed encryption status of the
+            [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+            Only populated if customer-managed encryption is used.
+    """,
+                # @@protoc_insertion_point(class_scope:google.cloud.secretmanager.v1.ReplicationStatus.AutomaticStatus)
+            },
+        ),
+        "UserManagedStatus": _reflection.GeneratedProtocolMessageType(
+            "UserManagedStatus",
+            (_message.Message,),
+            {
+                "ReplicaStatus": _reflection.GeneratedProtocolMessageType(
+                    "ReplicaStatus",
+                    (_message.Message,),
+                    {
+                        "DESCRIPTOR": _REPLICATIONSTATUS_USERMANAGEDSTATUS_REPLICASTATUS,
+                        "__module__": "google.cloud.secretmanager_v1.proto.resources_pb2",
+                        "__doc__": """Describes the status of a user-managed replica for the
+      [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+      
+      Attributes:
+          location:
+              Output only. The canonical ID of the replica location. For
+              example: ``"us-east1"``.
+          customer_managed_encryption:
+              Output only. The customer-managed encryption status of the
+              [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+              Only populated if customer-managed encryption is used.
+      """,
+                        # @@protoc_insertion_point(class_scope:google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus)
+                    },
+                ),
+                "DESCRIPTOR": _REPLICATIONSTATUS_USERMANAGEDSTATUS,
+                "__module__": "google.cloud.secretmanager_v1.proto.resources_pb2",
+                "__doc__": """The replication status of a
+    [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] using
+    user-managed replication.  Only populated if the parent
+    [Secret][google.cloud.secretmanager.v1.Secret] has a user-managed
+    replication policy.
+    
+    Attributes:
+        replicas:
+            Output only. The list of replica statuses for the
+            [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+    """,
+                # @@protoc_insertion_point(class_scope:google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus)
+            },
+        ),
+        "DESCRIPTOR": _REPLICATIONSTATUS,
+        "__module__": "google.cloud.secretmanager_v1.proto.resources_pb2",
+        "__doc__": """The replication status of a
+  [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+  
+  Attributes:
+      replication_status:
+          The replication status of the
+          [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+      automatic:
+          Describes the replication status of a
+          [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]
+          with automatic replication.  Only populated if the parent
+          [Secret][google.cloud.secretmanager.v1.Secret] has an
+          automatic replication policy.
+      user_managed:
+          Describes the replication status of a
+          [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]
+          with user-managed replication.  Only populated if the parent
+          [Secret][google.cloud.secretmanager.v1.Secret] has a user-
+          managed replication policy.
+  """,
+        # @@protoc_insertion_point(class_scope:google.cloud.secretmanager.v1.ReplicationStatus)
+    },
+)
+_sym_db.RegisterMessage(ReplicationStatus)
+_sym_db.RegisterMessage(ReplicationStatus.AutomaticStatus)
+_sym_db.RegisterMessage(ReplicationStatus.UserManagedStatus)
+_sym_db.RegisterMessage(ReplicationStatus.UserManagedStatus.ReplicaStatus)
+
+CustomerManagedEncryptionStatus = _reflection.GeneratedProtocolMessageType(
+    "CustomerManagedEncryptionStatus",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _CUSTOMERMANAGEDENCRYPTIONSTATUS,
+        "__module__": "google.cloud.secretmanager_v1.proto.resources_pb2",
+        "__doc__": """Describes the status of customer-managed encryption.
+  
+  Attributes:
+      kms_key_version_name:
+          Required. The resource name of the Cloud KMS CryptoKeyVersion
+          used to encrypt the secret payload, in the following format:
+          ``projects/*/locations/*/keyRings/*/cryptoKeys/*/versions/*``.
+  """,
+        # @@protoc_insertion_point(class_scope:google.cloud.secretmanager.v1.CustomerManagedEncryptionStatus)
+    },
+)
+_sym_db.RegisterMessage(CustomerManagedEncryptionStatus)
 
 SecretPayload = _reflection.GeneratedProtocolMessageType(
     "SecretPayload",
@@ -796,5 +1362,21 @@ _SECRETVERSION.fields_by_name["create_time"]._options = None
 _SECRETVERSION.fields_by_name["destroy_time"]._options = None
 _SECRETVERSION.fields_by_name["state"]._options = None
 _SECRETVERSION._options = None
+_REPLICATION_AUTOMATIC.fields_by_name["customer_managed_encryption"]._options = None
+_REPLICATION_USERMANAGED_REPLICA.fields_by_name[
+    "customer_managed_encryption"
+]._options = None
 _REPLICATION_USERMANAGED.fields_by_name["replicas"]._options = None
+_CUSTOMERMANAGEDENCRYPTION.fields_by_name["kms_key_name"]._options = None
+_REPLICATIONSTATUS_AUTOMATICSTATUS.fields_by_name[
+    "customer_managed_encryption"
+]._options = None
+_REPLICATIONSTATUS_USERMANAGEDSTATUS_REPLICASTATUS.fields_by_name[
+    "location"
+]._options = None
+_REPLICATIONSTATUS_USERMANAGEDSTATUS_REPLICASTATUS.fields_by_name[
+    "customer_managed_encryption"
+]._options = None
+_REPLICATIONSTATUS_USERMANAGEDSTATUS.fields_by_name["replicas"]._options = None
+_CUSTOMERMANAGEDENCRYPTIONSTATUS.fields_by_name["kms_key_version_name"]._options = None
 # @@protoc_insertion_point(module_scope)
