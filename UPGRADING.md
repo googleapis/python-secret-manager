@@ -27,7 +27,7 @@ python3 -m pip install google-cloud-secret-manager
 an input directory (with the code to convert) and an empty destination directory.
 
 ```sh
-$ fixup_secretmanager_v1_keywords.py --input-directory .samples/ --output-directory samples/
+$ python3 fixup_secretmanager_v1_keywords.py --input-directory .samples/ --output-directory samples/
 ```
 
 **Before:**
