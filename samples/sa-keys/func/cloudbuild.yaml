@@ -1,0 +1,10 @@
+steps:
+# deploy cloud function to call Cloud Run GSA key manager service
+- name: 'gcr.io/cloud-builders/gcloud'
+  entrypoint: 'bash'
+  args:
+    - '-c'
+    - |
+      cd googlecloud/sa-keys/func && \
+      gcloud functions deploy $_FUNC --runtime python38 --trigger-topic $_TOPIC --region=us-central1 \
+      --entry-point process_key --set-env-vars CLOUD_RUN_URL=$_CLOUD_RUN_URL --service-account=$_GCP_SA@$PROJECT_ID.iam.gserviceaccount.com

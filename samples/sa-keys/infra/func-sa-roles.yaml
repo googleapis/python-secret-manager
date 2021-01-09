@@ -1,0 +1,33 @@
+# gcloud deployment-manager deployments create sa-keys-func --config infra/func-sa-roles.yaml --preview
+# bind project owner role to the service account deployment manager uses
+# ref: https://cloud.google.com/deployment-manager/docs/configuration/set-access-control-resources##granting_permission_to_set_iam_policies
+
+imports:
+  - path: sa-roles.py
+
+resources:
+  - name: sa-keys-func
+    type: sa-roles.py
+    properties:
+      service-account: sa-keys-invoker
+      service-account-desc: "intended for the cloud function to call sa-keys cloud run service. bind cloud run invoker role under the cloud run service"
+      roles:
+        - roles/cloudtrace.agent
+        - roles/logging.logWriter
+        - roles/errorreporting.writer
+        - roles/clouddebugger.agent
+        - roles/datastore.user
+      apis:
+        - cloudfunctions
+        - pubsub
+        - clouderrorreporting
+        - clouddebugger
+        - cloudtrace
+        - logging
+  - name: "topics/service_account_key_not_rotated"
+    type: gcp-types/pubsub-v1:projects.topics
+    properties:
+      topic: "service_account_key_not_rotated"
+
+
+# TODO: Grant Project_number@cloudbuild.gserviceaccount.com Cloud function Admin role

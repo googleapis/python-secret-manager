@@ -1,0 +1,3 @@
+google-auth-oauthlib
+google-cloud-firestore
+google-cloud-logging

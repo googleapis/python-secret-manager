@@ -1,0 +1,13 @@
+google-api-python-client
+google-auth
+google-auth-httplib2
+Flask
+google-cloud-logging
+grpcio
+google-python-cloud-debugger
+google-cloud-trace<1.0.0,>=0.20.0
+opencensus
+opencensus-ext-stackdriver
+gcloud
+google-cloud-secret-manager
+google-cloud-error-reporting

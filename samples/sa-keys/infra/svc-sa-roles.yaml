@@ -1,0 +1,31 @@
+# gcloud deployment-manager deployments create sa-keys-svc --config infra/svc-sa-roles.yaml --preview
+# bind project owner role to the service account deployment manager uses
+# ref: https://cloud.google.com/deployment-manager/docs/configuration/set-access-control-resources##granting_permission_to_set_iam_policies
+# Enable the following APIs: iam, serviceusage, cloudresourcemanager at https://console.developers.google.com/apis
+# gcloud services enable iam && gcloud services enable serviceusage && gcloud services enable cloudresourcemanager
+
+imports:
+  - path: sa-roles.py
+
+resources:
+  - name: sa-keys-svc
+    type: sa-roles.py
+    properties:
+      service-account: sa-keys-admin
+      service-account-desc: "intended for the cloud run service. bind cloud run invoker role on service consumers"
+      roles:
+        - roles/secretmanager.admin
+        - roles/cloudtrace.agent
+        - roles/logging.logWriter
+        - roles/errorreporting.writer
+        - roles/clouddebugger.agent
+        - roles/iam.serviceAccountKeyAdmin
+      apis:
+        - run
+        - cloudbuild
+        - clouderrorreporting
+        - clouddebugger
+        - cloudtrace
+        - logging
+
+# TODO: Grant Project_number@cloudbuild.gserviceaccount.com Cloud Run Admin role
