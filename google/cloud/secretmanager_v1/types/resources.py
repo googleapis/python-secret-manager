@@ -18,6 +18,7 @@
 import proto  # type: ignore
 
 
+from google.protobuf import duration_pb2 as duration  # type: ignore
 from google.protobuf import timestamp_pb2 as timestamp  # type: ignore
 
 
@@ -73,6 +74,14 @@ class Secret(proto.Message):
             ``[\p{Ll}\p{Lo}\p{N}_-]{0,63}``
 
             No more than 64 labels can be assigned to a given resource.
+        expire_time (google.protobuf.timestamp_pb2.Timestamp):
+            Optional. Timestamp in UTC when the
+            [Secret][google.cloud.secretmanager.v1.Secret] is scheduled
+            to expire. This is always provided on output, regardless of
+            what was sent on input.
+        ttl (google.protobuf.duration_pb2.Duration):
+            Input only. The TTL for the
+            [Secret][google.cloud.secretmanager.v1.Secret].
     """
 
     name = proto.Field(proto.STRING, number=1)
@@ -82,6 +91,14 @@ class Secret(proto.Message):
     create_time = proto.Field(proto.MESSAGE, number=3, message=timestamp.Timestamp,)
 
     labels = proto.MapField(proto.STRING, proto.STRING, number=4)
+
+    expire_time = proto.Field(
+        proto.MESSAGE, number=6, oneof="expiration", message=timestamp.Timestamp,
+    )
+
+    ttl = proto.Field(
+        proto.MESSAGE, number=7, oneof="expiration", message=duration.Duration,
+    )
 
 
 class SecretVersion(proto.Message):

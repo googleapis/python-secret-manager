@@ -46,6 +46,7 @@ from google.iam.v1 import iam_policy_pb2 as iam_policy  # type: ignore
 from google.iam.v1 import options_pb2 as options  # type: ignore
 from google.iam.v1 import policy_pb2 as policy  # type: ignore
 from google.oauth2 import service_account
+from google.protobuf import duration_pb2 as duration  # type: ignore
 from google.protobuf import field_mask_pb2 as field_mask  # type: ignore
 from google.protobuf import timestamp_pb2 as timestamp  # type: ignore
 from google.type import expr_pb2 as expr  # type: ignore
@@ -830,7 +831,9 @@ def test_create_secret(
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.create_secret), "__call__") as call:
         # Designate an appropriate return value for the call.
-        call.return_value = resources.Secret(name="name_value",)
+        call.return_value = resources.Secret(
+            name="name_value", expire_time=timestamp.Timestamp(seconds=751),
+        )
 
         response = client.create_secret(request)
 
@@ -1272,7 +1275,9 @@ def test_get_secret(transport: str = "grpc", request_type=service.GetSecretReque
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.get_secret), "__call__") as call:
         # Designate an appropriate return value for the call.
-        call.return_value = resources.Secret(name="name_value",)
+        call.return_value = resources.Secret(
+            name="name_value", expire_time=timestamp.Timestamp(seconds=751),
+        )
 
         response = client.get_secret(request)
 
@@ -1465,7 +1470,9 @@ def test_update_secret(
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.update_secret), "__call__") as call:
         # Designate an appropriate return value for the call.
-        call.return_value = resources.Secret(name="name_value",)
+        call.return_value = resources.Secret(
+            name="name_value", expire_time=timestamp.Timestamp(seconds=751),
+        )
 
         response = client.update_secret(request)
 
