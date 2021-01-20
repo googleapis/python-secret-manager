@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.1.1](https://www.github.com/googleapis/python-secret-manager/compare/v2.1.0...v2.1.1) (2021-01-20)
+
+
+### Bug Fixes
+
+* remove client side recv limits ([#65](https://www.github.com/googleapis/python-secret-manager/issues/65)) ([383bde5](https://www.github.com/googleapis/python-secret-manager/commit/383bde5a7552ab62dc7c1d36a533401ec9430609))
+
 ## [2.1.0](https://www.github.com/googleapis/python-secret-manager/compare/v2.0.0...v2.1.0) (2020-12-03)
 
 
