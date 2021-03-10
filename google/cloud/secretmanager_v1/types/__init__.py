@@ -22,6 +22,7 @@ from .resources import (
     CustomerManagedEncryption,
     ReplicationStatus,
     CustomerManagedEncryptionStatus,
+    Topic,
     SecretPayload,
 )
 from .service import (
@@ -49,6 +50,7 @@ __all__ = (
     "CustomerManagedEncryption",
     "ReplicationStatus",
     "CustomerManagedEncryptionStatus",
+    "Topic",
     "SecretPayload",
     "ListSecretsRequest",
     "ListSecretsResponse",

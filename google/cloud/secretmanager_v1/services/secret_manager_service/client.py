@@ -200,6 +200,17 @@ class SecretManagerServiceClient(metaclass=SecretManagerServiceClientMeta):
         return m.groupdict() if m else {}
 
     @staticmethod
+    def topic_path(project: str, topic: str,) -> str:
+        """Return a fully-qualified topic string."""
+        return "projects/{project}/topics/{topic}".format(project=project, topic=topic,)
+
+    @staticmethod
+    def parse_topic_path(path: str) -> Dict[str, str]:
+        """Parse a topic path into its component segments."""
+        m = re.match(r"^projects/(?P<project>.+?)/topics/(?P<topic>.+?)$", path)
+        return m.groupdict() if m else {}
+
+    @staticmethod
     def common_billing_account_path(billing_account: str,) -> str:
         """Return a fully-qualified billing_account string."""
         return "billingAccounts/{billing_account}".format(
