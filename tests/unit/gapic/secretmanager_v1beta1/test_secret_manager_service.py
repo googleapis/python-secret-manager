@@ -98,15 +98,19 @@ def test__get_default_mtls_endpoint():
     )
 
 
-def test_secret_manager_service_client_from_service_account_info():
+@pytest.mark.parametrize(
+    "client_class", [SecretManagerServiceClient, SecretManagerServiceAsyncClient,]
+)
+def test_secret_manager_service_client_from_service_account_info(client_class):
     creds = credentials.AnonymousCredentials()
     with mock.patch.object(
         service_account.Credentials, "from_service_account_info"
     ) as factory:
         factory.return_value = creds
         info = {"valid": True}
-        client = SecretManagerServiceClient.from_service_account_info(info)
+        client = client_class.from_service_account_info(info)
         assert client.transport._credentials == creds
+        assert isinstance(client, client_class)
 
         assert client.transport._host == "secretmanager.googleapis.com:443"
 
@@ -122,9 +126,11 @@ def test_secret_manager_service_client_from_service_account_file(client_class):
         factory.return_value = creds
         client = client_class.from_service_account_file("dummy/file/path.json")
         assert client.transport._credentials == creds
+        assert isinstance(client, client_class)
 
         client = client_class.from_service_account_json("dummy/file/path.json")
         assert client.transport._credentials == creds
+        assert isinstance(client, client_class)
 
         assert client.transport._host == "secretmanager.googleapis.com:443"
 
@@ -509,6 +515,22 @@ def test_list_secrets_from_dict():
     test_list_secrets(request_type=dict)
 
 
+def test_list_secrets_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = SecretManagerServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(type(client.transport.list_secrets), "__call__") as call:
+        client.list_secrets()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == service.ListSecretsRequest()
+
+
 @pytest.mark.asyncio
 async def test_list_secrets_async(
     transport: str = "grpc_asyncio", request_type=service.ListSecretsRequest
@@ -836,6 +858,22 @@ def test_create_secret_from_dict():
     test_create_secret(request_type=dict)
 
 
+def test_create_secret_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = SecretManagerServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(type(client.transport.create_secret), "__call__") as call:
+        client.create_secret()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == service.CreateSecretRequest()
+
+
 @pytest.mark.asyncio
 async def test_create_secret_async(
     transport: str = "grpc_asyncio", request_type=service.CreateSecretRequest
@@ -1055,6 +1093,24 @@ def test_add_secret_version(
 
 def test_add_secret_version_from_dict():
     test_add_secret_version(request_type=dict)
+
+
+def test_add_secret_version_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = SecretManagerServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(
+        type(client.transport.add_secret_version), "__call__"
+    ) as call:
+        client.add_secret_version()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == service.AddSecretVersionRequest()
 
 
 @pytest.mark.asyncio
@@ -1278,6 +1334,22 @@ def test_get_secret_from_dict():
     test_get_secret(request_type=dict)
 
 
+def test_get_secret_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = SecretManagerServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(type(client.transport.get_secret), "__call__") as call:
+        client.get_secret()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == service.GetSecretRequest()
+
+
 @pytest.mark.asyncio
 async def test_get_secret_async(
     transport: str = "grpc_asyncio", request_type=service.GetSecretRequest
@@ -1469,6 +1541,22 @@ def test_update_secret(
 
 def test_update_secret_from_dict():
     test_update_secret(request_type=dict)
+
+
+def test_update_secret_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = SecretManagerServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(type(client.transport.update_secret), "__call__") as call:
+        client.update_secret()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == service.UpdateSecretRequest()
 
 
 @pytest.mark.asyncio
@@ -1675,6 +1763,22 @@ def test_delete_secret_from_dict():
     test_delete_secret(request_type=dict)
 
 
+def test_delete_secret_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = SecretManagerServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(type(client.transport.delete_secret), "__call__") as call:
+        client.delete_secret()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == service.DeleteSecretRequest()
+
+
 @pytest.mark.asyncio
 async def test_delete_secret_async(
     transport: str = "grpc_asyncio", request_type=service.DeleteSecretRequest
@@ -1868,6 +1972,24 @@ def test_list_secret_versions(
 
 def test_list_secret_versions_from_dict():
     test_list_secret_versions(request_type=dict)
+
+
+def test_list_secret_versions_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = SecretManagerServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(
+        type(client.transport.list_secret_versions), "__call__"
+    ) as call:
+        client.list_secret_versions()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == service.ListSecretVersionsRequest()
 
 
 @pytest.mark.asyncio
@@ -2237,6 +2359,24 @@ def test_get_secret_version_from_dict():
     test_get_secret_version(request_type=dict)
 
 
+def test_get_secret_version_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = SecretManagerServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(
+        type(client.transport.get_secret_version), "__call__"
+    ) as call:
+        client.get_secret_version()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == service.GetSecretVersionRequest()
+
+
 @pytest.mark.asyncio
 async def test_get_secret_version_async(
     transport: str = "grpc_asyncio", request_type=service.GetSecretVersionRequest
@@ -2450,6 +2590,24 @@ def test_access_secret_version_from_dict():
     test_access_secret_version(request_type=dict)
 
 
+def test_access_secret_version_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = SecretManagerServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(
+        type(client.transport.access_secret_version), "__call__"
+    ) as call:
+        client.access_secret_version()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == service.AccessSecretVersionRequest()
+
+
 @pytest.mark.asyncio
 async def test_access_secret_version_async(
     transport: str = "grpc_asyncio", request_type=service.AccessSecretVersionRequest
@@ -2661,6 +2819,24 @@ def test_disable_secret_version(
 
 def test_disable_secret_version_from_dict():
     test_disable_secret_version(request_type=dict)
+
+
+def test_disable_secret_version_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = SecretManagerServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(
+        type(client.transport.disable_secret_version), "__call__"
+    ) as call:
+        client.disable_secret_version()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == service.DisableSecretVersionRequest()
 
 
 @pytest.mark.asyncio
@@ -2880,6 +3056,24 @@ def test_enable_secret_version_from_dict():
     test_enable_secret_version(request_type=dict)
 
 
+def test_enable_secret_version_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = SecretManagerServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(
+        type(client.transport.enable_secret_version), "__call__"
+    ) as call:
+        client.enable_secret_version()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == service.EnableSecretVersionRequest()
+
+
 @pytest.mark.asyncio
 async def test_enable_secret_version_async(
     transport: str = "grpc_asyncio", request_type=service.EnableSecretVersionRequest
@@ -3097,6 +3291,24 @@ def test_destroy_secret_version_from_dict():
     test_destroy_secret_version(request_type=dict)
 
 
+def test_destroy_secret_version_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = SecretManagerServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(
+        type(client.transport.destroy_secret_version), "__call__"
+    ) as call:
+        client.destroy_secret_version()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == service.DestroySecretVersionRequest()
+
+
 @pytest.mark.asyncio
 async def test_destroy_secret_version_async(
     transport: str = "grpc_asyncio", request_type=service.DestroySecretVersionRequest
@@ -3310,6 +3522,22 @@ def test_set_iam_policy_from_dict():
     test_set_iam_policy(request_type=dict)
 
 
+def test_set_iam_policy_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = SecretManagerServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(type(client.transport.set_iam_policy), "__call__") as call:
+        client.set_iam_policy()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == iam_policy.SetIamPolicyRequest()
+
+
 @pytest.mark.asyncio
 async def test_set_iam_policy_async(
     transport: str = "grpc_asyncio", request_type=iam_policy.SetIamPolicyRequest
@@ -3452,6 +3680,22 @@ def test_get_iam_policy(
 
 def test_get_iam_policy_from_dict():
     test_get_iam_policy(request_type=dict)
+
+
+def test_get_iam_policy_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = SecretManagerServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(type(client.transport.get_iam_policy), "__call__") as call:
+        client.get_iam_policy()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == iam_policy.GetIamPolicyRequest()
 
 
 @pytest.mark.asyncio
@@ -3598,6 +3842,24 @@ def test_test_iam_permissions(
 
 def test_test_iam_permissions_from_dict():
     test_test_iam_permissions(request_type=dict)
+
+
+def test_test_iam_permissions_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = SecretManagerServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(
+        type(client.transport.test_iam_permissions), "__call__"
+    ) as call:
+        client.test_iam_permissions()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == iam_policy.TestIamPermissionsRequest()
 
 
 @pytest.mark.asyncio
