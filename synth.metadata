@@ -4,7 +4,7 @@
       "git": {
         "name": ".",
         "remote": "https://github.com/googleapis/python-secret-manager.git",
-        "sha": "0e29327d99f9774e6b7a942d8ba462d007b68bd4"
+        "sha": "0006fbaf97f1e02217d127d45c85efd4f47cc14a"
       }
     },
     {
@@ -157,7 +157,6 @@
     "scripts/readme-gen/templates/auth_api_key.tmpl.rst",
     "scripts/readme-gen/templates/install_deps.tmpl.rst",
     "scripts/readme-gen/templates/install_portaudio.tmpl.rst",
-    "secretmanager-v1beta1-py.tar.gz",
     "setup.cfg",
     "testing/.gitignore",
     "tests/unit/gapic/secretmanager_v1/__init__.py",
