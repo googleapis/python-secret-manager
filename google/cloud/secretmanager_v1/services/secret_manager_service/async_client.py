@@ -32,7 +32,7 @@ from google.cloud.secretmanager_v1.services.secret_manager_service import pagers
 from google.cloud.secretmanager_v1.types import resources
 from google.cloud.secretmanager_v1.types import service
 from google.iam.v1 import iam_policy_pb2 as iam_policy  # type: ignore
-from google.iam.v1 import policy_pb2 as policy  # type: ignore
+from google.iam.v1 import policy_pb2 as gi_policy  # type: ignore
 from google.protobuf import duration_pb2 as duration  # type: ignore
 from google.protobuf import field_mask_pb2 as field_mask  # type: ignore
 from google.protobuf import timestamp_pb2 as timestamp  # type: ignore
@@ -1218,7 +1218,7 @@ class SecretManagerServiceAsyncClient:
         retry: retries.Retry = gapic_v1.method.DEFAULT,
         timeout: float = None,
         metadata: Sequence[Tuple[str, str]] = (),
-    ) -> policy.Policy:
+    ) -> gi_policy.Policy:
         r"""Sets the access control policy on the specified secret. Replaces
         any existing policy.
 
@@ -1331,7 +1331,7 @@ class SecretManagerServiceAsyncClient:
         retry: retries.Retry = gapic_v1.method.DEFAULT,
         timeout: float = None,
         metadata: Sequence[Tuple[str, str]] = (),
-    ) -> policy.Policy:
+    ) -> gi_policy.Policy:
         r"""Gets the access control policy for a secret.
         Returns empty policy if the secret exists and does not
         have a policy set.
