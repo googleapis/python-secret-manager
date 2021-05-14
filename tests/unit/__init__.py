@@ -13,10 +13,3 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from .client import SecretManagerServiceClient
-from .async_client import SecretManagerServiceAsyncClient
-
-__all__ = (
-    'SecretManagerServiceClient',
-    'SecretManagerServiceAsyncClient',
-)
