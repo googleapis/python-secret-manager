@@ -74,9 +74,7 @@ setuptools.setup(
     namespace_packages=namespaces,
     install_requires=dependencies,
     python_requires=">=3.6",
-    scripts=[
-        "scripts/fixup_secretmanager_v1_keywords.py",
-    ],
+    scripts=["scripts/fixup_secretmanager_v1_keywords.py",],
     include_package_data=True,
     zip_safe=False,
 )
