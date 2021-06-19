@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.5.1](https://www.github.com/googleapis/python-secret-manager/compare/v2.5.0...v2.5.1) (2021-06-19)
+
+
+### Documentation
+
+* omit mention of Python 2.7 in 'CONTRIBUTING.rst' ([#1127](https://www.github.com/googleapis/python-secret-manager/issues/1127)) ([#132](https://www.github.com/googleapis/python-secret-manager/issues/132)) ([6a10592](https://www.github.com/googleapis/python-secret-manager/commit/6a105926ec39939398deca5b6fbfb05290615bfd)), closes [#1126](https://www.github.com/googleapis/python-secret-manager/issues/1126)
+
 ## [2.5.0](https://www.github.com/googleapis/python-secret-manager/compare/v2.4.0...v2.5.0) (2021-06-07)
 
 
