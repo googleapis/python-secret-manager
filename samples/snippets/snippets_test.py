@@ -13,6 +13,7 @@
 
 import os
 import uuid
+import base64
 
 from google.api_core import exceptions
 from google.cloud import secretmanager
@@ -20,6 +21,7 @@ import pytest
 
 from access_secret_version import access_secret_version
 from add_secret_version import add_secret_version
+from consume_event_notification import consume_event_notification
 from create_secret import create_secret
 from delete_secret import delete_secret
 from destroy_secret_version import destroy_secret_version
@@ -92,6 +94,17 @@ def secret_version(client, secret):
 
 
 another_secret_version = secret_version
+
+
+@pytest.fixture()
+def pubsub_message():
+    message = "hello!"
+    message_bytes = message.encode()
+    base64_bytes = base64.b64encode(message_bytes)
+    return {
+        "attributes": {"eventType": "SECRET_UPDATE", "secretId": "projects/p/secrets/s"},
+        "data": base64_bytes
+    }
 
 
 def test_quickstart(project_id):
@@ -193,3 +206,7 @@ def test_update_secret(secret):
     project_id, secret_id = secret
     secret = update_secret(project_id, secret_id)
     assert secret.labels["secretmanager"] == "rocks"
+
+def test_consume_event_notification(pubsub_message):
+    got = consume_event_notification(pubsub_message, None)
+    assert got == "Received SECRET_UPDATE for projects/p/secrets/s. New metadata: hello!"
