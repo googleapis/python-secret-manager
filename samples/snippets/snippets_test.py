@@ -11,9 +11,9 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 
+import base64
 import os
 import uuid
-import base64
 
 from google.api_core import exceptions
 from google.cloud import secretmanager
@@ -206,6 +206,7 @@ def test_update_secret(secret):
     project_id, secret_id = secret
     secret = update_secret(project_id, secret_id)
     assert secret.labels["secretmanager"] == "rocks"
+
 
 def test_consume_event_notification(pubsub_message):
     got = consume_event_notification(pubsub_message, None)

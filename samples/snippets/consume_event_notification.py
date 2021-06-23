@@ -18,12 +18,12 @@ sample code for consuming an event notification in a cloud function.
 
 import base64
 
+
 # [START secretmanager_consume_event_notification]
 def consume_event_notification(event, unused_context):
     """
     consume_event_notification demonstrates how to consume and process a
     Pub/Sub notification from Secret Manager.
-    
     Args:
           event (dict): Event payload.
           unused_context (google.cloud.functions.Context): Metadata for the event.
