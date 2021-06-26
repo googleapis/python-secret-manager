@@ -85,7 +85,7 @@ class SecretManagerServiceTransport(abc.ABC):
         self._host = host
 
         # Save the scopes.
-        self._scopes = scopes or self.AUTH_SCOPES
+        self._scopes = scopes
 
         # If no credentials are provided, then determine the appropriate
         # defaults.
