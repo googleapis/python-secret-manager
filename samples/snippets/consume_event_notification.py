@@ -31,5 +31,5 @@ def consume_event_notification(event, unused_context):
     event_type = event['attributes']['eventType']
     secret_id = event['attributes']['secretId']
     secret_metadata = base64.b64decode(event['data']).decode('utf-8')
-    return 'Received {} for {}. New metadata: {}'.format(event_type, secret_id, secret_metadata)
+    return f'Received {event_type} for {secret_id}. New metadata: {secret_metadata}'
 # [END secretmanager_consume_event_notification]
