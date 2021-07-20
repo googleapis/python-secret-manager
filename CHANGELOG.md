@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.6.1](https://www.github.com/googleapis/python-secret-manager/compare/v2.6.0...v2.6.1) (2021-07-20)
+
+
+### Bug Fixes
+
+* **deps:** pin 'google-{api,cloud}-core', 'google-auth' to allow 2.x versions ([#153](https://www.github.com/googleapis/python-secret-manager/issues/153)) ([1e8a4aa](https://www.github.com/googleapis/python-secret-manager/commit/1e8a4aae06badda947717217c224366963664bdc))
+
 ## [2.6.0](https://www.github.com/googleapis/python-secret-manager/compare/v2.5.0...v2.6.0) (2021-07-09)
 
 
