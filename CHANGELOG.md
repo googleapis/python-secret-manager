@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.7.0](https://www.github.com/googleapis/python-secret-manager/compare/v2.6.0...v2.7.0) (2021-07-24)
+
+
+### Features
+
+* add Samples section to CONTRIBUTING.rst ([#154](https://www.github.com/googleapis/python-secret-manager/issues/154)) ([97581fd](https://www.github.com/googleapis/python-secret-manager/commit/97581fdd5b2f8b4cfacfc440e3c63a6fbd427ede))
+
+
+### Bug Fixes
+
+* **deps:** pin 'google-{api,cloud}-core', 'google-auth' to allow 2.x versions ([#153](https://www.github.com/googleapis/python-secret-manager/issues/153)) ([1e8a4aa](https://www.github.com/googleapis/python-secret-manager/commit/1e8a4aae06badda947717217c224366963664bdc))
+* enable self signed jwt for grpc ([#158](https://www.github.com/googleapis/python-secret-manager/issues/158)) ([9ebe2b3](https://www.github.com/googleapis/python-secret-manager/commit/9ebe2b3a683de1d710ec3e91b444eb71b2ef0f6b))
+
 ## [2.6.0](https://www.github.com/googleapis/python-secret-manager/compare/v2.5.0...v2.6.0) (2021-07-09)
 
 
