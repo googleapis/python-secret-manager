@@ -246,4 +246,3 @@ def test_update_secret_with_etag(secret):
     project_id, secret_id, etag = secret
     secret = update_secret_with_etag(project_id, secret_id, etag)
     assert secret.labels["secretmanager"] == "rocks"
-
