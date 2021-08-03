@@ -6,7 +6,6 @@
 ### Features
 
 * add filter to customize the output of ListSecrets/ListSecretVersions calls ([#161](https://www.github.com/googleapis/python-secret-manager/issues/161)) ([c09615c](https://www.github.com/googleapis/python-secret-manager/commit/c09615c328782f0a15201cb4f2c7387b0a6ce51d))
-* add Samples section to CONTRIBUTING.rst ([#154](https://www.github.com/googleapis/python-secret-manager/issues/154)) ([97581fd](https://www.github.com/googleapis/python-secret-manager/commit/97581fdd5b2f8b4cfacfc440e3c63a6fbd427ede))
 
 
 ### Bug Fixes
