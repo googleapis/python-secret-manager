@@ -69,6 +69,7 @@ def secret_id(client, project_id):
         client.delete_secret(request={"name": secret_path})
     except exceptions.NotFound:
         # Secret was already deleted, probably in the test
+        print(f"Secret {secret_id} was not found.")
         pass
 
 
