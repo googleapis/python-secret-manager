@@ -88,9 +88,6 @@ def secret(client, project_id, secret_id):
     yield project_id, secret_id, secret.etag
 
 
-another_secret = secret
-
-
 @pytest.fixture()
 def secret_version(client, secret):
     project_id, secret_id, _ = secret
@@ -230,14 +227,12 @@ def test_list_secret_versions(capsys, secret_version, another_secret_version):
     assert another_version_id in out
 
 
-def test_list_secrets(capsys, secret, another_secret):
+def test_list_secrets(capsys, secret):
     project_id, secret_id, _ = secret
-    _, another_secret_id, _ = another_secret
     list_secrets(project_id)
 
     out, _ = capsys.readouterr()
     assert secret_id in out
-    assert another_secret_id in out
 
 
 def test_update_secret(secret):
