@@ -372,7 +372,7 @@ class SecretManagerServiceClient(metaclass=SecretManagerServiceClientMeta):
 
     def list_secrets(
         self,
-        request: Union[service.ListSecretsRequest, dict] = None,
+        request: service.ListSecretsRequest = None,
         *,
         parent: str = None,
         retry: retries.Retry = gapic_v1.method.DEFAULT,
@@ -456,7 +456,7 @@ class SecretManagerServiceClient(metaclass=SecretManagerServiceClientMeta):
 
     def create_secret(
         self,
-        request: Union[service.CreateSecretRequest, dict] = None,
+        request: service.CreateSecretRequest = None,
         *,
         parent: str = None,
         secret_id: str = None,
@@ -563,7 +563,7 @@ class SecretManagerServiceClient(metaclass=SecretManagerServiceClientMeta):
 
     def add_secret_version(
         self,
-        request: Union[service.AddSecretVersionRequest, dict] = None,
+        request: service.AddSecretVersionRequest = None,
         *,
         parent: str = None,
         payload: resources.SecretPayload = None,
@@ -653,7 +653,7 @@ class SecretManagerServiceClient(metaclass=SecretManagerServiceClientMeta):
 
     def get_secret(
         self,
-        request: Union[service.GetSecretRequest, dict] = None,
+        request: service.GetSecretRequest = None,
         *,
         name: str = None,
         retry: retries.Retry = gapic_v1.method.DEFAULT,
@@ -734,7 +734,7 @@ class SecretManagerServiceClient(metaclass=SecretManagerServiceClientMeta):
 
     def update_secret(
         self,
-        request: Union[service.UpdateSecretRequest, dict] = None,
+        request: service.UpdateSecretRequest = None,
         *,
         secret: resources.Secret = None,
         update_mask: field_mask.FieldMask = None,
@@ -826,7 +826,7 @@ class SecretManagerServiceClient(metaclass=SecretManagerServiceClientMeta):
 
     def delete_secret(
         self,
-        request: Union[service.DeleteSecretRequest, dict] = None,
+        request: service.DeleteSecretRequest = None,
         *,
         name: str = None,
         retry: retries.Retry = gapic_v1.method.DEFAULT,
@@ -894,7 +894,7 @@ class SecretManagerServiceClient(metaclass=SecretManagerServiceClientMeta):
 
     def list_secret_versions(
         self,
-        request: Union[service.ListSecretVersionsRequest, dict] = None,
+        request: service.ListSecretVersionsRequest = None,
         *,
         parent: str = None,
         retry: retries.Retry = gapic_v1.method.DEFAULT,
@@ -982,7 +982,7 @@ class SecretManagerServiceClient(metaclass=SecretManagerServiceClientMeta):
 
     def get_secret_version(
         self,
-        request: Union[service.GetSecretVersionRequest, dict] = None,
+        request: service.GetSecretVersionRequest = None,
         *,
         name: str = None,
         retry: retries.Retry = gapic_v1.method.DEFAULT,
@@ -1065,7 +1065,7 @@ class SecretManagerServiceClient(metaclass=SecretManagerServiceClientMeta):
 
     def access_secret_version(
         self,
-        request: Union[service.AccessSecretVersionRequest, dict] = None,
+        request: service.AccessSecretVersionRequest = None,
         *,
         name: str = None,
         retry: retries.Retry = gapic_v1.method.DEFAULT,
@@ -1146,7 +1146,7 @@ class SecretManagerServiceClient(metaclass=SecretManagerServiceClientMeta):
 
     def disable_secret_version(
         self,
-        request: Union[service.DisableSecretVersionRequest, dict] = None,
+        request: service.DisableSecretVersionRequest = None,
         *,
         name: str = None,
         retry: retries.Retry = gapic_v1.method.DEFAULT,
@@ -1228,7 +1228,7 @@ class SecretManagerServiceClient(metaclass=SecretManagerServiceClientMeta):
 
     def enable_secret_version(
         self,
-        request: Union[service.EnableSecretVersionRequest, dict] = None,
+        request: service.EnableSecretVersionRequest = None,
         *,
         name: str = None,
         retry: retries.Retry = gapic_v1.method.DEFAULT,
@@ -1310,7 +1310,7 @@ class SecretManagerServiceClient(metaclass=SecretManagerServiceClientMeta):
 
     def destroy_secret_version(
         self,
-        request: Union[service.DestroySecretVersionRequest, dict] = None,
+        request: service.DestroySecretVersionRequest = None,
         *,
         name: str = None,
         retry: retries.Retry = gapic_v1.method.DEFAULT,
@@ -1393,7 +1393,7 @@ class SecretManagerServiceClient(metaclass=SecretManagerServiceClientMeta):
 
     def set_iam_policy(
         self,
-        request: Union[iam_policy.SetIamPolicyRequest, dict] = None,
+        request: iam_policy.SetIamPolicyRequest = None,
         *,
         retry: retries.Retry = gapic_v1.method.DEFAULT,
         timeout: float = None,
@@ -1505,7 +1505,7 @@ class SecretManagerServiceClient(metaclass=SecretManagerServiceClientMeta):
 
     def get_iam_policy(
         self,
-        request: Union[iam_policy.GetIamPolicyRequest, dict] = None,
+        request: iam_policy.GetIamPolicyRequest = None,
         *,
         retry: retries.Retry = gapic_v1.method.DEFAULT,
         timeout: float = None,
@@ -1613,7 +1613,7 @@ class SecretManagerServiceClient(metaclass=SecretManagerServiceClientMeta):
 
     def test_iam_permissions(
         self,
-        request: Union[iam_policy.TestIamPermissionsRequest, dict] = None,
+        request: iam_policy.TestIamPermissionsRequest = None,
         *,
         retry: retries.Retry = gapic_v1.method.DEFAULT,
         timeout: float = None,
