@@ -46,7 +46,7 @@ s.move(templated_files, excludes=[".coveragerc"])  # microgenerator has a good .
 
 s.replace(
     "google/**/*client.py",
-    "request: ([^\[]*) = None",
+    "request: ([^U]*?) = None",
     "request: Union[\g<1>, dict] = None",
     
 )
