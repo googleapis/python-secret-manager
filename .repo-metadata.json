@@ -10,6 +10,6 @@
     "repo": "googleapis/python-secret-manager",
     "distribution_name": "google-cloud-secret-manager",
     "api_id": "secretmanager.googleapis.com",
-    "default_version": "",
+    "default_version": "v1",
     "codeowner_team": ""
 }
