@@ -17,8 +17,6 @@ command line application and sample code for listing secret versions of a
 secret.
 """
 
-import argparse
-
 
 # [START secretmanager_list_secret_versions_with_filter]
 def list_secret_versions_with_filter(project_id, secret_id, filter_str="state:ENABLED"):
