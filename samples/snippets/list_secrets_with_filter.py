@@ -16,8 +16,6 @@
 command line application and sample code for listing secrets in a project.
 """
 
-import argparse
-
 
 # [START secretmanager_list_secrets_with_filter]
 def list_secrets_with_filter(project_id, filter_str):
