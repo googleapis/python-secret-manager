@@ -281,8 +281,8 @@ class Replication(proto.Message):
 
 
 class CustomerManagedEncryption(proto.Message):
-    r"""Configuration for encrypting secret payloads using customer-
-    anaged encryption keys (CMEK).
+    r"""Configuration for encrypting secret payloads using
+    customer-managed encryption keys (CMEK).
 
     Attributes:
         kms_key_name (str):
