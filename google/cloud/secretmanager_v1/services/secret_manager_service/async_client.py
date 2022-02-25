@@ -233,7 +233,7 @@ class SecretManagerServiceAsyncClient:
     ) -> pagers.ListSecretsAsyncPager:
         r"""Lists [Secrets][google.cloud.secretmanager.v1.Secret].
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import secretmanager_v1
 
@@ -340,7 +340,7 @@ class SecretManagerServiceAsyncClient:
         [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import secretmanager_v1
 
@@ -465,7 +465,7 @@ class SecretManagerServiceAsyncClient:
         [Secret][google.cloud.secretmanager.v1.Secret].
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import secretmanager_v1
 
@@ -569,7 +569,7 @@ class SecretManagerServiceAsyncClient:
         [Secret][google.cloud.secretmanager.v1.Secret].
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import secretmanager_v1
 
@@ -668,7 +668,7 @@ class SecretManagerServiceAsyncClient:
         [Secret][google.cloud.secretmanager.v1.Secret].
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import secretmanager_v1
 
@@ -773,7 +773,7 @@ class SecretManagerServiceAsyncClient:
     ) -> None:
         r"""Deletes a [Secret][google.cloud.secretmanager.v1.Secret].
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import secretmanager_v1
 
@@ -857,7 +857,7 @@ class SecretManagerServiceAsyncClient:
         This call does not return secret data.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import secretmanager_v1
 
@@ -966,7 +966,7 @@ class SecretManagerServiceAsyncClient:
         [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import secretmanager_v1
 
@@ -1068,7 +1068,7 @@ class SecretManagerServiceAsyncClient:
         [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import secretmanager_v1
 
@@ -1181,7 +1181,7 @@ class SecretManagerServiceAsyncClient:
         [DISABLED][google.cloud.secretmanager.v1.SecretVersion.State.DISABLED].
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import secretmanager_v1
 
@@ -1281,7 +1281,7 @@ class SecretManagerServiceAsyncClient:
         [ENABLED][google.cloud.secretmanager.v1.SecretVersion.State.ENABLED].
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import secretmanager_v1
 
@@ -1382,7 +1382,7 @@ class SecretManagerServiceAsyncClient:
         and irrevocably destroys the secret data.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import secretmanager_v1
 
@@ -1480,7 +1480,7 @@ class SecretManagerServiceAsyncClient:
         [Secret][google.cloud.secretmanager.v1.Secret].
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import secretmanager_v1
 
@@ -1607,7 +1607,7 @@ class SecretManagerServiceAsyncClient:
         have a policy set.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import secretmanager_v1
 
@@ -1739,7 +1739,7 @@ class SecretManagerServiceAsyncClient:
         warning.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import secretmanager_v1
 

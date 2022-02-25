@@ -449,8 +449,7 @@ class SecretManagerServiceClient(metaclass=SecretManagerServiceClientMeta):
     ) -> pagers.ListSecretsPager:
         r"""Lists [Secrets][google.cloud.secretmanager.v1.Secret].
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import secretmanager_v1
 
@@ -557,8 +556,7 @@ class SecretManagerServiceClient(metaclass=SecretManagerServiceClientMeta):
         [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import secretmanager_v1
 
@@ -683,8 +681,7 @@ class SecretManagerServiceClient(metaclass=SecretManagerServiceClientMeta):
         [Secret][google.cloud.secretmanager.v1.Secret].
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import secretmanager_v1
 
@@ -788,8 +785,7 @@ class SecretManagerServiceClient(metaclass=SecretManagerServiceClientMeta):
         [Secret][google.cloud.secretmanager.v1.Secret].
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import secretmanager_v1
 
@@ -888,8 +884,7 @@ class SecretManagerServiceClient(metaclass=SecretManagerServiceClientMeta):
         [Secret][google.cloud.secretmanager.v1.Secret].
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import secretmanager_v1
 
@@ -994,8 +989,7 @@ class SecretManagerServiceClient(metaclass=SecretManagerServiceClientMeta):
     ) -> None:
         r"""Deletes a [Secret][google.cloud.secretmanager.v1.Secret].
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import secretmanager_v1
 
@@ -1079,8 +1073,7 @@ class SecretManagerServiceClient(metaclass=SecretManagerServiceClientMeta):
         This call does not return secret data.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import secretmanager_v1
 
@@ -1189,8 +1182,7 @@ class SecretManagerServiceClient(metaclass=SecretManagerServiceClientMeta):
         [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import secretmanager_v1
 
@@ -1292,8 +1284,7 @@ class SecretManagerServiceClient(metaclass=SecretManagerServiceClientMeta):
         [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import secretmanager_v1
 
@@ -1396,8 +1387,7 @@ class SecretManagerServiceClient(metaclass=SecretManagerServiceClientMeta):
         [DISABLED][google.cloud.secretmanager.v1.SecretVersion.State.DISABLED].
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import secretmanager_v1
 
@@ -1497,8 +1487,7 @@ class SecretManagerServiceClient(metaclass=SecretManagerServiceClientMeta):
         [ENABLED][google.cloud.secretmanager.v1.SecretVersion.State.ENABLED].
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import secretmanager_v1
 
@@ -1599,8 +1588,7 @@ class SecretManagerServiceClient(metaclass=SecretManagerServiceClientMeta):
         and irrevocably destroys the secret data.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import secretmanager_v1
 
@@ -1698,8 +1686,7 @@ class SecretManagerServiceClient(metaclass=SecretManagerServiceClientMeta):
         [Secret][google.cloud.secretmanager.v1.Secret].
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import secretmanager_v1
 
@@ -1825,8 +1812,7 @@ class SecretManagerServiceClient(metaclass=SecretManagerServiceClientMeta):
         have a policy set.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import secretmanager_v1
 
@@ -1957,8 +1943,7 @@ class SecretManagerServiceClient(metaclass=SecretManagerServiceClientMeta):
         warning.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import secretmanager_v1
 
