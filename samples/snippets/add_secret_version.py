@@ -49,7 +49,7 @@ def add_secret_version(project_id, secret_id, payload):
     response = client.add_secret_version(
         request={
             "parent": parent,
-            "payload": {"data": payload, "data_crc32c": int(crc32c.hexdigest(), 16)}
+            "payload": {"data": payload, "data_crc32c": int(crc32c.hexdigest(), 16)},
         }
     )
 

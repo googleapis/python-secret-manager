@@ -42,8 +42,8 @@ def access_secret_version(project_id, secret_id, version_id):
     crc32c = google_crc32c.Checksum()
     crc32c.update(response.payload.data)
     if response.payload.data_crc32c != int(crc32c.hexdigest(), 16):
-      print("Data corruption detected.")
-      return response
+        print("Data corruption detected.")
+        return response
 
     # Print the secret payload.
     #
