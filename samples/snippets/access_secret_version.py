@@ -17,6 +17,7 @@ command line application and sample code for accessing a secret version.
 """
 
 import argparse
+
 import google_crc32c
 
 # [START secretmanager_access_secret_version]
