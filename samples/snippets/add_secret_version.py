@@ -19,7 +19,6 @@ specified payload to an existing secret.
 
 import argparse
 
-
 import google_crc32c
 
 
