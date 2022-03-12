@@ -20,6 +20,7 @@ import argparse
 
 import google_crc32c
 
+
 # [START secretmanager_access_secret_version]
 def access_secret_version(project_id, secret_id, version_id):
     """
