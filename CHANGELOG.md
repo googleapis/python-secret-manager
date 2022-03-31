@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.1](https://github.com/googleapis/python-secret-manager/compare/v1.0.0...v1.0.1) (2022-03-25)
+
+
+### Bug Fixes
+
+* **deps:** require google-api-core >= 1.31.5, >= 2.3.2 on v1 release ([439207c](https://github.com/googleapis/python-secret-manager/commit/439207ca018ed8713d920ad920384ccfc3ac2035))
+
 ## [1.0.0](https://www.github.com/googleapis/python-secret-manager/compare/v0.2.0...v1.0.0) (2020-05-20)
 
 
