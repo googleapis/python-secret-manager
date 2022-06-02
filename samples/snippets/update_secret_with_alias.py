@@ -16,7 +16,7 @@
 import argparse
 
 
-# [START secretmanager_update_secret]
+# [START secretmanager_update_secret_with_alias]
 def update_secret_with_alias(project_id, secret_id):
     """
     Update the metadata about an existing secret.
@@ -40,7 +40,7 @@ def update_secret_with_alias(project_id, secret_id):
 
     # Print the new secret name.
     print("Updated secret: {}".format(response.name))
-    # [END secretmanager_update_secret]
+    # [END secretmanager_update_secret_with_alias]
 
     return response
 
