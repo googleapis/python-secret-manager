@@ -4831,7 +4831,6 @@ def test_secret_manager_service_transport_auth_adc(transport_class):
     [
         transports.SecretManagerServiceGrpcTransport,
         transports.SecretManagerServiceGrpcAsyncIOTransport,
-        transports.SecretManagerServiceRestTransport,
     ],
 )
 def test_secret_manager_service_transport_auth_gdch_credentials(transport_class):
