@@ -30,7 +30,7 @@ dependencies = [
     "google-api-core[grpc] >= 1.31.5, <3.0.0dev,!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0",
     "grpc-google-iam-v1 >= 0.12.4, <1.0.0dev",
     "proto-plus >= 1.15.0, <2.0.0dev",
-    "protobuf >=4.21.1, <4.22.0",
+    "protobuf >= 3.19.0, <4.0.0dev",
 ]
 extras = {"libcst": "libcst >= 0.2.5"}
 
