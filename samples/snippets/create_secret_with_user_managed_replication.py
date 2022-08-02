@@ -42,9 +42,7 @@ def create_ummr_secret(project_id, secret_id, locations):
             "secret_id": secret_id,
             "secret": {
                 "replication": {
-                    "user_managed": {
-                        "replicas": [{"location": x} for x in locations]
-                    }
+                    "user_managed": {"replicas": [{"location": x} for x in locations]}
                 }
             },
         }
@@ -62,7 +60,9 @@ if __name__ == "__main__":
     )
     parser.add_argument("project_id", help="id of the GCP project")
     parser.add_argument("secret_id", help="id of the secret to create")
-    parser.add_argument("--locations", nargs="+", help="list of locations for secret replication")
+    parser.add_argument(
+        "--locations", nargs="+", help="list of locations for secret replication"
+    )
     args = parser.parse_args()
 
     create_ummr_secret(args.project_id, args.secret_id, args.locations)
