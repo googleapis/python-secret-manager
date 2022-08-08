@@ -288,7 +288,7 @@ def test_consume_event_notification(pubsub_message):
 
 def test_update_secret_with_etag(secret):
     project_id, secret_id, etag = secret
-    secret = update_secret_with_etag(project_id, secret_id)
+    secret = update_secret_with_etag(project_id, secret_id, etag)
     assert secret.labels["secretmanager"] == "rocks"
 
 def test_update_secret_with_alias(secret, secret_version):
