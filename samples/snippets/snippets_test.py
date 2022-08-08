@@ -41,8 +41,8 @@ from list_secrets import list_secrets
 from list_secrets_with_filter import list_secrets_with_filter
 from quickstart import quickstart
 from update_secret import update_secret
-from update_secret_with_etag import update_secret_with_etag
 from update_secret_with_alias import update_secret_with_alias
+from update_secret_with_etag import update_secret_with_etag
 
 
 @pytest.fixture()
