@@ -296,4 +296,4 @@ def test_update_secret_with_etag(secret):
 def test_update_secret_with_alias(secret_version):
     project_id, secret_id, version_id, _ = secret_version
     secret = update_secret_with_alias(project_id, secret_id)
-    assert secret.version_aliases["test"] == "1"
+    assert secret.version_aliases["test"] == 1
