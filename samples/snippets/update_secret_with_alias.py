@@ -32,7 +32,7 @@ def update_secret_with_alias(project_id, secret_id):
     name = client.secret_path(project_id, secret_id)
 
     # Update the secret.
-    secret = {"name": name, "versionAliases": {"test": "1"}}
+    secret = {"name": name, "version_aliases": {"test": "1"}}
     update_mask = {"paths": ["version_aliases"]}
     response = client.update_secret(
         request={"secret": secret, "update_mask": update_mask}
