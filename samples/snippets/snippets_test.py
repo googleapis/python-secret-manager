@@ -292,6 +292,7 @@ def test_update_secret_with_etag(secret):
     assert secret.version_aliases["test"] == "1"
 
 def test_update_secret_with_alias(secret):
+    project_id, secret_id, version_id, _ = secret_version
     project_id, secret_id, _ = secret
-    secret = update_secret_with_alias(project_id, secret_id)
-    assert secret.version_aliases["test"] == "1"
+    secret = update_secret_with_etag(project_id, secret_id)
+    assert secret.labels["secretmanager"] == "rocks"
