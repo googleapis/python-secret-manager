@@ -13,7 +13,8 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 """
-command line application and sample code for creating a new ummr secret.
+command line application and sample code for creating a new secret with
+user managed replication.
 """
 
 import argparse
