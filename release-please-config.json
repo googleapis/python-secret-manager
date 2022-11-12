@@ -7,7 +7,7 @@
         "google/cloud/secretmanager/gapic_version.py",
         {
           "type": "json",
-          "path": "samples/generated_samples/snippet_metadata_secretmanager_v1.json",
+          "path": "samples/generated_samples/snippet_metadata_google.cloud.secretmanager.v1.json",
           "jsonpath": "$.clientLibrary.version"
         }
       ]
