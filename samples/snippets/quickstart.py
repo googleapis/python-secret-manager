@@ -36,7 +36,7 @@ def quickstart(_project_id=None, _secret_id=None):
     client = secretmanager.SecretManagerServiceClient()
 
     # Build the parent name from the project.
-    parent = f"projects/{project_id}"
+    parent = client.common_project_path(project_id)
 
     # Create the parent secret.
     secret = client.create_secret(

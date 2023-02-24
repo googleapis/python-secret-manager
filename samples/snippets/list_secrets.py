@@ -32,7 +32,7 @@ def list_secrets(project_id):
     client = secretmanager.SecretManagerServiceClient()
 
     # Build the resource name of the parent project.
-    parent = f"projects/{project_id}"
+    parent = client.common_project_path(project_id)
 
     # List all secrets.
     for secret in client.list_secrets(request={"parent": parent}):

@@ -34,7 +34,7 @@ def get_secret_version(project_id, secret_id, version_id):
     client = secretmanager.SecretManagerServiceClient()
 
     # Build the resource name of the secret version.
-    name = f"projects/{project_id}/secrets/{secret_id}/versions/{version_id}"
+    name = client.secret_version_path(project_id, secret_id, version_id)
 
     # Get the secret version.
     response = client.get_secret_version(request={"name": name})

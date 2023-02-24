@@ -34,7 +34,7 @@ def create_ummr_secret(project_id, secret_id, locations):
     client = secretmanager.SecretManagerServiceClient()
 
     # Build the resource name of the parent project.
-    parent = f"projects/{project_id}"
+    parent = client.common_project_path(project_id)
 
     # Create the secret.
     response = client.create_secret(

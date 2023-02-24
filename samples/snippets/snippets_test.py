@@ -81,7 +81,7 @@ def secret_id(client, project_id):
 def secret(client, project_id, secret_id):
     print("creating secret {}".format(secret_id))
 
-    parent = f"projects/{project_id}"
+    parent = client.common_project_path(project_id)
     secret = client.create_secret(
         request={
             "parent": parent,
@@ -157,7 +157,7 @@ def test_delete_secret(client, secret):
     delete_secret(project_id, secret_id)
     with pytest.raises(exceptions.NotFound):
         print("{}".format(client))
-        name = f"projects/{project_id}/secrets/{secret_id}/versions/latest"
+        name = client.secret_version_path(project_id, secret_id, "latest")
         client.access_secret_version(request={"name": name})
 
 
@@ -166,7 +166,7 @@ def test_delete_secret_with_etag(client, secret):
     delete_secret_with_etag(project_id, secret_id, etag)
     with pytest.raises(exceptions.NotFound):
         print("{}".format(client))
-        name = f"projects/{project_id}/secrets/{secret_id}/versions/latest"
+        name = client.secret_version_path(project_id, secret_id, "latest")
         client.access_secret_version(request={"name": name})
 
 
